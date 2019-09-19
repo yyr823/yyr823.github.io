@@ -1,0 +1,2150 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32-next.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16-next.png?v=7.4.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.0" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.4.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":true,"scrollpercent":true},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="参考链接HTTP 教程 涉及内容：HTTP 简介、HTTP 消息结构、HTTP请求方法、HTTP 响应头信息、HTTP状态码、HTTP content-type  HTTP 简介 HTTP协议是Hyper Text Transfer Protocol(超文本传输协议)的缩写,是用于从万维网 (WWW:World Wide Web )服务器传输超文本到本地浏览器的传送协议。  HTTP是一个基于T">
+<meta name="keywords" content="HTTP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTTP相关内容">
+<meta property="og:url" content="https://yyr823.github.io/2019/09/06/http/index.html">
+<meta property="og:site_name" content="SMILE">
+<meta property="og:description" content="参考链接HTTP 教程 涉及内容：HTTP 简介、HTTP 消息结构、HTTP请求方法、HTTP 响应头信息、HTTP状态码、HTTP content-type  HTTP 简介 HTTP协议是Hyper Text Transfer Protocol(超文本传输协议)的缩写,是用于从万维网 (WWW:World Wide Web )服务器传输超文本到本地浏览器的传送协议。  HTTP是一个基于T">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://yyr823.github.io/2019/09/06/http/2.png">
+<meta property="og:image" content="https://yyr823.github.io/2019/09/06/http/3.png">
+<meta property="og:image" content="https://yyr823.github.io/2019/09/06/http/4.png">
+<meta property="og:updated_time" content="2019-09-09T02:18:23.207Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="HTTP相关内容">
+<meta name="twitter:description" content="参考链接HTTP 教程 涉及内容：HTTP 简介、HTTP 消息结构、HTTP请求方法、HTTP 响应头信息、HTTP状态码、HTTP content-type  HTTP 简介 HTTP协议是Hyper Text Transfer Protocol(超文本传输协议)的缩写,是用于从万维网 (WWW:World Wide Web )服务器传输超文本到本地浏览器的传送协议。  HTTP是一个基于T">
+<meta name="twitter:image" content="https://yyr823.github.io/2019/09/06/http/2.png">
+  <link rel="canonical" href="https://yyr823.github.io/2019/09/06/http/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>HTTP相关内容 | SMILE</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+  <div class="container use-motion">
+    <div class="headband"></div>
+<a href="https://github.com/yyr823" 
+class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#64CEAA; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">SMILE</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-about">
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-book">
+      
+    
+
+    <a href="/categories/Books/" rel="section"><i class="menu-item-icon fa fa-fw fa-book"></i> <br>书籍</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tv">
+      
+    
+
+    <a href="/categories/Tv/" rel="section"><i class="menu-item-icon fa fa-fw fa-twitch"></i> <br>影视</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger">
+        
+          <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+      </li>
+    
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+      <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block post">
+    <link itemprop="mainEntityOfPage" href="https://yyr823.github.io/2019/09/06/http/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Miss.Yang">
+      <meta itemprop="description" content="不积跬步,无以至千里;不积小流,无以成江海.">
+      <meta itemprop="image" content="/images/xz.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SMILE">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">HTTP相关内容
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-09-06 14:52:59" itemprop="dateCreated datePublished" datetime="2019-09-06T14:52:59+08:00">2019-09-06</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-09-09 10:18:23" itemprop="dateModified" datetime="2019-09-09T10:18:23+08:00">2019-09-09</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/HTTP/" itemprop="url" rel="index"><span itemprop="name">HTTP</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">本文字数：</span>
+              
+              <span>14k</span>
+            </span>
+          
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              
+              <span>13 分钟</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <blockquote>
+<h4 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h4></blockquote><p><a href="https://www.runoob.com/http/http-tutorial.html" target="_blank" rel="noopener"><strong>HTTP 教程</strong></a></p><blockquote>
+<p><strong>涉及内容：HTTP 简介、HTTP 消息结构、HTTP请求方法、HTTP 响应头信息、HTTP状态码、HTTP content-type</strong></p>
+</blockquote><blockquote>
+<h4 id="HTTP-简介"><a href="#HTTP-简介" class="headerlink" title="HTTP 简介"></a>HTTP 简介</h4></blockquote><ul>
+<li><p>HTTP协议是Hyper Text Transfer Protocol(超文本传输协议)的缩写,是用于从万维网</p>
+<p>(WWW:World Wide Web )服务器传输超文本到本地浏览器的传送协议。</p>
+</li>
+<li><p>HTTP是一个基于TCP/IP通信协议来传递数据(HTML 文件, 图片文件, 查询结果等)</p>
+</li>
+</ul><a id="more"></a>
+
+
+
+
+<blockquote>
+<h4 id="HTTP-工作原理"><a href="#HTTP-工作原理" class="headerlink" title="HTTP 工作原理"></a>HTTP 工作原理</h4></blockquote>
+<ul>
+<li><strong>HTTP协议工作于客户端-服务端架构上。浏览器作为HTTP客户端通过URL向HTTP服务端即WEB服务器发送所有请求</strong>。</li>
+<li>Web服务器有:Apache服务器,IIS服务器(Internet Information Services)等。</li>
+<li>Web服务器根据接收到的请求后,向客户端发送响应信息。</li>
+<li>HTTP默认端口号为80,但是你也可以改为8080或者其他端口。</li>
+</ul>
+<h4 id="HTTP三点注意事项"><a href="#HTTP三点注意事项" class="headerlink" title="HTTP三点注意事项"></a><strong>HTTP三点注意事项</strong></h4><ul>
+<li><code>HTTP是无连接:</code>无连接的含义是限制每次连接只处理一个请求。服务器处理完客户的请求,并收到客户的应答后,即断开连接。采用这种方式可以节省传输时间。</li>
+<li><code>HTTP是媒体独立的:</code>这意味着,只要客户端和服务器知道如何处理的数据内容,任何类型的数据都可以通过HTTP发送。客户端以及服务器指定使用适合的MIME-type内容类型。</li>
+<li><code>HTTP是无状态:</code>HTTP协议是无状态协议。无状态是指协议对于事务处理没有记忆能力。缺少状态意味着如果后续处理需要前面的信息,则它必须重传。这样可能导致每次连接传送的数据量增大。另一方面,在服务器不需要先前信息时它的应答就较快。</li>
+</ul>
+<p><strong>以下图表展示了HTTP协议通信流程:</strong></p>
+<p><img src="/2019/09/06/http/2.png" alt></p>
+<blockquote>
+<p>CGI(Common Gateway Interface) 是 HTTP 服务器与你的或其它机器上的程序进行<strong>“交谈”</strong>的一种工具,其程序须运行在网络服务器上。绝大多数的 CGI 程序被用来解释处理来自表单的输入信息,并在服务器产生相应的处理，或将相应的信息反馈给浏览器。CGI 程序使网页具有<strong>交互功能</strong>。</p>
+</blockquote>
+<blockquote>
+<h4 id="HTTP-消息结构"><a href="#HTTP-消息结构" class="headerlink" title="HTTP 消息结构"></a>HTTP 消息结构</h4></blockquote>
+<ul>
+<li><p><strong>HTTP是基于客户端/服务端（C/S）的架构模型,通过一个可靠的链接来交换信息,是一个无状态的请求/响应协议</strong>。</p>
+</li>
+<li><p>一个HTTP”客户端”是一个应用程序(Web浏览器或其他任何客户端),通过连接到服务器达到向服务器<strong>发送一个或多个</strong>HTTP的请求的目的。</p>
+</li>
+<li><p>一个HTTP”服务器”同样也是一个<strong>应用程序</strong>(通常是一个Web服务,如Apache Web服务器或IIS服务器等),通过接收客户端的请求并向客户端发送HTTP响应数据。</p>
+</li>
+<li><p>HTTP使用<strong>统一资源标识符</strong>(Uniform Resource Identifiers, URI)来传输数据和建立连接。一旦建立连接后,数据消息就通过类似Internet邮件所使用的格式[RFC5322]和多用途Internet邮件扩展（MIME）[RFC2045]来传送。</p>
+<h5 id="客户端请求消息"><a href="#客户端请求消息" class="headerlink" title="客户端请求消息"></a>客户端请求消息</h5></li>
+</ul>
+<p>客户端发送一个HTTP请求到服务器的请求消息包括以下格式:<strong>请求行(request line)、请求头部(header)、空行和请求数据</strong>四个部分组成,下图给出了请求报文的一般格式。</p>
+<p><img src="/2019/09/06/http/3.png" alt></p>
+<h5 id="服务器响应消息"><a href="#服务器响应消息" class="headerlink" title="服务器响应消息"></a>服务器响应消息</h5><p>HTTP响应也由四个部分组成,分别是:<strong>状态行、消息报头、空行和响应正文</strong>。</p>
+<p><img src="/2019/09/06/http/4.png" alt></p>
+<ul>
+<li>下面实例是一点典型的使用GET来传递数据的实例：</li>
+</ul>
+<h5 id="客户端请求"><a href="#客户端请求" class="headerlink" title="客户端请求"></a>客户端请求</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">GET /hello.txt HTTP/1.1</span><br><span class="line">User-Agent: curl/7.16.3 libcurl/7.16.3 OpenSSL/0.9.7l zlib/1.2.3</span><br><span class="line">Host: www.example.com</span><br><span class="line">Accept-Language: en, mi</span><br></pre></td></tr></table></figure>
+
+<h5 id="服务端响应"><a href="#服务端响应" class="headerlink" title="服务端响应"></a>服务端响应</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">HTTP/1.1 200 OK</span><br><span class="line">Date: Mon, 27 Jul 2009 12:28:53 GMT</span><br><span class="line">Server: Apache</span><br><span class="line">Last-Modified: Wed, 22 Jul 2009 19:15:56 GMT</span><br><span class="line">ETag: &quot;34aa387-d-1568eb00&quot;</span><br><span class="line">Accept-Ranges: bytes</span><br><span class="line">Content-Length: 51</span><br><span class="line">Vary: Accept-Encoding</span><br><span class="line">Content-Type: text/plain</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>输出结果:</strong></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Hello World! My payload includes a trailing CRLF.</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<h4 id="HTTP请求方法"><a href="#HTTP请求方法" class="headerlink" title="HTTP请求方法"></a>HTTP请求方法</h4></blockquote>
+<ul>
+<li>HTTP1.0定义了三种请求方法: GET, POST 和 HEAD方法。</li>
+<li>HTTP1.1新增了五种请求方法:OPTIONS, PUT, DELETE, TRACE 和 CONNECT 方法。</li>
+<li>HTTP 协议中共定义了八种方法或者叫“动作”来表明对 Request-URI 指定的资源的不同操作方式,具体介绍如下:</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">GET</td>
+<td align="left">请求指定的页面信息,并返回实体主体。</td>
+</tr>
+<tr>
+<td align="center">HEAD</td>
+<td align="left">类似于get请求,只不过返回的响应中没有具体的内容,用于获取报头</td>
+</tr>
+<tr>
+<td align="center">POST</td>
+<td align="left">向指定资源提交数据进行处理请求(例如提交表单或者上传文件)。数据被包含在请求体中。POST请求可能会导致新的资源的建立和/或已有资源的修改。</td>
+</tr>
+<tr>
+<td align="center">PUT</td>
+<td align="left">从客户端向服务器传送的数据取代指定的文档的内容。</td>
+</tr>
+<tr>
+<td align="center">DELETE</td>
+<td align="left">请求服务器删除指定的页面。</td>
+</tr>
+<tr>
+<td align="center">CONNECT</td>
+<td align="left">HTTP/1.1协议中预留给能够将连接改为管道方式的代理服务器。</td>
+</tr>
+<tr>
+<td align="center">OPTIONS</td>
+<td align="left">返回服务器针对特定资源所支持的HTTP请求方法。也可以利用向Web服务器发送’*‘的请求来测试服务器的功能性</td>
+</tr>
+<tr>
+<td align="center">TRACE</td>
+<td align="left">回显服务器收到的请求,主要用于测试或诊断。</td>
+</tr>
+</tbody></table>
+<p><code>虽然HTTP的请求方式有8种,但是我们在实际应用中常用的也就是get和post,其他请求方式也都可以通过这两种方式间接的来实现。</code></p>
+<blockquote>
+<h4 id="HTTP-响应头信息"><a href="#HTTP-响应头信息" class="headerlink" title="HTTP 响应头信息"></a>HTTP 响应头信息</h4></blockquote>
+<p>HTTP请求头提供了关于请求,响应或者其他的发送实体的信息。</p>
+<p>HTTP响应头信息如下:</p>
+<table>
+<thead>
+<tr>
+<th align="center">应答头</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Allow</td>
+<td align="left">服务器支持哪些请求方法(如GET、POST等)</td>
+</tr>
+<tr>
+<td align="center">Content-Encoding</td>
+<td align="left">文档的编码(Encode)方法。只有在解码之后才可以得到Content-Type头指定的内容类型。利用gzip压缩文档能够显著地减少HTML文档的下载时间。Java的GZIPOutputStream可以很方便地进行gzip压缩,但只有Unix上的Netscape和Windows上的IE 4、IE 5才支持它。因此,Servlet应该通过查看Accept-Encoding头(即request.getHeader(“Accept-Encoding”))检查浏览器是否支持gzip,为支持gzip的浏览器返回经gzip压缩的HTML页面,为其他浏览器返回普通页面</td>
+</tr>
+<tr>
+<td align="center">Content-Length</td>
+<td align="left">表示内容长度。只有当浏览器使用持久HTTP连接时才需要这个数据。如果你想要利用持久连接的优势,可以把输出文档写入 ByteArrayOutputStream,完成后查看其大小,然后把该值放入Content-Length头,最后通过byteArrayStream.writeTo(response.getOutputStream()发送内容</td>
+</tr>
+<tr>
+<td align="center">Content-Type</td>
+<td align="left">表示后面的文档属于什么MIME类型。Servlet默认为text/plain,但通常需要显式地指定为text/html。由于经常要设置Content-Type,因此HttpServletResponse提供了一个专用的方法setContentType</td>
+</tr>
+<tr>
+<td align="center">Date</td>
+<td align="left">当前的GMT时间。你可以用setDateHeader来设置这个头以避免转换时间格式的麻烦</td>
+</tr>
+<tr>
+<td align="center">Expires</td>
+<td align="left">应该在什么时候认为文档已经过期,从而不再缓存它</td>
+</tr>
+<tr>
+<td align="center">Last-Modified</td>
+<td align="left">文档的最后改动时间。客户可以通过If-Modified-Since请求头提供一个日期，该请求将被视为一个条件GET,只有改动时间迟于指定时间的文档才会返回,否则返回一个304（Not Modified）状态。Last-Modified也可用setDateHeader方法来设置</td>
+</tr>
+<tr>
+<td align="center">Location</td>
+<td align="left">表示客户应当到哪里去提取文档。Location通常不是直接设置的,而是通过HttpServletResponse的sendRedirect方法,该方法同时设置状态代码为302</td>
+</tr>
+<tr>
+<td align="center">Refresh</td>
+<td align="left">表示浏览器应该在多少时间之后刷新文档,以秒计。除了刷新当前文档之外,你还可以通过setHeader(“Refresh”, “5; URL=url”)让浏览器读取指定的页面。注意这种功能通常是通过设置HTML页面HEAD区的＜META HTTP-EQUIV=”Refresh” CONTENT=”5;URL=url”＞实现,这是因为,自动刷新或重定向对于那些不能使用CGI或Servlet的HTML编写者十分重要。但是,对于Servlet来说,直接设置Refresh头更加方便。注意Refresh的意义是”N秒之后刷新本页面或访问指定页面”,而不是”每隔N秒刷新本页面或访问指定页面”。因此,连续刷新要求每次都发送一个Refresh头,而发送204状态代码则可以阻止浏览器继续刷新,不管是使用Refresh头还是＜META HTTP-EQUIV=”Refresh” …＞。注意Refresh头不属于HTTP 1.1正式规范的一部分,而是一个扩展,但Netscape和IE都支持它。</td>
+</tr>
+<tr>
+<td align="center">Server</td>
+<td align="left">服务器名字。Servlet一般不设置这个值,而是由Web服务器自己设置</td>
+</tr>
+<tr>
+<td align="center">Set-Cookie</td>
+<td align="left">设置和页面关联的Cookie。Servlet不应使用response.setHeader(“Set-Cookie”, …),而是应使用HttpServletResponse提供的专用方法addCookie</td>
+</tr>
+<tr>
+<td align="center">WWW-Authenticate</td>
+<td align="left">客户应该在Authorization头中提供什么类型的授权信息。在包含401(Unauthorized)状态行的应答中这个头是必需的。例如,response.setHeader(“WWW-Authenticate”, “BASIC realm=＼”executives＼””)。注意Servlet一般不进行这方面的处理,而是让Web服务器的专门机制来控制受密码保护页面的访问(例如.htaccess)</td>
+</tr>
+</tbody></table>
+<blockquote>
+<h4 id="HTTP状态码-HTTP-Status-Code"><a href="#HTTP状态码-HTTP-Status-Code" class="headerlink" title="HTTP状态码(HTTP Status Code)"></a>HTTP状态码(HTTP Status Code)</h4></blockquote>
+<p>当浏览者访问一个网页时,浏览者的浏览器会向网页所在服务器发出请求。当浏览器接收并显示网页前,此网页所在的服务器会返回一个包含HTTP状态码的信息头(server header)用以响应浏览器的请求。</p>
+<ul>
+<li><h5 id="HTTP状态码分类"><a href="#HTTP状态码分类" class="headerlink" title="HTTP状态码分类"></a><strong>HTTP状态码分类</strong></h5></li>
+</ul>
+<p>HTTP状态码由三个十进制数字组成,第一个十进制数字定义了状态码的类型,后两个数字没有分类的作用。HTTP状态码共分为5种类型</p>
+<table>
+<thead>
+<tr>
+<th align="center">分类</th>
+<th align="left">分类描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">1**</td>
+<td align="left">信息,服务器收到请求,需要请求者继续执行操作</td>
+</tr>
+<tr>
+<td align="center">2**</td>
+<td align="left">成功,操作被成功接收并处理</td>
+</tr>
+<tr>
+<td align="center">3**</td>
+<td align="left">重定向,需要进一步的操作以完成请求</td>
+</tr>
+<tr>
+<td align="center">4**</td>
+<td align="left">客户端错误,请求包含语法错误或无法完成请求</td>
+</tr>
+<tr>
+<td align="center">5**</td>
+<td align="left">服务器错误,服务器在处理请求的过程中发生了错误</td>
+</tr>
+</tbody></table>
+<ul>
+<li><h5 id="HTTP状态码列表"><a href="#HTTP状态码列表" class="headerlink" title="HTTP状态码列表"></a>HTTP状态码列表</h5></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">状态码</th>
+<th align="center">状态码英文名称</th>
+<th align="left">中文描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">100</td>
+<td align="center">Continue</td>
+<td align="left">继续。客户端应继续其请求</td>
+</tr>
+<tr>
+<td align="center">101</td>
+<td align="center">Switching Protocols</td>
+<td align="left">切换协议。服务器根据客户端的请求切换协议。只能切换到更高级的协议,例如:切换到HTTP的新版本协议</td>
+</tr>
+<tr>
+<td align="center">200</td>
+<td align="center">OK</td>
+<td align="left">请求成功。一般用于GET与POST请求</td>
+</tr>
+<tr>
+<td align="center">201</td>
+<td align="center">Created</td>
+<td align="left">已创建。成功请求并创建了新的资源</td>
+</tr>
+<tr>
+<td align="center">202</td>
+<td align="center">Accepted</td>
+<td align="left">已接受。已经接受请求,但未处理完成</td>
+</tr>
+<tr>
+<td align="center">203</td>
+<td align="center">Non-Authoritative Information</td>
+<td align="left">非授权信息。请求成功。但返回的meta信息不在原始的服务器,而是一个副本</td>
+</tr>
+<tr>
+<td align="center">204</td>
+<td align="center">No Content</td>
+<td align="left">无内容。服务器成功处理,但未返回内容。在未更新网页的情况下,可确保浏览器继续显示当前文档</td>
+</tr>
+<tr>
+<td align="center">205</td>
+<td align="center">Reset Content</td>
+<td align="left">重置内容。服务器处理成功,用户终端(例如:浏览器)应重置文档视图。可通过此返回码清除浏览器的表单域</td>
+</tr>
+<tr>
+<td align="center">206</td>
+<td align="center">Partial Content</td>
+<td align="left">部分内容。服务器成功处理了部分GET请求</td>
+</tr>
+<tr>
+<td align="center">300</td>
+<td align="center">Multiple Choices</td>
+<td align="left">多种选择。请求的资源可包括多个位置,相应可返回一个资源特征与地址的列表用于用户终端(例如:浏览器)选择</td>
+</tr>
+<tr>
+<td align="center">301</td>
+<td align="center">Moved Permanently</td>
+<td align="left">永久移动。请求的资源已被永久的移动到新URI,返回信息会包括新的URI,浏览器会自动定向到新URI。今后任何新的请求都应使用新的URI代替</td>
+</tr>
+<tr>
+<td align="center">302</td>
+<td align="center">Found</td>
+<td align="left">临时移动。与301类似。但资源只是临时被移动。客户端应继续使用原有URI</td>
+</tr>
+<tr>
+<td align="center">303</td>
+<td align="center">See Other</td>
+<td align="left">查看其它地址。与301类似。使用GET和POST请求查看</td>
+</tr>
+<tr>
+<td align="center">304</td>
+<td align="center">Not Modified</td>
+<td align="left">未修改。所请求的资源未修改，服务器返回此状态码时,不会返回任何资源。客户端通常会缓存访问过的资源,通过提供一个头信息指出客户端希望只返回在指定日期之后修改的资源</td>
+</tr>
+<tr>
+<td align="center">305</td>
+<td align="center">Use Proxy</td>
+<td align="left">使用代理。所请求的资源必须通过代理访问</td>
+</tr>
+<tr>
+<td align="center">306</td>
+<td align="center">Unused</td>
+<td align="left">已经被废弃的HTTP状态码</td>
+</tr>
+<tr>
+<td align="center">307</td>
+<td align="center">Temporary Redirect</td>
+<td align="left">临时重定向。与302类似。使用GET请求重定向</td>
+</tr>
+<tr>
+<td align="center">400</td>
+<td align="center">Bad Request</td>
+<td align="left">客户端请求的语法错误,服务器无法理解</td>
+</tr>
+<tr>
+<td align="center">401</td>
+<td align="center">Unauthorized</td>
+<td align="left">请求要求用户的身份认证</td>
+</tr>
+<tr>
+<td align="center">402</td>
+<td align="center">Payment Required</td>
+<td align="left">保留,将来使用</td>
+</tr>
+<tr>
+<td align="center">403</td>
+<td align="center">Forbidden</td>
+<td align="left">服务器理解请求客户端的请求,但是拒绝执行此请求</td>
+</tr>
+<tr>
+<td align="center">404</td>
+<td align="center">Not Found</td>
+<td align="left">服务器无法根据客户端的请求找到资源(网页)。通过此代码,网站设计人员可设置”您所请求的资源无法找到”的个性页面</td>
+</tr>
+<tr>
+<td align="center">405</td>
+<td align="center">Method Not Allowed</td>
+<td align="left">客户端请求中的方法被禁止</td>
+</tr>
+<tr>
+<td align="center">406</td>
+<td align="center">Not Acceptable</td>
+<td align="left">服务器无法根据客户端请求的内容特性完成请求</td>
+</tr>
+<tr>
+<td align="center">407</td>
+<td align="center">Proxy Authentication Required</td>
+<td align="left">请求要求代理的身份认证,与401类似,但请求者应当使用代理进行授权</td>
+</tr>
+<tr>
+<td align="center">408</td>
+<td align="center">Request Time-out</td>
+<td align="left">服务器等待客户端发送的请求时间过长,超时</td>
+</tr>
+<tr>
+<td align="center">409</td>
+<td align="center">Conflict</td>
+<td align="left">服务器完成客户端的PUT请求是可能返回此代码,服务器处理请求时发生了冲突</td>
+</tr>
+<tr>
+<td align="center">410</td>
+<td align="center">Gone</td>
+<td align="left">客户端请求的资源已经不存在。410不同于404,如果资源以前有现在被永久删除了可使用410代码,网站设计人员可通过301代码指定资源的新位置</td>
+</tr>
+<tr>
+<td align="center">411</td>
+<td align="center">Length Required</td>
+<td align="left">服务器无法处理客户端发送的不带Content-Length的请求信息</td>
+</tr>
+<tr>
+<td align="center">412</td>
+<td align="center">Precondition Failed</td>
+<td align="left">客户端请求信息的先决条件错误</td>
+</tr>
+<tr>
+<td align="center">413</td>
+<td align="center">Request Entity Too Large</td>
+<td align="left">由于请求的实体过大,服务器无法处理,因此拒绝请求。为防止客户端的连续请求,服务器可能会关闭连接。如果只是服务器暂时无法处理,则会包含一个Retry-After的响应信息</td>
+</tr>
+<tr>
+<td align="center">414</td>
+<td align="center">Request-URI Too Large</td>
+<td align="left">请求的URI过长(URI通常为网址),服务器无法处理</td>
+</tr>
+<tr>
+<td align="center">415</td>
+<td align="center">Unsupported Media Type</td>
+<td align="left">服务器无法处理请求附带的媒体格式</td>
+</tr>
+<tr>
+<td align="center">416</td>
+<td align="center">Requested range not satisfiable</td>
+<td align="left">客户端请求的范围无效</td>
+</tr>
+<tr>
+<td align="center">417</td>
+<td align="center">Expectation Failed</td>
+<td align="left">服务器无法满足Expect的请求头信息</td>
+</tr>
+<tr>
+<td align="center">500</td>
+<td align="center">Internal Server Error</td>
+<td align="left">服务器内部错误,无法完成请求</td>
+</tr>
+<tr>
+<td align="center">501</td>
+<td align="center">Not Implemented</td>
+<td align="left">服务器不支持请求的功能,无法完成请求</td>
+</tr>
+<tr>
+<td align="center">502</td>
+<td align="center">Bad Gateway</td>
+<td align="left">作为网关或者代理工作的服务器尝试执行请求时,从远程服务器接收到了一个无效的响应</td>
+</tr>
+<tr>
+<td align="center">503</td>
+<td align="center">Service Unavailable</td>
+<td align="left">由于超载或系统维护,服务器暂时的无法处理客户端的请求。延时的长度可包含在服务器的Retry-After头信息中</td>
+</tr>
+<tr>
+<td align="center">504</td>
+<td align="center">Gateway Time-out</td>
+<td align="left">充当网关或代理的服务器,未及时从远端服务器获取请求</td>
+</tr>
+<tr>
+<td align="center">505</td>
+<td align="center">HTTP Version not supported</td>
+<td align="left">服务器不支持请求的HTTP协议的版本,无法完成处理</td>
+</tr>
+</tbody></table>
+<blockquote>
+<h4 id="HTTP-content-type"><a href="#HTTP-content-type" class="headerlink" title="HTTP content-type"></a>HTTP content-type</h4></blockquote>
+<p><strong>Content-Type,内容类型,一般是指网页中存在的Content-Type,用于定义网络文件的类型和网页的编码,决定浏览器将以什么形式、什么编码读取这个文件,这就是经常看到一些Asp网页点击的结果却是下载到的一个文件或一张图片的原因。</strong></p>
+<p><code>HTTP content-type 对照表</code></p>
+<table>
+<thead>
+<tr>
+<th align="center">文件扩展名</th>
+<th align="center">Content-Type(Mime-Type)</th>
+<th align="center">文件扩展名</th>
+<th align="center">Content-Type(Mime-Type)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">.*(二进制流,不知道下载文件类型)</td>
+<td align="center">application/octet-stream</td>
+<td align="center">.tif</td>
+<td align="center">image/tiff</td>
+</tr>
+<tr>
+<td align="center">.001</td>
+<td align="center">application/x-001</td>
+<td align="center">.301</td>
+<td align="center">application/x-301</td>
+</tr>
+<tr>
+<td align="center">.323</td>
+<td align="center">text/h323</td>
+<td align="center">.906</td>
+<td align="center">application/x-906</td>
+</tr>
+<tr>
+<td align="center">.907</td>
+<td align="center">drawing/907</td>
+<td align="center">.a11</td>
+<td align="center">application/x-a11</td>
+</tr>
+<tr>
+<td align="center">.acp</td>
+<td align="center">audio/x-mei-aac</td>
+<td align="center">.ai</td>
+<td align="center">application/postscript</td>
+</tr>
+<tr>
+<td align="center">.aif</td>
+<td align="center">audio/aiff</td>
+<td align="center">.aifc</td>
+<td align="center">audio/aiff</td>
+</tr>
+<tr>
+<td align="center">.aiff</td>
+<td align="center">audio/aiff</td>
+<td align="center">.anv</td>
+<td align="center">application/x-anv</td>
+</tr>
+<tr>
+<td align="center">.asa</td>
+<td align="center">text/asa</td>
+<td align="center">.asf</td>
+<td align="center">video/x-ms-asf</td>
+</tr>
+<tr>
+<td align="center">.asp</td>
+<td align="center">text/asp</td>
+<td align="center">.asx</td>
+<td align="center">video/x-ms-asf</td>
+</tr>
+<tr>
+<td align="center">.au</td>
+<td align="center">audio/basic</td>
+<td align="center">.avi</td>
+<td align="center">video/avi</td>
+</tr>
+<tr>
+<td align="center">.awf</td>
+<td align="center">application/vnd.adobe.workflow</td>
+<td align="center">.biz</td>
+<td align="center">text/xml</td>
+</tr>
+<tr>
+<td align="center">.bmp</td>
+<td align="center">application/x-bmp</td>
+<td align="center">.bot</td>
+<td align="center">application/x-bot</td>
+</tr>
+<tr>
+<td align="center">.c4t</td>
+<td align="center">application/x-c4t</td>
+<td align="center">.c90</td>
+<td align="center">application/x-c90</td>
+</tr>
+<tr>
+<td align="center">.cal</td>
+<td align="center">application/x-cals</td>
+<td align="center">.cat</td>
+<td align="center">application/vnd.ms-pki.seccat</td>
+</tr>
+<tr>
+<td align="center">.cdf</td>
+<td align="center">application/x-netcdf</td>
+<td align="center">.cdr</td>
+<td align="center">application/x-cdr</td>
+</tr>
+<tr>
+<td align="center">.cel</td>
+<td align="center">application/x-cel</td>
+<td align="center">.cer</td>
+<td align="center">application/x-x509-ca-cert</td>
+</tr>
+<tr>
+<td align="center">.cg4</td>
+<td align="center">application/x-g4</td>
+<td align="center">.cgm</td>
+<td align="center">application/x-cgm</td>
+</tr>
+<tr>
+<td align="center">.cit</td>
+<td align="center">application/x-cit</td>
+<td align="center">.class</td>
+<td align="center">java/*</td>
+</tr>
+<tr>
+<td align="center">.cml</td>
+<td align="center">text/xml</td>
+<td align="center">.cmp</td>
+<td align="center">application/x-cmp</td>
+</tr>
+<tr>
+<td align="center">.cmx</td>
+<td align="center">application/x-cmx</td>
+<td align="center">.cot</td>
+<td align="center">application/x-cot</td>
+</tr>
+<tr>
+<td align="center">.crl</td>
+<td align="center">application/pkix-crl</td>
+<td align="center">.crt</td>
+<td align="center">application/x-x509-ca-cert</td>
+</tr>
+<tr>
+<td align="center">.csi</td>
+<td align="center">application/x-csi</td>
+<td align="center">.css</td>
+<td align="center">text/css</td>
+</tr>
+<tr>
+<td align="center">.cut</td>
+<td align="center">application/x-cut</td>
+<td align="center">.dbf</td>
+<td align="center">application/x-dbf</td>
+</tr>
+<tr>
+<td align="center">.dbm</td>
+<td align="center">application/x-dbm</td>
+<td align="center">.dbx</td>
+<td align="center">application/x-dbx</td>
+</tr>
+<tr>
+<td align="center">.dcd</td>
+<td align="center">text/xml</td>
+<td align="center">.dcx</td>
+<td align="center">application/x-dcx</td>
+</tr>
+<tr>
+<td align="center">.der</td>
+<td align="center">application/x-x509-ca-cert</td>
+<td align="center">.dgn</td>
+<td align="center">application/x-dgn</td>
+</tr>
+<tr>
+<td align="center">.dib</td>
+<td align="center">application/x-dib</td>
+<td align="center">.dll</td>
+<td align="center">application/x-msdownload</td>
+</tr>
+<tr>
+<td align="center">.doc</td>
+<td align="center">application/msword</td>
+<td align="center">.dot</td>
+<td align="center">application/msword</td>
+</tr>
+<tr>
+<td align="center">.drw</td>
+<td align="center">application/x-drw</td>
+<td align="center">.dtd</td>
+<td align="center">text/xml</td>
+</tr>
+<tr>
+<td align="center">.dwf</td>
+<td align="center">Model/vnd.dwf</td>
+<td align="center">.dwf</td>
+<td align="center">application/x-dwf</td>
+</tr>
+<tr>
+<td align="center">.dwg</td>
+<td align="center">application/x-dwg</td>
+<td align="center">.dxb</td>
+<td align="center">application/x-dxb</td>
+</tr>
+<tr>
+<td align="center">.dxf</td>
+<td align="center">application/x-dxf</td>
+<td align="center">.edn</td>
+<td align="center">application/vnd.adobe.edn</td>
+</tr>
+<tr>
+<td align="center">.emf</td>
+<td align="center">application/x-emf</td>
+<td align="center">.eml</td>
+<td align="center">message/rfc822</td>
+</tr>
+<tr>
+<td align="center">.ent</td>
+<td align="center">text/xml</td>
+<td align="center">.epi</td>
+<td align="center">application/x-epi</td>
+</tr>
+<tr>
+<td align="center">.eps</td>
+<td align="center">application/x-ps</td>
+<td align="center">.eps</td>
+<td align="center">application/postscript</td>
+</tr>
+<tr>
+<td align="center">.etd</td>
+<td align="center">application/x-ebx</td>
+<td align="center">.exe</td>
+<td align="center">application/x-msdownload</td>
+</tr>
+<tr>
+<td align="center">.fax</td>
+<td align="center">image/fax</td>
+<td align="center">.fdf</td>
+<td align="center">application/vnd.fdf</td>
+</tr>
+<tr>
+<td align="center">.fif</td>
+<td align="center">application/fractals</td>
+<td align="center">.fo</td>
+<td align="center">text/xml</td>
+</tr>
+<tr>
+<td align="center">.frm</td>
+<td align="center">application/x-frm</td>
+<td align="center">.g4</td>
+<td align="center">application/x-g4</td>
+</tr>
+<tr>
+<td align="center">.gbr</td>
+<td align="center">application/x-gbr</td>
+<td align="center">.</td>
+<td align="center">application/x-</td>
+</tr>
+<tr>
+<td align="center">.gif</td>
+<td align="center">image/gif</td>
+<td align="center">.gl2</td>
+<td align="center">application/x-gl2</td>
+</tr>
+<tr>
+<td align="center">.gp4</td>
+<td align="center">application/x-gp4</td>
+<td align="center">.hgl</td>
+<td align="center">application/x-hgl</td>
+</tr>
+<tr>
+<td align="center">.hmr</td>
+<td align="center">application/x-hmr</td>
+<td align="center">.hpg</td>
+<td align="center">application/x-hpgl</td>
+</tr>
+<tr>
+<td align="center">.hpl</td>
+<td align="center">application/x-hpl</td>
+<td align="center">.hqx</td>
+<td align="center">application/mac-binhex40</td>
+</tr>
+<tr>
+<td align="center">.hrf</td>
+<td align="center">application/x-hrf</td>
+<td align="center">.hta</td>
+<td align="center">application/hta</td>
+</tr>
+<tr>
+<td align="center">.htc</td>
+<td align="center">text/x-component</td>
+<td align="center">.htm</td>
+<td align="center">text/html</td>
+</tr>
+<tr>
+<td align="center">.html</td>
+<td align="center">text/html</td>
+<td align="center">.htt</td>
+<td align="center">text/webviewhtml</td>
+</tr>
+<tr>
+<td align="center">.htx</td>
+<td align="center">text/html</td>
+<td align="center">.icb</td>
+<td align="center">application/x-icb</td>
+</tr>
+<tr>
+<td align="center">.ico</td>
+<td align="center">image/x-icon</td>
+<td align="center">.ico</td>
+<td align="center">application/x-ico</td>
+</tr>
+<tr>
+<td align="center">.iff</td>
+<td align="center">application/x-iff</td>
+<td align="center">.ig4</td>
+<td align="center">application/x-g4</td>
+</tr>
+<tr>
+<td align="center">.igs</td>
+<td align="center">application/x-igs</td>
+<td align="center">.iii</td>
+<td align="center">application/x-iphone</td>
+</tr>
+<tr>
+<td align="center">.img</td>
+<td align="center">application/x-img</td>
+<td align="center">.ins</td>
+<td align="center">application/x-internet-signup</td>
+</tr>
+<tr>
+<td align="center">.isp</td>
+<td align="center">application/x-internet-signup</td>
+<td align="center">.IVF</td>
+<td align="center">video/x-ivf</td>
+</tr>
+<tr>
+<td align="center">.java</td>
+<td align="center">java/*</td>
+<td align="center">.jfif</td>
+<td align="center">image/jpeg</td>
+</tr>
+<tr>
+<td align="center">.jpe</td>
+<td align="center">image/jpeg</td>
+<td align="center">.jpe</td>
+<td align="center">application/x-jpe</td>
+</tr>
+<tr>
+<td align="center">.jpeg</td>
+<td align="center">image/jpeg</td>
+<td align="center">.jpg</td>
+<td align="center">image/jpeg</td>
+</tr>
+<tr>
+<td align="center">.jpg</td>
+<td align="center">application/x-jpg</td>
+<td align="center">.js</td>
+<td align="center">application/x-javascript</td>
+</tr>
+<tr>
+<td align="center">.jsp</td>
+<td align="center">text/html</td>
+<td align="center">.la1</td>
+<td align="center">audio/x-liquid-file</td>
+</tr>
+<tr>
+<td align="center">.lar</td>
+<td align="center">application/x-laplayer-reg</td>
+<td align="center">.latex</td>
+<td align="center">application/x-latex</td>
+</tr>
+<tr>
+<td align="center">.lavs</td>
+<td align="center">audio/x-liquid-secure</td>
+<td align="center">.lbm</td>
+<td align="center">application/x-lbm</td>
+</tr>
+<tr>
+<td align="center">.lmsff</td>
+<td align="center">audio/x-la-lms</td>
+<td align="center">.ls</td>
+<td align="center">application/x-javascript</td>
+</tr>
+<tr>
+<td align="center">.ltr</td>
+<td align="center">application/x-ltr</td>
+<td align="center">.m1v</td>
+<td align="center">video/x-mpeg</td>
+</tr>
+<tr>
+<td align="center">.m2v</td>
+<td align="center">video/x-mpeg</td>
+<td align="center">.m3u</td>
+<td align="center">audio/mpegurl</td>
+</tr>
+<tr>
+<td align="center">.m4e</td>
+<td align="center">video/mpeg4</td>
+<td align="center">.mac</td>
+<td align="center">application/x-mac</td>
+</tr>
+<tr>
+<td align="center">.man</td>
+<td align="center">application/x-troff-man</td>
+<td align="center">.math</td>
+<td align="center">text/xml</td>
+</tr>
+<tr>
+<td align="center">.mdb</td>
+<td align="center">application/msaccess</td>
+<td align="center">.mdb</td>
+<td align="center">application/x-mdb</td>
+</tr>
+<tr>
+<td align="center">.mfp</td>
+<td align="center">application/x-shockwave-flash</td>
+<td align="center">.mht</td>
+<td align="center">message/rfc822</td>
+</tr>
+<tr>
+<td align="center">.mhtml</td>
+<td align="center">message/rfc822</td>
+<td align="center">.mi</td>
+<td align="center">application/x-mi</td>
+</tr>
+<tr>
+<td align="center">.mid</td>
+<td align="center">audio/mid</td>
+<td align="center">.midi</td>
+<td align="center">audio/mid</td>
+</tr>
+<tr>
+<td align="center">.mil</td>
+<td align="center">application/x-mil</td>
+<td align="center">.mml</td>
+<td align="center">text/xml</td>
+</tr>
+<tr>
+<td align="center">.mnd</td>
+<td align="center">audio/x-musicnet-download</td>
+<td align="center">.mns</td>
+<td align="center">audio/x-musicnet-stream</td>
+</tr>
+<tr>
+<td align="center">.mocha</td>
+<td align="center">application/x-javascript</td>
+<td align="center">.movie</td>
+<td align="center">video/x-sgi-movie</td>
+</tr>
+<tr>
+<td align="center">.mp1</td>
+<td align="center">audio/mp1</td>
+<td align="center">.mp2</td>
+<td align="center">audio/mp2</td>
+</tr>
+<tr>
+<td align="center">.mp2v</td>
+<td align="center">video/mpeg</td>
+<td align="center">.mp3</td>
+<td align="center">audio/mp3</td>
+</tr>
+<tr>
+<td align="center">.mp4</td>
+<td align="center">video/mpeg4</td>
+<td align="center">.mpa</td>
+<td align="center">video/x-mpg</td>
+</tr>
+<tr>
+<td align="center">.mpd</td>
+<td align="center">application/vnd.ms-project</td>
+<td align="center">.mpe</td>
+<td align="center">video/x-mpeg</td>
+</tr>
+<tr>
+<td align="center">.mpeg</td>
+<td align="center">video/mpg</td>
+<td align="center">.mpg</td>
+<td align="center">video/mpg</td>
+</tr>
+<tr>
+<td align="center">.mpga</td>
+<td align="center">audio/rn-mpeg</td>
+<td align="center">.mpp</td>
+<td align="center">application/vnd.ms-project</td>
+</tr>
+<tr>
+<td align="center">.mps</td>
+<td align="center">video/x-mpeg</td>
+<td align="center">.mpt</td>
+<td align="center">application/vnd.ms-project</td>
+</tr>
+<tr>
+<td align="center">.mpv</td>
+<td align="center">video/mpg</td>
+<td align="center">.mpv2</td>
+<td align="center">video/mpeg</td>
+</tr>
+<tr>
+<td align="center">.mpw</td>
+<td align="center">application/vnd.ms-project</td>
+<td align="center">.mpx</td>
+<td align="center">application/vnd.ms-project</td>
+</tr>
+<tr>
+<td align="center">.mtx</td>
+<td align="center">text/xml</td>
+<td align="center">.mxp</td>
+<td align="center">application/x-mmxp</td>
+</tr>
+<tr>
+<td align="center">.net</td>
+<td align="center">image/pnetvue</td>
+<td align="center">.nrf</td>
+<td align="center">application/x-nrf</td>
+</tr>
+<tr>
+<td align="center">.nws</td>
+<td align="center">message/rfc822</td>
+<td align="center">.odc</td>
+<td align="center">text/x-ms-odc</td>
+</tr>
+<tr>
+<td align="center">.out</td>
+<td align="center">application/x-out</td>
+<td align="center">.p10</td>
+<td align="center">application/pkcs10</td>
+</tr>
+<tr>
+<td align="center">.p12</td>
+<td align="center">application/x-pkcs12</td>
+<td align="center">.p7b</td>
+<td align="center">application/x-pkcs7-certificates</td>
+</tr>
+<tr>
+<td align="center">.p7c</td>
+<td align="center">application/pkcs7-mime</td>
+<td align="center">.p7m</td>
+<td align="center">application/pkcs7-mime</td>
+</tr>
+<tr>
+<td align="center">.p7r</td>
+<td align="center">application/x-pkcs7-certreqresp</td>
+<td align="center">.p7s</td>
+<td align="center">application/pkcs7-signature</td>
+</tr>
+<tr>
+<td align="center">.pc5</td>
+<td align="center">application/x-pc5</td>
+<td align="center">.pci</td>
+<td align="center">application/x-pci</td>
+</tr>
+<tr>
+<td align="center">.pcl</td>
+<td align="center">application/x-pcl</td>
+<td align="center">.pcx</td>
+<td align="center">application/x-pcx</td>
+</tr>
+<tr>
+<td align="center">.pdf</td>
+<td align="center">application/pdf</td>
+<td align="center">.pdf</td>
+<td align="center">application/pdf</td>
+</tr>
+<tr>
+<td align="center">.pdx</td>
+<td align="center">application/vnd.adobe.pdx</td>
+<td align="center">.pfx</td>
+<td align="center">application/x-pkcs12</td>
+</tr>
+<tr>
+<td align="center">.pgl</td>
+<td align="center">application/x-pgl</td>
+<td align="center">.pic</td>
+<td align="center">application/x-pic</td>
+</tr>
+<tr>
+<td align="center">.pko</td>
+<td align="center">application/vnd.ms-pki.pko</td>
+<td align="center">.pl</td>
+<td align="center">application/x-perl</td>
+</tr>
+<tr>
+<td align="center">.plg</td>
+<td align="center">text/html</td>
+<td align="center">.pls</td>
+<td align="center">audio/scpls</td>
+</tr>
+<tr>
+<td align="center">.plt</td>
+<td align="center">application/x-plt</td>
+<td align="center">.png</td>
+<td align="center">image/png</td>
+</tr>
+<tr>
+<td align="center">.png</td>
+<td align="center">application/x-png</td>
+<td align="center">.pot</td>
+<td align="center">application/vnd.ms-powerpoint</td>
+</tr>
+<tr>
+<td align="center">.ppa</td>
+<td align="center">application/vnd.ms-powerpoint</td>
+<td align="center">.ppm</td>
+<td align="center">application/x-ppm</td>
+</tr>
+<tr>
+<td align="center">.pps</td>
+<td align="center">application/vnd.ms-powerpoint</td>
+<td align="center">.ppt</td>
+<td align="center">application/vnd.ms-powerpoint</td>
+</tr>
+<tr>
+<td align="center">.ppt</td>
+<td align="center">application/x-ppt</td>
+<td align="center">.pr</td>
+<td align="center">application/x-pr</td>
+</tr>
+<tr>
+<td align="center">.prf</td>
+<td align="center">application/pics-rules</td>
+<td align="center">.prn</td>
+<td align="center">application/x-prn</td>
+</tr>
+<tr>
+<td align="center">.prt</td>
+<td align="center">application/x-prt</td>
+<td align="center">.ps</td>
+<td align="center">application/x-ps</td>
+</tr>
+<tr>
+<td align="center">.ps</td>
+<td align="center">application/postscript</td>
+<td align="center">.ptn</td>
+<td align="center">application/x-ptn</td>
+</tr>
+<tr>
+<td align="center">.pwz</td>
+<td align="center">application/vnd.ms-powerpoint</td>
+<td align="center">.r3t</td>
+<td align="center">text/vnd.rn-realtext3d</td>
+</tr>
+<tr>
+<td align="center">.ra</td>
+<td align="center">audio/vnd.rn-realaudio</td>
+<td align="center">.ram</td>
+<td align="center">audio/x-pn-realaudio</td>
+</tr>
+<tr>
+<td align="center">.ras</td>
+<td align="center">application/x-ras</td>
+<td align="center">.rat</td>
+<td align="center">application/rat-file</td>
+</tr>
+<tr>
+<td align="center">.rdf</td>
+<td align="center">text/xml</td>
+<td align="center">.rec</td>
+<td align="center">application/vnd.rn-recording</td>
+</tr>
+<tr>
+<td align="center">.red</td>
+<td align="center">application/x-red</td>
+<td align="center">.rgb</td>
+<td align="center">application/x-rgb</td>
+</tr>
+<tr>
+<td align="center">.rjs</td>
+<td align="center">application/vnd.rn-realsystem-rjs</td>
+<td align="center">.rjt</td>
+<td align="center">application/vnd.rn-realsystem-rjt</td>
+</tr>
+<tr>
+<td align="center">.rlc</td>
+<td align="center">application/x-rlc</td>
+<td align="center">.rle</td>
+<td align="center">application/x-rle</td>
+</tr>
+<tr>
+<td align="center">.rm</td>
+<td align="center">application/vnd.rn-realmedia</td>
+<td align="center">.rmf</td>
+<td align="center">application/vnd.adobe.rmf</td>
+</tr>
+<tr>
+<td align="center">.rmi</td>
+<td align="center">audio/mid</td>
+<td align="center">.rmj</td>
+<td align="center">application/vnd.rn-realsystem-rmj</td>
+</tr>
+<tr>
+<td align="center">.rmm</td>
+<td align="center">audio/x-pn-realaudio</td>
+<td align="center">.rmp</td>
+<td align="center">application/vnd.rn-rn_music_package</td>
+</tr>
+<tr>
+<td align="center">.rms</td>
+<td align="center">application/vnd.rn-realmedia-secure</td>
+<td align="center">.rmvb</td>
+<td align="center">application/vnd.rn-realmedia-vbr</td>
+</tr>
+<tr>
+<td align="center">.rmx</td>
+<td align="center">application/vnd.rn-realsystem-rmx</td>
+<td align="center">.rnx</td>
+<td align="center">application/vnd.rn-realplayer</td>
+</tr>
+<tr>
+<td align="center">.rp</td>
+<td align="center">image/vnd.rn-realpix</td>
+<td align="center">.rpm</td>
+<td align="center">audio/x-pn-realaudio-plugin</td>
+</tr>
+<tr>
+<td align="center">.rsml</td>
+<td align="center">application/vnd.rn-rsml</td>
+<td align="center">.rt</td>
+<td align="center">text/vnd.rn-realtext</td>
+</tr>
+<tr>
+<td align="center">.rtf</td>
+<td align="center">application/msword</td>
+<td align="center">.rtf</td>
+<td align="center">application/x-rtf</td>
+</tr>
+<tr>
+<td align="center">.rv</td>
+<td align="center">video/vnd.rn-realvideo</td>
+<td align="center">.sam</td>
+<td align="center">application/x-sam</td>
+</tr>
+<tr>
+<td align="center">.sat</td>
+<td align="center">application/x-sat</td>
+<td align="center">.sdp</td>
+<td align="center">application/sdp</td>
+</tr>
+<tr>
+<td align="center">.sdw</td>
+<td align="center">application/x-sdw</td>
+<td align="center">.sit</td>
+<td align="center">application/x-stuffit</td>
+</tr>
+<tr>
+<td align="center">.slb</td>
+<td align="center">application/x-slb</td>
+<td align="center">.sld</td>
+<td align="center">application/x-sld</td>
+</tr>
+<tr>
+<td align="center">.slk</td>
+<td align="center">drawing/x-slk</td>
+<td align="center">.smi</td>
+<td align="center">application/smil</td>
+</tr>
+<tr>
+<td align="center">.smil</td>
+<td align="center">application/smil</td>
+<td align="center">.smk</td>
+<td align="center">application/x-smk</td>
+</tr>
+<tr>
+<td align="center">.snd</td>
+<td align="center">audio/basic</td>
+<td align="center">.sol</td>
+<td align="center">text/plain</td>
+</tr>
+<tr>
+<td align="center">.sor</td>
+<td align="center">text/plain</td>
+<td align="center">.spc</td>
+<td align="center">application/x-pkcs7-certificates</td>
+</tr>
+<tr>
+<td align="center">.spl</td>
+<td align="center">application/futuresplash</td>
+<td align="center">.spp</td>
+<td align="center">text/xml</td>
+</tr>
+<tr>
+<td align="center">.ssm</td>
+<td align="center">application/streamingmedia</td>
+<td align="center">.sst</td>
+<td align="center">application/vnd.ms-pki.certstore</td>
+</tr>
+<tr>
+<td align="center">.stl</td>
+<td align="center">application/vnd.ms-pki.stl</td>
+<td align="center">.stm</td>
+<td align="center">text/html</td>
+</tr>
+<tr>
+<td align="center">.sty</td>
+<td align="center">application/x-sty</td>
+<td align="center">.svg</td>
+<td align="center">text/xml</td>
+</tr>
+<tr>
+<td align="center">.swf</td>
+<td align="center">application/x-shockwave-flash</td>
+<td align="center">.tdf</td>
+<td align="center">application/x-tdf</td>
+</tr>
+<tr>
+<td align="center">.tg4</td>
+<td align="center">application/x-tg4</td>
+<td align="center">.tga</td>
+<td align="center">application/x-tga</td>
+</tr>
+<tr>
+<td align="center">.tif</td>
+<td align="center">image/tiff</td>
+<td align="center">.tif</td>
+<td align="center">application/x-tif</td>
+</tr>
+<tr>
+<td align="center">.tiff</td>
+<td align="center">image/tiff</td>
+<td align="center">.tld</td>
+<td align="center">text/xml</td>
+</tr>
+<tr>
+<td align="center">.top</td>
+<td align="center">drawing/x-top</td>
+<td align="center">.torrent</td>
+<td align="center">application/x-bittorrent</td>
+</tr>
+<tr>
+<td align="center">.tsd</td>
+<td align="center">text/xml</td>
+<td align="center">.txt</td>
+<td align="center">text/plain</td>
+</tr>
+<tr>
+<td align="center">.uin</td>
+<td align="center">application/x-icq</td>
+<td align="center">.uls</td>
+<td align="center">text/iuls</td>
+</tr>
+<tr>
+<td align="center">.vcf</td>
+<td align="center">text/x-vcard</td>
+<td align="center">.vda</td>
+<td align="center">application/x-vda</td>
+</tr>
+<tr>
+<td align="center">.vdx</td>
+<td align="center">application/vnd.visio</td>
+<td align="center">.vml</td>
+<td align="center">text/xml</td>
+</tr>
+<tr>
+<td align="center">.vpg</td>
+<td align="center">application/x-vpeg005</td>
+<td align="center">.vsd</td>
+<td align="center">application/vnd.visio</td>
+</tr>
+<tr>
+<td align="center">.vsd</td>
+<td align="center">application/x-vsd</td>
+<td align="center">.vss</td>
+<td align="center">application/vnd.visio</td>
+</tr>
+<tr>
+<td align="center">.vst</td>
+<td align="center">application/vnd.visio</td>
+<td align="center">.vst</td>
+<td align="center">application/x-vst</td>
+</tr>
+<tr>
+<td align="center">.vsw</td>
+<td align="center">application/vnd.visio</td>
+<td align="center">.vsx</td>
+<td align="center">application/vnd.visio</td>
+</tr>
+<tr>
+<td align="center">.vtx</td>
+<td align="center">application/vnd.visio</td>
+<td align="center">.vxml</td>
+<td align="center">text/xml</td>
+</tr>
+<tr>
+<td align="center">.wav</td>
+<td align="center">audio/wav</td>
+<td align="center">.wax</td>
+<td align="center">audio/x-ms-wax</td>
+</tr>
+<tr>
+<td align="center">.wb1</td>
+<td align="center">application/x-wb1</td>
+<td align="center">.wb2</td>
+<td align="center">application/x-wb2</td>
+</tr>
+<tr>
+<td align="center">.wb3</td>
+<td align="center">application/x-wb3</td>
+<td align="center">.wbmp</td>
+<td align="center">image/vnd.wap.wbmp</td>
+</tr>
+<tr>
+<td align="center">.wiz</td>
+<td align="center">application/msword</td>
+<td align="center">.wk3</td>
+<td align="center">application/x-wk3</td>
+</tr>
+<tr>
+<td align="center">.wk4</td>
+<td align="center">application/x-wk4</td>
+<td align="center">.wkq</td>
+<td align="center">application/x-wkq</td>
+</tr>
+<tr>
+<td align="center">.wks</td>
+<td align="center">application/x-wks</td>
+<td align="center">.wm</td>
+<td align="center">video/x-ms-wm</td>
+</tr>
+<tr>
+<td align="center">.wma</td>
+<td align="center">audio/x-ms-wma</td>
+<td align="center">.wmd</td>
+<td align="center">application/x-ms-wmd</td>
+</tr>
+<tr>
+<td align="center">.wmf</td>
+<td align="center">application/x-wmf</td>
+<td align="center">.wml</td>
+<td align="center">text/vnd.wap.wml</td>
+</tr>
+<tr>
+<td align="center">.wmv</td>
+<td align="center">video/x-ms-wmv</td>
+<td align="center">.wmx</td>
+<td align="center">video/x-ms-wmx</td>
+</tr>
+<tr>
+<td align="center">.wmz</td>
+<td align="center">application/x-ms-wmz</td>
+<td align="center">.wp6</td>
+<td align="center">application/x-wp6</td>
+</tr>
+<tr>
+<td align="center">.wpd</td>
+<td align="center">application/x-wpd</td>
+<td align="center">.wpg</td>
+<td align="center">application/x-wpg</td>
+</tr>
+<tr>
+<td align="center">.wpl</td>
+<td align="center">application/vnd.ms-wpl</td>
+<td align="center">.wq1</td>
+<td align="center">application/x-wq1</td>
+</tr>
+<tr>
+<td align="center">.wr1</td>
+<td align="center">application/x-wr1</td>
+<td align="center">.wri</td>
+<td align="center">application/x-wri</td>
+</tr>
+<tr>
+<td align="center">.wrk</td>
+<td align="center">application/x-wrk</td>
+<td align="center">.ws</td>
+<td align="center">application/x-ws</td>
+</tr>
+<tr>
+<td align="center">.ws2</td>
+<td align="center">application/x-ws</td>
+<td align="center">.wsc</td>
+<td align="center">text/scriptlet</td>
+</tr>
+<tr>
+<td align="center">.wsdl</td>
+<td align="center">text/xml</td>
+<td align="center">.wvx</td>
+<td align="center">video/x-ms-wvx</td>
+</tr>
+<tr>
+<td align="center">.xdp</td>
+<td align="center">application/vnd.adobe.xdp</td>
+<td align="center">.xdr</td>
+<td align="center">text/xml</td>
+</tr>
+<tr>
+<td align="center">.xfd</td>
+<td align="center">application/vnd.adobe.xfd</td>
+<td align="center">.xfdf</td>
+<td align="center">application/vnd.adobe.xfdf</td>
+</tr>
+<tr>
+<td align="center">.xhtml</td>
+<td align="center">text/html</td>
+<td align="center">.xls</td>
+<td align="center">application/vnd.ms-excel</td>
+</tr>
+<tr>
+<td align="center">.xls</td>
+<td align="center">application/x-xls</td>
+<td align="center">.xlw</td>
+<td align="center">application/x-xlw</td>
+</tr>
+<tr>
+<td align="center">.xml</td>
+<td align="center">text/xml</td>
+<td align="center">.xpl</td>
+<td align="center">audio/scpls</td>
+</tr>
+<tr>
+<td align="center">.xq</td>
+<td align="center">text/xml</td>
+<td align="center">.xql</td>
+<td align="center">text/xml</td>
+</tr>
+<tr>
+<td align="center">.xquery</td>
+<td align="center">text/xml</td>
+<td align="center">.xsd</td>
+<td align="center">text/xml</td>
+</tr>
+<tr>
+<td align="center">.xsl</td>
+<td align="center">text/xml</td>
+<td align="center">.xslt</td>
+<td align="center">text/xml</td>
+</tr>
+<tr>
+<td align="center">.xwd</td>
+<td align="center">application/x-xwd</td>
+<td align="center">.x_b</td>
+<td align="center">application/x-x_b</td>
+</tr>
+<tr>
+<td align="center">.sis</td>
+<td align="center">application/vnd.symbian.install</td>
+<td align="center">.sisx</td>
+<td align="center">application/vnd.symbian.install</td>
+</tr>
+<tr>
+<td align="center">.x_t</td>
+<td align="center">application/x-x_t</td>
+<td align="center">.ipa</td>
+<td align="center">application/vnd.iphone</td>
+</tr>
+<tr>
+<td align="center">.apk</td>
+<td align="center">application/vnd.android.package-archive</td>
+<td align="center">.xap</td>
+<td align="center">application/x-silverlight-app</td>
+</tr>
+</tbody></table>
+
+    </div>
+
+    
+    
+    
+<div>
+  
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束  <i class="fa fa-heart"></i> 感谢您的阅读-------------</div>
+    
+</div>
+  
+</div>
+        
+      
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Miss.Yang</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://yyr823.github.io/2019/09/06/http/" title="HTTP相关内容">https://yyr823.github.io/2019/09/06/http/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-Hans" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
+</ul>
+</div>
+
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/HTTP/" rel="tag"><i class="fa fa-tag"></i> HTTP</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+		  
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2019/09/06/tool4/" rel="next" title="Java去除字符串中的空格">
+                  <i class="fa fa-chevron-left"></i> Java去除字符串中的空格
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2019/09/06/git4/" rel="prev" title="Eclipse-Github操作">
+                  Eclipse-Github操作 <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#参考链接"><span class="nav-number">1.</span> <span class="nav-text">参考链接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTP-简介"><span class="nav-number">2.</span> <span class="nav-text">HTTP 简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTP-工作原理"><span class="nav-number">3.</span> <span class="nav-text">HTTP 工作原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTP三点注意事项"><span class="nav-number">4.</span> <span class="nav-text">HTTP三点注意事项</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTP-消息结构"><span class="nav-number">5.</span> <span class="nav-text">HTTP 消息结构</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#客户端请求消息"><span class="nav-number">5.1.</span> <span class="nav-text">客户端请求消息</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#服务器响应消息"><span class="nav-number">5.2.</span> <span class="nav-text">服务器响应消息</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#客户端请求"><span class="nav-number">5.3.</span> <span class="nav-text">客户端请求</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#服务端响应"><span class="nav-number">5.4.</span> <span class="nav-text">服务端响应</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTP请求方法"><span class="nav-number">6.</span> <span class="nav-text">HTTP请求方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTP-响应头信息"><span class="nav-number">7.</span> <span class="nav-text">HTTP 响应头信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTP状态码-HTTP-Status-Code"><span class="nav-number">8.</span> <span class="nav-text">HTTP状态码(HTTP Status Code)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#HTTP状态码分类"><span class="nav-number">8.1.</span> <span class="nav-text">HTTP状态码分类</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#HTTP状态码列表"><span class="nav-number">8.2.</span> <span class="nav-text">HTTP状态码列表</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTP-content-type"><span class="nav-number">9.</span> <span class="nav-text">HTTP content-type</span></a></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/xz.jpg"
+      alt="Miss.Yang">
+  <p class="site-author-name" itemprop="name">Miss.Yang</p>
+  <div class="site-description" itemprop="description">不积跬步,无以至千里;不积小流,无以成江海.</div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">96</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        <span class="site-state-item-count">44</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        <span class="site-state-item-count">41</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      推荐阅读
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://blog.csdn.net/u011642663/article/details/90597317" title="https://blog.csdn.net/u011642663/article/details/90597317" rel="noopener" target="_blank">设计模式看了又忘，忘了又看？</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://github.com/Snailclimb/JavaGuide" title="https://github.com/Snailclimb/JavaGuide" rel="noopener" target="_blank">Java 学习/面试指南</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="http://www.ityouknow.com/springboot/2015/12/30/springboot-collect.html" title="http://www.ityouknow.com/springboot/2015/12/30/springboot-collect.html" rel="noopener" target="_blank">Spring Boot 学习资料汇总</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://blog.csdn.net/wudinaniya/article/details/81130079" title="https://blog.csdn.net/wudinaniya/article/details/81130079" rel="noopener" target="_blank">码农翻身</a>
+        </li>
+      
+    </ul>
+  </div>
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+      
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+  <i class="fa fa-heart" aria-hidden="true"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Miss.Yang</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="站点总字数">266k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">4:02</span>
+</div>
+
+<!--
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.0</div>
+-->
+<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+<script>
+    var now = new Date(); 
+    function createtime() { 
+        var grt= new Date("09/05/2019 12:00:00");//此处修改你的建站时间或者网站上线时间 
+        now.setTime(now.getTime()+250); 
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+        document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 "; 
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+    } 
+setInterval("createtime()",250);
+</script>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+
+
+    
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.4.0"></script><script src="/js/motion.js?v=7.4.0"></script>
+<script src="/js/schemes/pisces.js?v=7.4.0"></script>
+
+<script src="/js/next-boot.js?v=7.4.0"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.4.0"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7}});</script></body>
+</html>

@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32-next.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16-next.png?v=7.4.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.0" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.4.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":true,"scrollpercent":true},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="参考文档1.廖雪峰-git教程2.git学习(廖雪峰版教程)-可借鉴笔记集中式vs分布式 集中式开发(CVS及SVN)：是将项目集中存放在中央服务器中，在工作的时候，大家只在自己电脑上操作，从同一个地方下载最新版本，然后开始工作，做完的工作再提交给中央服务器保存。这种方式需要联网. 2.分布式开发(Git)：通常也有一台充当“中央服务器”的电脑，但这个服务器的作用仅仅是用来方便“交换”大家的修改，">
+<meta name="keywords" content="GitHub">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Git基础学习">
+<meta property="og:url" content="https://yyr823.github.io/2019/09/06/git3/index.html">
+<meta property="og:site_name" content="SMILE">
+<meta property="og:description" content="参考文档1.廖雪峰-git教程2.git学习(廖雪峰版教程)-可借鉴笔记集中式vs分布式 集中式开发(CVS及SVN)：是将项目集中存放在中央服务器中，在工作的时候，大家只在自己电脑上操作，从同一个地方下载最新版本，然后开始工作，做完的工作再提交给中央服务器保存。这种方式需要联网. 2.分布式开发(Git)：通常也有一台充当“中央服务器”的电脑，但这个服务器的作用仅仅是用来方便“交换”大家的修改，">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://yyr823.github.io/2019/09/06/git3/import1.png">
+<meta property="og:image" content="https://yyr823.github.io/2019/09/06/git3/import2.png">
+<meta property="og:image" content="https://yyr823.github.io/2019/09/06/git3/import0.jpg">
+<meta property="og:image" content="https://yyr823.github.io/2019/09/06/git3/1.jpg">
+<meta property="og:image" content="https://yyr823.github.io/2019/09/06/git3/import8.png">
+<meta property="og:image" content="https://yyr823.github.io/2019/09/06/git3/2.png">
+<meta property="og:image" content="https://yyr823.github.io/2019/09/06/git3/3.png">
+<meta property="og:updated_time" content="2019-09-09T06:15:24.388Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Git基础学习">
+<meta name="twitter:description" content="参考文档1.廖雪峰-git教程2.git学习(廖雪峰版教程)-可借鉴笔记集中式vs分布式 集中式开发(CVS及SVN)：是将项目集中存放在中央服务器中，在工作的时候，大家只在自己电脑上操作，从同一个地方下载最新版本，然后开始工作，做完的工作再提交给中央服务器保存。这种方式需要联网. 2.分布式开发(Git)：通常也有一台充当“中央服务器”的电脑，但这个服务器的作用仅仅是用来方便“交换”大家的修改，">
+<meta name="twitter:image" content="https://yyr823.github.io/2019/09/06/git3/import1.png">
+  <link rel="canonical" href="https://yyr823.github.io/2019/09/06/git3/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>Git基础学习 | SMILE</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+  <div class="container use-motion">
+    <div class="headband"></div>
+<a href="https://github.com/yyr823" 
+class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#64CEAA; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">SMILE</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-about">
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-book">
+      
+    
+
+    <a href="/categories/Books/" rel="section"><i class="menu-item-icon fa fa-fw fa-book"></i> <br>书籍</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tv">
+      
+    
+
+    <a href="/categories/Tv/" rel="section"><i class="menu-item-icon fa fa-fw fa-twitch"></i> <br>影视</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger">
+        
+          <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+      </li>
+    
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+      <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block post">
+    <link itemprop="mainEntityOfPage" href="https://yyr823.github.io/2019/09/06/git3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Miss.Yang">
+      <meta itemprop="description" content="不积跬步,无以至千里;不积小流,无以成江海.">
+      <meta itemprop="image" content="/images/xz.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SMILE">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">Git基础学习
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-09-06 15:17:59" itemprop="dateCreated datePublished" datetime="2019-09-06T15:17:59+08:00">2019-09-06</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-09-09 14:15:24" itemprop="dateModified" datetime="2019-09-09T14:15:24+08:00">2019-09-09</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/GitHub/" itemprop="url" rel="index"><span itemprop="name">GitHub</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">本文字数：</span>
+              
+              <span>4.2k</span>
+            </span>
+          
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              
+              <span>4 分钟</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h4 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h4><p>1.<a href="https://www.liaoxuefeng.com/wiki/896043488029600" target="_blank" rel="noopener">廖雪峰-git教程</a></p><p>2.<a href="http://note.youdao.com/noteshare?id=4653994abae090b764e7fb65a039a7fe&sub=4B72DD531A444C5E97EB28F6A969D01D" target="_blank" rel="noopener">git学习(廖雪峰版教程)-可借鉴笔记</a></p><h4 id="集中式vs分布式"><a href="#集中式vs分布式" class="headerlink" title="集中式vs分布式"></a>集中式vs分布式</h4><ol>
+<li>集中式开发(CVS及SVN)：是将项目集中存放在中央服务器中，在工作的时候，大家只在自己电脑上操作，从同一个地方下载最新版本，然后开始工作，做完的工作再提交给中央服务器保存。这种方式需要联网.</li>
+</ol><p><img src="/2019/09/06/git3/import1.png" alt></p><p>2.分布式开发(Git)：通常也有一台充当“中央服务器”的电脑，但这个服务器的作用仅仅是用来方便“交换”大家的修改，没有它也一样干活，只是交换修改不方便而已。而每一台电脑有各自独立的开发环境(每个人电脑里都有完整的版本库，某一个人的电脑坏掉了不要紧，随便从其他人那里复制一个就可以了)，不需要联网，本地直接运行，相对集中式安全系数高很多。</p><a id="more"></a>
+
+
+
+
+<p> <img src="/2019/09/06/git3/import2.png" alt></p>
+<h4 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h4><p>最早Git是在Linux上开发的，很长一段时间内，Git也只能在Linux和Unix系统上跑。不过，慢慢地有人把它移植到了Windows上。现在，Git可以在Linux、Unix、Mac和Windows这几大平台上正常运行了。要使用Git，第一步当然是安装Git了.</p>
+<ul>
+<li><h4 id="在Linux上安装Git"><a href="#在Linux上安装Git" class="headerlink" title="在Linux上安装Git"></a>在Linux上安装Git</h4></li>
+</ul>
+<p>首先，你可以试着输入<code>git</code>，看看系统有没有安装Git：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git</span><br><span class="line">The program &apos;git&apos; is currently not installed. You can install it by typing:</span><br><span class="line">sudo apt-get install git</span><br></pre></td></tr></table></figure>
+
+<p>像上面的命令，有很多Linux会友好地告诉你Git没有安装，还会告诉你如何安装Git。</p>
+<p>如果你碰巧用Debian或Ubuntu Linux，通过一条<code>sudo apt-get install git</code>就可以直接完成Git的安装，非常简单。</p>
+<p>老一点的Debian或Ubuntu Linux，要把命令改为<code>sudo apt-get install git-core</code>，因为以前有个软件也叫GIT（GNU Interactive Tools），结果Git就只能叫<code>git-core</code>了。由于Git名气实在太大，后来就把GNU Interactive Tools改成<code>gnuit</code>，<code>git-core</code>正式改为<code>git</code>。如果是其他Linux版本，可以直接通过源码安装。先从Git官网下载源码，然后解压，依次输入：<code>./config</code>，<code>make</code>，<code>sudo make install</code>这几个命令安装就好了。</p>
+<ul>
+<li><h4 id="在Mac-OS-X上安装Git"><a href="#在Mac-OS-X上安装Git" class="headerlink" title="在Mac OS X上安装Git"></a>在Mac OS X上安装Git</h4></li>
+</ul>
+<p>如果你正在使用Mac做开发，有两种安装Git的方法。</p>
+<p>一是安装homebrew，然后通过homebrew安装Git，具体方法请参考homebrew的文档：<a href="http://brew.sh/" target="_blank" rel="noopener">http://brew.sh/</a>。</p>
+<p>第二种方法更简单，也是推荐的方法，就是直接从AppStore安装Xcode，Xcode集成了Git，不过默认没有安装，你需要运行Xcode，选择菜单“Xcode”-&gt;“Preferences”，在弹出窗口中找到“Downloads”，选择“Command Line Tools”，点“Install”就可以完成安装了。</p>
+<p><img src="/2019/09/06/git3/import0.jpg" alt></p>
+<p>Xcode是Apple官方IDE，功能非常强大，是开发Mac和iOS App的必选装备，而且是免费的！</p>
+<ul>
+<li><h4 id="在Windows上安装Git"><a href="#在Windows上安装Git" class="headerlink" title="在Windows上安装Git"></a>在Windows上安装Git</h4></li>
+</ul>
+<p>在Windows上使用Git，可以从Git官网直接<a href="https://git-scm.com/downloads" target="_blank" rel="noopener">下载安装程序</a>，（网速慢请移步<a href="https://pan.baidu.com/s/1kU5OCOB#list/path=%2Fpub%2Fgit" target="_blank" rel="noopener">国内镜像</a>），然后按默认选项安装即可。</p>
+<p>安装完成后，在开始菜单里找到“Git”-&gt;“Git Bash”，蹦出一个类似命令行窗口的东西，就说明Git安装成功！</p>
+<p><img src="/2019/09/06/git3/1.jpg" alt></p>
+<p>安装完成后，还需要最后一步设置，在命令行输入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name &quot;Your Name&quot;</span><br><span class="line">$ git config --global user.email &quot;email@example.com&quot;</span><br></pre></td></tr></table></figure>
+
+<p>因为Git是分布式版本控制系统，所以，每个机器都必须自报家门：<strong>你的名字和Email地址</strong>。你也许会担心，如果有人故意冒充别人怎么办？这个不必担心，首先我们相信大家都是善良无知的群众，其次，真的有冒充的也是有办法可查的。</p>
+<p>注意<code>git config</code>命令的<code>--global</code>参数，用了这个参数，表示你这台机器上所有的Git仓库都会使用这个配置，当然也可以对某个仓库指定不同的用户名和Email地址。</p>
+<h4 id="版本库（Repository）"><a href="#版本库（Repository）" class="headerlink" title="版本库（Repository）"></a>版本库（Repository）</h4><p>工作区有一个隐藏目录<code>.git</code>，这个不算工作区(<code>.git所在的目录下，除了.git之外的其他文件都是在工作区内</code>)，而是Git的版本库(<code>这个目录里面的所有文件都可以被Git管理起来，每个文件的修改、删除，Git都能跟踪，以便任何时刻都可以追踪历史，或者在将来某个时刻可以“还原”</code>) Git的版本库里存了很多东西，其中最重要的就是称为stage（或者叫index）的暂存区(<code>用add命令放进来文件的位置</code>)，还有Git为我们自动创建的第一个分支<code>master</code>，以及指向<code>master</code>的一个指针叫<code>HEAD</code> (<code>表示当前版本，上一个版本就是HEAD^(可以写为HEAD~1)，上上一个版本就是HEAD^^^^^(可以写为HEAD~5)</code>)</p>
+<p><img src="/2019/09/06/git3/import8.png" alt></p>
+<p>我们把文件往Git版本库里添加的时候，是分两步执行的：</p>
+<p>第一步是用<code>git add</code>把文件添加进去，实际上就是把文件修改添加到暂存区；</p>
+<p>第二步是用<code>git commit</code>提交更改，实际上就是把暂存区的所有内容提交到当前分支。</p>
+<p>因为我们创建Git版本库时，Git自动为我们创建了唯一一个<code>master</code>分支，所以，现在，<code>git commit</code>就是往<code>master</code>分支上提交更改。</p>
+<p>你可以简单理解为，需要提交的文件修改通通放到暂存区，然后，一次性提交暂存区的所有修改。</p>
+<ul>
+<li><p>如果文件在工作区被编辑，对应的status状态就是  Changes not staged for commit</p>
+</li>
+<li><p>如果工作区新增文件，则对应的status状态就是  Untracked files</p>
+</li>
+<li><p>如果文件被add后，对应的status状态就是 Changes to be committed</p>
+</li>
+<li><p>多次add后的文件都放在暂存区，最后一次性全部提交。提交后的status状态就是  nothing to commit, working tree clean</p>
+</li>
+</ul>
+<p>这时候工作区就是干净的，暂存区就没有任何内容了。</p>
+<h4 id="远程仓库"><a href="#远程仓库" class="headerlink" title="远程仓库"></a>远程仓库</h4><p>只要注册一个GitHub账号，就可以免费获得Git远程仓库.</p>
+<p>由于你的本地Git仓库和GitHub仓库之间的传输是通过SSH加密的，所以，需要一点设置：</p>
+<p>第1步：创建SSH Key。在用户主目录(在windows中就是 C:\Users\Administrator\，或者你新建了一个用户，那就是 C:\Users\用户名\)下，看看有没有.ssh目录，如果有，再看看这个目录下有没有<code>id_rsa</code>和<code>id_rsa.pub</code>这两个文件，如果已经有了，可直接跳到下一步。如果没有，打开Shell（Windows下打开Git Bash），创建SSH Key：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa - C &quot;youremail@example.com&quot;</span><br></pre></td></tr></table></figure>
+
+<p>你需要把邮件地址换成你自己的邮件地址，然后一路回车，使用默认值即可，由于这个Key也不是用于军事目的，所以也无需设置密码。如果一切顺利的话，可以在用户主目录里找到<code>.ssh</code>目录，里面有<code>id_rsa</code>和<code>id_rsa.pub</code>两个文件，这两个就是SSH Key的秘钥对，<code>id_rsa</code>是私钥，不能泄露出去，<code>id_rsa.pub</code>是公钥，可以放心地告诉任何人。</p>
+<p>第2步：登陆GitHub，打开“Account settings”，“SSH Keys”页面：</p>
+<p>然后，点“Add SSH Key”，填上任意Title，在Key文本框里粘贴<code>id_rsa.pub</code>文件的内容：</p>
+<p><img src="/2019/09/06/git3/2.png" alt></p>
+<p>点“Add Key”，你就应该看到已经添加的Key：</p>
+<p><img src="/2019/09/06/git3/3.png" alt></p>
+<p>为什么GitHub需要SSH Key呢？因为GitHub需要识别出你推送的提交确实是你推送的，而不是别人冒充的，而Git支持SSH协议，所以，GitHub只要知道了你的公钥，就可以确认只有你自己才能推送。</p>
+<p>当然，GitHub允许你添加多个Key。假定你有若干电脑，你一会儿在公司提交，一会儿在家里提交，只要把每台电脑的Key都添加到GitHub，就可以在每台电脑上往GitHub推送了。最后友情提示，在GitHub上免费托管的Git仓库，任何人都可以看到喔（但只有你自己才能改）。所以，不要把敏感信息放进去。</p>
+<h4 id="分支管理（小视频）"><a href="#分支管理（小视频）" class="headerlink" title="分支管理（小视频）"></a>分支管理（小视频）</h4><p> <a href="http://liaoxuefeng.gitee.io/git-resources/master-branch-forward.mp4" target="_blank" rel="noopener"><strong>每次提交</strong></a></p>
+<p><a href="https://liaoxuefeng.gitee.io/git-resources/master-and-dev-ff.mp4" target="_blank" rel="noopener"><strong>创建与合并分支</strong></a></p>
+<h4 id="注意小结"><a href="#注意小结" class="headerlink" title="注意小结"></a>注意小结</h4><ol>
+<li><p>Git管理的是修改，而不是文件</p>
+</li>
+<li><p>每次修改，如果不用<code>git add</code>到暂存区，那就不会加入到<code>commit</code>中</p>
+</li>
+<li><p>合并分支时，加上<code>--no-ff</code>参数就可以用普通模式合并，合并后的历史有分支，能看出来曾经做过合并，而<code>fast forward</code>合并就看不出来曾经做过合并</p>
+</li>
+<li><p>多人协作的工作模式通常是这样：</p>
+<ol>
+<li><p>首先，可以试图用<code>git push origin &lt;branch-name&gt;</code>推送自己的修改</p>
+</li>
+<li><p>如果推送失败，则因为远程分支比你的本地更新，需要先用<code>git pull</code>试图合并</p>
+</li>
+<li><p>如果合并有冲突，则解决冲突，并在本地提交</p>
+</li>
+<li><p>没有冲突或者解决掉冲突后，再用<code>git push origin &lt;branch-name&gt;</code>推送就能成功</p>
+</li>
+<li><p>如果<code>git pull</code>提示<code>no tracking information</code>，则说明本地分支和远程分支的链接关系没有创建，用命令<code>git branch --set-upstream-to= origin/&lt;branch-name&gt; &lt;branch-name&gt;</code></p>
+</li>
+</ol>
+</li>
+<li><p>标签总是和某个commit挂钩。如果这个commit既出现在master分支，又出现在dev分支，那么在这两个分支上都可以看到这个标签</p>
+</li>
+<li><p>忽略某些文件时，需要编写<code>.gitignore</code>该文件本身要放到版本库里，并且可以对<code>.gitignore</code>做版本管理</p>
+</li>
+<li><p>配置Git的时候，加上<code>--global</code>是针对当前用户(用户主目录下.gitconfig文件)起作用的，如果不加，那只针对当前的仓库起作用。每个仓库的Git配置文件都放在<code>.git/config</code>文件中</p>
+</li>
+<li><p>如果MERGE(合并)出现冲突， 则解决冲突以后必须：git add - &gt; git commit</p>
+</li>
+<li><p>禁用FAST forward模式,Git就会在MERGE时生成一个新的COMMIT，这样，从分支历史上就可以看出分支信息</p>
+</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+<div>
+  
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束  <i class="fa fa-heart"></i> 感谢您的阅读-------------</div>
+    
+</div>
+  
+</div>
+        
+      
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Miss.Yang</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://yyr823.github.io/2019/09/06/git3/" title="Git基础学习">https://yyr823.github.io/2019/09/06/git3/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-Hans" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
+</ul>
+</div>
+
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/GitHub/" rel="tag"><i class="fa fa-tag"></i> GitHub</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+		  
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2019/09/06/github3/" rel="next" title="refusing to merge unrelated histories">
+                  <i class="fa fa-chevron-left"></i> refusing to merge unrelated histories
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2019/09/06/github5/" rel="prev" title="You have not concluded your merge">
+                  You have not concluded your merge <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#参考文档"><span class="nav-number">1.</span> <span class="nav-text">参考文档</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#集中式vs分布式"><span class="nav-number">2.</span> <span class="nav-text">集中式vs分布式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装Git"><span class="nav-number">3.</span> <span class="nav-text">安装Git</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#在Linux上安装Git"><span class="nav-number">4.</span> <span class="nav-text">在Linux上安装Git</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#在Mac-OS-X上安装Git"><span class="nav-number">5.</span> <span class="nav-text">在Mac OS X上安装Git</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#在Windows上安装Git"><span class="nav-number">6.</span> <span class="nav-text">在Windows上安装Git</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#版本库（Repository）"><span class="nav-number">7.</span> <span class="nav-text">版本库（Repository）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#远程仓库"><span class="nav-number">8.</span> <span class="nav-text">远程仓库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#分支管理（小视频）"><span class="nav-number">9.</span> <span class="nav-text">分支管理（小视频）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#注意小结"><span class="nav-number">10.</span> <span class="nav-text">注意小结</span></a></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/xz.jpg"
+      alt="Miss.Yang">
+  <p class="site-author-name" itemprop="name">Miss.Yang</p>
+  <div class="site-description" itemprop="description">不积跬步,无以至千里;不积小流,无以成江海.</div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">96</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        <span class="site-state-item-count">44</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        <span class="site-state-item-count">41</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      推荐阅读
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://blog.csdn.net/u011642663/article/details/90597317" title="https://blog.csdn.net/u011642663/article/details/90597317" rel="noopener" target="_blank">设计模式看了又忘，忘了又看？</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://github.com/Snailclimb/JavaGuide" title="https://github.com/Snailclimb/JavaGuide" rel="noopener" target="_blank">Java 学习/面试指南</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="http://www.ityouknow.com/springboot/2015/12/30/springboot-collect.html" title="http://www.ityouknow.com/springboot/2015/12/30/springboot-collect.html" rel="noopener" target="_blank">Spring Boot 学习资料汇总</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://blog.csdn.net/wudinaniya/article/details/81130079" title="https://blog.csdn.net/wudinaniya/article/details/81130079" rel="noopener" target="_blank">码农翻身</a>
+        </li>
+      
+    </ul>
+  </div>
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+      
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+  <i class="fa fa-heart" aria-hidden="true"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Miss.Yang</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="站点总字数">266k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">4:02</span>
+</div>
+
+<!--
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.0</div>
+-->
+<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+<script>
+    var now = new Date(); 
+    function createtime() { 
+        var grt= new Date("09/05/2019 12:00:00");//此处修改你的建站时间或者网站上线时间 
+        now.setTime(now.getTime()+250); 
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+        document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 "; 
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+    } 
+setInterval("createtime()",250);
+</script>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+
+
+    
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.4.0"></script><script src="/js/motion.js?v=7.4.0"></script>
+<script src="/js/schemes/pisces.js?v=7.4.0"></script>
+
+<script src="/js/next-boot.js?v=7.4.0"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.4.0"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7}});</script></body>
+</html>

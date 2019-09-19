@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32-next.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16-next.png?v=7.4.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.0" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.4.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":true,"scrollpercent":true},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="异常处理(概念)出现异常(程序在运行过程中所发生的不正常事件，它会中断正在运行的程序，java中控制台里显示了问题的描述信息和发生问题的位置)时采取的一系列的措施，使系统能够继续正常运行.注：java中所有的异常类型都以Exception单词结尾。三大错误语法错误例如少写分号、使用中文双引号等，此类错误最易被解决，随着学习的深入，这些都将不再是问题。">
+<meta name="keywords" content="Exception,Log">
+<meta property="og:type" content="article">
+<meta property="og:title" content="异常处理相关内容及日志">
+<meta property="og:url" content="https://yyr823.github.io/2019/09/09/exception2/index.html">
+<meta property="og:site_name" content="SMILE">
+<meta property="og:description" content="异常处理(概念)出现异常(程序在运行过程中所发生的不正常事件，它会中断正在运行的程序，java中控制台里显示了问题的描述信息和发生问题的位置)时采取的一系列的措施，使系统能够继续正常运行.注：java中所有的异常类型都以Exception单词结尾。三大错误语法错误例如少写分号、使用中文双引号等，此类错误最易被解决，随着学习的深入，这些都将不再是问题。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://yyr823.github.io/2019/09/09/exception2/1.jpg">
+<meta property="og:image" content="https://yyr823.github.io/2019/09/09/exception2/2.png">
+<meta property="og:image" content="https://yyr823.github.io/2019/09/09/exception2/3.jpg">
+<meta property="og:image" content="https://yyr823.github.io/2019/09/09/exception2/4.png">
+<meta property="og:image" content="https://yyr823.github.io/2019/09/09/exception2/5.png">
+<meta property="og:image" content="https://yyr823.github.io/2019/09/09/exception2/6.png">
+<meta property="og:image" content="https://yyr823.github.io/2019/09/09/exception2/7.png">
+<meta property="og:image" content="https://yyr823.github.io/2019/09/09/exception2/8.png">
+<meta property="og:image" content="https://yyr823.github.io/2019/09/09/exception2/9.png">
+<meta property="og:image" content="https://yyr823.github.io/2019/09/09/exception2/10.png">
+<meta property="og:image" content="https://yyr823.github.io/2019/09/09/exception2/11.png">
+<meta property="og:image" content="https://yyr823.github.io/2019/09/09/exception2/12.png">
+<meta property="og:image" content="https://yyr823.github.io/2019/09/09/exception2/13.png">
+<meta property="og:image" content="https://yyr823.github.io/2019/09/09/exception2/14.png">
+<meta property="og:image" content="https://yyr823.github.io/2019/09/09/exception2/15.png">
+<meta property="og:image" content="https://yyr823.github.io/2019/09/09/exception2/16.jpg">
+<meta property="og:image" content="https://yyr823.github.io/2019/09/09/exception2/17.jpg">
+<meta property="og:image" content="https://yyr823.github.io/2019/09/09/exception2/18.png">
+<meta property="og:image" content="https://yyr823.github.io/2019/09/09/exception2/19.png">
+<meta property="og:image" content="https://yyr823.github.io/2019/09/09/exception2/20.png">
+<meta property="og:image" content="https://yyr823.github.io/2019/09/09/exception2/21-1.jpg">
+<meta property="og:image" content="https://yyr823.github.io/2019/09/09/exception2/22.jpg">
+<meta property="og:image" content="https://yyr823.github.io/2019/09/09/exception2/23.png">
+<meta property="og:image" content="https://yyr823.github.io/2019/09/09/exception2/24.png">
+<meta property="og:image" content="https://yyr823.github.io/2019/09/09/exception2/25.png">
+<meta property="og:image" content="https://yyr823.github.io/2019/09/09/exception2/26.jpg">
+<meta property="og:image" content="https://yyr823.github.io/2019/09/09/exception2/27.jpg">
+<meta property="og:image" content="https://yyr823.github.io/2019/09/09/exception2/28.jpg">
+<meta property="og:image" content="https://yyr823.github.io/2019/09/09/exception2/29.jpg">
+<meta property="og:image" content="https://yyr823.github.io/2019/09/09/exception2/30.jpg">
+<meta property="og:updated_time" content="2019-09-09T14:16:54.140Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="异常处理相关内容及日志">
+<meta name="twitter:description" content="异常处理(概念)出现异常(程序在运行过程中所发生的不正常事件，它会中断正在运行的程序，java中控制台里显示了问题的描述信息和发生问题的位置)时采取的一系列的措施，使系统能够继续正常运行.注：java中所有的异常类型都以Exception单词结尾。三大错误语法错误例如少写分号、使用中文双引号等，此类错误最易被解决，随着学习的深入，这些都将不再是问题。">
+<meta name="twitter:image" content="https://yyr823.github.io/2019/09/09/exception2/1.jpg">
+  <link rel="canonical" href="https://yyr823.github.io/2019/09/09/exception2/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>异常处理相关内容及日志 | SMILE</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+  <div class="container use-motion">
+    <div class="headband"></div>
+<a href="https://github.com/yyr823" 
+class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#64CEAA; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">SMILE</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-about">
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-book">
+      
+    
+
+    <a href="/categories/Books/" rel="section"><i class="menu-item-icon fa fa-fw fa-book"></i> <br>书籍</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tv">
+      
+    
+
+    <a href="/categories/Tv/" rel="section"><i class="menu-item-icon fa fa-fw fa-twitch"></i> <br>影视</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger">
+        
+          <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+      </li>
+    
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+      <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block post">
+    <link itemprop="mainEntityOfPage" href="https://yyr823.github.io/2019/09/09/exception2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Miss.Yang">
+      <meta itemprop="description" content="不积跬步,无以至千里;不积小流,无以成江海.">
+      <meta itemprop="image" content="/images/xz.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SMILE">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">异常处理相关内容及日志
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-09-09 22:07:59 / 修改时间：22:16:54" itemprop="dateCreated datePublished" datetime="2019-09-09T22:07:59+08:00">2019-09-09</time>
+            </span>
+          
+            
+
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Exception/" itemprop="url" rel="index"><span itemprop="name">Exception</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">本文字数：</span>
+              
+              <span>6.6k</span>
+            </span>
+          
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              
+              <span>6 分钟</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p><img src="/2019/09/09/exception2/1.jpg" alt="img"></p><h4 id="异常处理-概念"><a href="#异常处理-概念" class="headerlink" title="异常处理(概念)"></a><strong>异常处理(概念)</strong></h4><p>出现异常(<strong>程序在运行过程中所发生的不正常事件，它会中断正在运行的程序，java中控制台里显示了问题的描述信息和发生问题的位置</strong>)时采取的一系列的措施，使系统能够继续正常运行.</p><p><strong>注：</strong>java中所有的异常类型都以<strong>Exception</strong>单词结尾。</p><h4 id="三大错误"><a href="#三大错误" class="headerlink" title="三大错误"></a><strong>三大错误</strong></h4><h5 id="语法错误"><a href="#语法错误" class="headerlink" title="语法错误"></a>语法错误</h5><p>例如少写分号、使用中文双引号等，此类错误最易被解决，随着学习的深入，这些都将不再是问题。</p><a id="more"></a>
+
+
+
+<h5 id="逻辑错误"><a href="#逻辑错误" class="headerlink" title="逻辑错误"></a>逻辑错误</h5><p>例如用错了运算符，结果是有的但是可能给我们预期的不一样，通过调试通常能解决这个问题。</p>
+<h5 id="运行时错误（也可以叫异常"><a href="#运行时错误（也可以叫异常" class="headerlink" title="运行时错误（也可以叫异常)"></a>运行时错误（也可以叫异常)</h5><p>正常情况，或者正常输入都不会有问题，只有在某些特殊情况（比如：网络断了、硬盘电源线接触不良了等）或者特殊输入时（比如：输入了边界值），程序出现问题甚至崩溃。这种问题，最难被发现，有些问题甚至经过严格的测试，也不容易出现，java中必须提供相应的包含机制来搞定这类错误。</p>
+<h4 id="表示异常情况"><a href="#表示异常情况" class="headerlink" title="表示异常情况"></a><strong>表示异常情况</strong></h4><p><strong>eg:</strong></p>
+<blockquote>
+<p>假如你开车不小心闯红灯，这时候一个交警向你敬个礼说：你好，你触犯《道路交通安全法》第26条：“红灯表示禁止通行”，依据《道路交通安全法》第90条：“处警告或者二十元以上二百元以下罚款”；对你罚款200元。如下图所示。这就是一个异常，怎么表示这个异常呢？</p>
+</blockquote>
+<p>这个异常<strong>有罚款金额200元，罚款原因：闯红灯，责任人：司机，处理人：交警张华</strong>。</p>
+<p>Java语言是按照<strong>面向对象</strong>的思想来处理异常，使得程序具有更好的<strong>可维护性</strong>。</p>
+<h4 id="Java异常处理机制具有以下优点"><a href="#Java异常处理机制具有以下优点" class="headerlink" title="Java异常处理机制具有以下优点"></a>Java异常处理机制具有以下优点</h4><p>​        1.把各种不同类型的异常情况进行分类，用Java类来表示异常情况，这种类被称为<strong>异常类</strong>。把异常情况表示成异常类，可以充分发挥类的<strong>可扩展</strong>和<strong>可重用</strong>的优势。</p>
+<p>​         2.异常流程的代码和正常流程的代码分离，提高了程序的<strong>可读性</strong>，简化了程序的结构。</p>
+<p>​         3.可以灵活地处理异常,<strong>如果当前方法有能力处理异常，就捕获并处理它,否则只需抛出异常,由方法调用者来处理它</strong>。</p>
+<p><strong>Java已经把程序在运行中出现的大部分异常都设计好了，我们只需要直接拿着使用就行了</strong>。</p>
+<h4 id="Java的异常体系结构"><a href="#Java的异常体系结构" class="headerlink" title="Java的异常体系结构"></a>Java的异常体系结构</h4><p><img src="/2019/09/09/exception2/2.png" alt="img"></p>
+<p><strong>Exception</strong>是<strong>异常类的祖先</strong>，处于继承关系的<strong>最顶层</strong>.</p>
+<p><img src="/2019/09/09/exception2/3.jpg" alt="img"></p>
+<h4 id="如何控制处理异常的流程"><a href="#如何控制处理异常的流程" class="headerlink" title="如何控制处理异常的流程"></a>如何控制处理异常的流程</h4><p>正确运用Java提供的一套<strong>完整的异常处理机制</strong>，有助于提供程序的<strong>健壮性</strong>。</p>
+<p>所谓程序的<strong>健壮性</strong>，就是指程序在正常情况下返回正确结果；如果遇到异常情况，程序也能采取周到的解决措施。相反，<strong>不健壮</strong>的程序则不能事先预计到可能会出现的异常，或没有提供强大的异常处理措施，导致<strong>程序终止</strong>或返回<strong>错误结果</strong>，很难检测到异常原因。</p>
+<p>Java的异常处理机制主要是通过<strong>五个关键字</strong>来实现的：</p>
+<p>1.<code>try</code>：我们通常把<strong>可能出现问题的代码</strong>放到try块中。</p>
+<p>2.<code>catch</code>：如果try块中的代码在执行过程中，真的出现了异常，则<strong>catch用来捕获这个异常</strong>，从而让系统恢复正常不至于崩溃；如果<strong>try块中没有出现异常，则catch块中的代码，不会被执行</strong>。你可以认为catch是一个消防部门。</p>
+<p><img src="/2019/09/09/exception2/4.png" alt="img"></p>
+<p>注:catch后的小括号中是需要捕捉的异常类型参数.</p>
+<ul>
+<li>输入被除数为10.0  ：</li>
+</ul>
+<p>出现了两个异常：<strong><code>InputMismatchException</code></strong>和<strong><code>ArithmeticException</code></strong>。但程序并没有因为异常的出现而中断。</p>
+<p><img src="/2019/09/09/exception2/5.png" alt="img"></p>
+<ul>
+<li>输入除数为0：</li>
+</ul>
+<p><img src="/2019/09/09/exception2/6.png" alt="img"></p>
+<p><strong>实际应用中try-catch语句块分三种情况：</strong></p>
+<p><strong>1、try语句块未出现异常</strong></p>
+<p>如果try语句块中的代码在运行时<strong>没有发生异常</strong>，那么catch语句块中的所有语句将<strong>被忽略</strong>，不会执行</p>
+<p><strong>2、 try语句块出现异常</strong></p>
+<p>如果try语句块的代码在运行时<strong>出现异常</strong>，那么在try语句块中，出现异常的那行代码之后的代码将不会执行，而catch块中的语句<strong>都会执行</strong>.</p>
+<p><strong>3.try语句块出现异常，catch不匹配 ？？</strong></p>
+<p>如果try语句块的代码在运行时出现了异常，但是这个异常与catch中捕捉的<strong>异常类型不匹配</strong>，这时程序就中断（崩溃）。</p>
+<p><img src="/2019/09/09/exception2/7.png" alt="img"></p>
+<p><img src="/2019/09/09/exception2/8.png" alt="img"></p>
+<p>最后一句“System.out.println(“程序执行完毕！”);”并没有执行；程序直接中断执行。</p>
+<p><strong>注：当异常真正发生时，之后的代码不会再被执行。</strong></p>
+<p><strong>多重catch块：</strong></p>
+<p><img src="/2019/09/09/exception2/9.png" alt="img"></p>
+<p><strong>注意：</strong></p>
+<p>1.当try语句块出现异常时，Java系统会<strong>自上而下</strong>分别对每个catch块进行异常类型匹配，并执行<strong>第一个</strong>与异常类型<strong>匹配</strong>的catch块，这个catch块一旦执行，其后的所有catch块都会<strong>被忽略</strong>。</p>
+<p>2.多重catch块正常的编写顺序是<strong>先子类后父类</strong>，最后一个一般都是顶层的<strong>Exception</strong>类。</p>
+<p><strong>eg:</strong></p>
+<p><img src="/2019/09/09/exception2/10.png" alt="img"></p>
+<p>3.<code>finally</code>:try块或catch块的代码执行后，如果存在finally块，则执行此块中代码。</p>
+<blockquote>
+<p>释放资源的代码一般写在finally中。</p>
+<p>finally{</p>
+<ul>
+<li><p>在所有其他的错误过程发生之后被无条件执行的语句</p>
+</li>
+<li><p>可以在异常发生或未发生的之后<strong>无条件释放资源</strong>。</p>
+</li>
+<li><p>包含异常处理程序和<strong>清理</strong>代码。</p>
+</li>
+</ul>
+<p>}</p>
+</blockquote>
+<p><img src="/2019/09/09/exception2/11.png" alt="img"></p>
+<p>关闭水龙头将<strong>不被执行</strong>，这样的流程显然是<strong>不安全</strong>的，必须要保证关闭水龙头在任何情况下都要被执行。</p>
+<p><strong>Finally</strong>代码块能保证特定的操作<strong>总会被执行</strong>。放在该语句块中的代码不管try语句是否出现异常都会被执行，特别是当try-catch语句块中有<strong>return</strong>语句时，finally块还是会<strong>被执行</strong>。return语句会在finally语句块<strong>之后</strong>执行。</p>
+<p><img src="/2019/09/09/exception2/12.png" alt="img"></p>
+<p><img src="/2019/09/09/exception2/13.png" alt="img"></p>
+<p>4.<code>throw</code>：程序员可以利用此关键字来<strong>自己抛出一个异常</strong>。在某些时候是非常有必要的。</p>
+<p><img src="/2019/09/09/exception2/14.png" alt="img"></p>
+<p><img src="/2019/09/09/exception2/15.png" alt="img"></p>
+<p>5.<code>throws</code>：用在方法前声明此方法可能会产生某种类型异常，它强制要求方法的调用者必须用try-catch来处理。</p>
+<p><img src="/2019/09/09/exception2/16.jpg" alt="img"></p>
+<p>throws关键字后面可以同时声明<strong>多个异常</strong>，中间用<strong>逗号隔开</strong>。</p>
+<h5 id="Exception类自带的方法"><a href="#Exception类自带的方法" class="headerlink" title="Exception类自带的方法"></a>Exception类自带的方法</h5><p>可以帮我们<strong>了解异常的相关信息</strong>：</p>
+<p><img src="/2019/09/09/exception2/17.jpg" alt="img"></p>
+<p><strong>eg：</strong></p>
+<p><img src="/2019/09/09/exception2/18.png" alt="img"></p>
+<p><img src="/2019/09/09/exception2/19.png" alt="img"></p>
+<h4 id="异常处理语句的语法规则"><a href="#异常处理语句的语法规则" class="headerlink" title="异常处理语句的语法规则"></a>异常处理语句的语法规则</h4><ol>
+<li><p><strong>try代码块不能脱离catch代码块或finally代码块而单独存在。</strong>try代码块后面至少有一个catch代码块或finally代码块；否则编译出错.</p>
+</li>
+<li><p><strong>try代码块后面可以零个或多个catch代码块，还可以有零个或至多一个finally代码块</strong>。如果catch代码块和finally代码块并存，finally代码块必须在catch代码块后面。</p>
+</li>
+<li><p><strong>try代码块后面可以只跟finally代码块</strong>。</p>
+</li>
+<li><p><strong>在try代码块中定义的变量的作用域为try代码块，在catch代码块和finally代码块不能访问该变量</strong>。</p>
+</li>
+</ol>
+<p><img src="/2019/09/09/exception2/20.png" alt="img"></p>
+<p>5.<strong>当try代码块后面有多个catch代码块时，Java虚拟机会把实际抛出的异常对象依次和各个catch代码块声明的异常类型匹配，如果异常对象为某个异常类型或其子类的实例，就执行这个catch代码块，而不会再执行其他的catch代码块</strong>。</p>
+<p>在以下代码块中文件读写的语句会抛出<code>FileNotFoundException</code>异常，<code>FileNotFoundException</code>类是<code>IOException</code>类的子类，而<code>IOException</code>类是<code>Exception</code>的子类。Java系统把<code>FileNotFoundException</code>对象于<code>IOException</code>类匹配，因此当出现<code>FileNotFoundException</code>时，程序的打印结果为“文件读写错误”。</p>
+<p><img src="/2019/09/09/exception2/21-1.jpg" alt="img"></p>
+<p>6.<strong>如果一个方法可能出现检查异常，要么用try…catch语句捕获，要么用throws字句声明将其抛出，否则会导致编译错误</strong>。</p>
+<p><img src="/2019/09/09/exception2/22.jpg" alt="img"></p>
+<p><strong>使用try…catch语句处理异常？？？？</strong></p>
+<p><img src="/2019/09/09/exception2/23.png" alt="img"></p>
+<p><strong>使用throws语句声明抛出异常</strong></p>
+<p><img src="/2019/09/09/exception2/24.png" alt="img"></p>
+<p>7.<strong>throw语句后面不允许紧跟其他的语句，因为这些语句永远不会被执行</strong>.</p>
+<p><img src="/2019/09/09/exception2/25.png" alt="img"></p>
+<h5 id="throw-与-throws"><a href="#throw-与-throws" class="headerlink" title="throw 与  throws"></a>throw 与  throws</h5><ul>
+<li><p>throw:用于语句中抛出异常，后跟一个异常对象，只能抛出一个。</p>
+</li>
+<li><p>throws:用于抛出异常，将异常抛出方法体外，后跟异常类型，可抛多个。</p>
+</li>
+</ul>
+<h4 id="方法退出有几种方式"><a href="#方法退出有几种方式" class="headerlink" title="方法退出有几种方式"></a>方法退出有几种方式</h4><p>1.正常执行完退出。</p>
+<p>2.遇到return退出。</p>
+<p>3.遇到Exception(异常)退出。</p>
+<h4 id="日志"><a href="#日志" class="headerlink" title="日志"></a>日志</h4><blockquote>
+<p>把软件系统在运行期间产生的异常信息记录到一个文件</p>
+</blockquote>
+<h5 id="log4j日志工具"><a href="#log4j日志工具" class="headerlink" title="log4j日志工具"></a><strong>log4j日志工具</strong></h5><p><strong>简介</strong>log4j是<strong>Apache</strong>的一个开源项目，也是一个非常优秀的日志记录工具。通过使用log4j，我们可以很方便的控制日志的<strong>输出级别</strong>、<strong>格式</strong>以及<strong>目的地</strong>。 log4j官方站点是<a href="http://logging.apache.org/log4j/" target="_blank" rel="noopener">http://logging.apache.org/log4j/</a>要使用log4j，首先需要到官方网站上下载log4j的Jar文件。 <strong>Jar即Java Archive，称之为Java 归档文件</strong>。它是一种与平台无关的文件格式，可以把许多文件组合成一个压缩文件，可以简单的认为Jar就是Java中的rar文件。我们使用普通的压缩包软件就可以把Jar文件进行解压。下图就是log4j的Jar被解压后的文件。</p>
+<p><img src="/2019/09/09/exception2/26.jpg" alt="img"></p>
+<p>我们可以看到Jar里面大部分都是编译好的class文件，将来使用log4j时就需要用到其中的<strong>Logger.class</strong>。</p>
+<h5 id="使用log4j"><a href="#使用log4j" class="headerlink" title="使用log4j"></a><strong>使用log4j</strong></h5><p><strong>eg:</strong></p>
+<p>将提供给大家的log4j-1.2.17.jar文件，导入到项目中，使用Logger对象，记录异常信息到文件中的同时，把异常信息一并显示到控制台界面中。</p>
+<p>实现步骤：</p>
+<p>​        a. 把log4j的Jar文件导入到项目中。在Eclipse中的项目上单击右键，然后在右键菜单中单击最后一项【Properties】打开如下图所示的对话框。</p>
+<p><img src="/2019/09/09/exception2/27.jpg" alt="img"></p>
+<p>​    在对话框中先选择左边的【Java Build Path】节点，然后单击右边的【Libraries】选项卡，最后单击【Add External JARs…】选择本机上log4j的Jar文件就行了。</p>
+<p>​         b.创建和编写log4j.properties文件。  <strong>注意，请把此配置文件放到src目录下</strong>，该文件是log4j的配置文件，用来配置日志的相关信息，例如日志的输出格式、级别和目的地等。下面实例给出了该配置文件的一个参考代码，各配置项的具体含义会在后面做详细讲解。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//将日志信息输出到控制台</span></span><br><span class="line"></span><br><span class="line">log4j.appender.stdout=org.apache.log4j**.ConsoleAppender**</span><br><span class="line"></span><br><span class="line">log4j.appender.stdout.Target=System.out</span><br><span class="line"></span><br><span class="line">log4j.appender.stdout.layout=org.apache.log4j.SimpleLayout</span><br><span class="line"></span><br><span class="line"><span class="comment">//将日志信息输出到test.log</span></span><br><span class="line"></span><br><span class="line">log4j.appender.file=org.apache.log4j.FileAppender</span><br><span class="line"></span><br><span class="line">log4j.appender.file.File=**test.log**</span><br><span class="line"></span><br><span class="line">log4j.appender.file.layout=org.apache.log4j.PatternLayout</span><br><span class="line"></span><br><span class="line">log4j.appender.file.layout.ConversionPattern=%d&#123;yyyy-MM-dd HH:mm:ss&#125; %l %m%n</span><br><span class="line"></span><br><span class="line"><span class="comment">//设置日志的输出级别和目的地</span></span><br><span class="line"></span><br><span class="line">log4j.rootLogger=**debug**, stdout,file</span><br></pre></td></tr></table></figure>
+
+<p>​        c.在程序中使用log4j编码实现记录日志，<strong>注意</strong>：第8行的<strong>log</strong>为当前类的类名，如果你的类名为<strong>Test</strong>，则需要修改为Test。</p>
+<p><img src="/2019/09/09/exception2/28.jpg" alt="img"></p>
+<p>在上述代码中，我们首先创建了一个Logger对象，这个对象是用来替代System.out 的日志记录器。它提供了很多方法来输出不同级别的日志信息，见下表。</p>
+<table>
+<thead>
+<tr>
+<th><strong>方法列表</strong></th>
+<th>级别</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>public void fatal(Objectmsg)</td>
+<td>致命的</td>
+</tr>
+<tr>
+<td><strong>public void error(Objectmsg)</strong></td>
+<td>错误的</td>
+</tr>
+<tr>
+<td>public void warn(Objectmsg)</td>
+<td>警告的</td>
+</tr>
+<tr>
+<td>public void info(Objectmsg)</td>
+<td>信息提示的</td>
+</tr>
+<tr>
+<td>public void debug(Object msg)</td>
+<td>调试的</td>
+</tr>
+</tbody></table>
+<p>运行时我们先输入一个10.0产生一个异常，然后再次运行程序输入10和0会再产生一个异常，最后打开test.log文件就能看到日志信息，如下图所示。</p>
+<p><img src="/2019/09/09/exception2/29.jpg" alt="img"></p>
+<h5 id="log4j配置文件"><a href="#log4j配置文件" class="headerlink" title="log4j配置文件"></a><strong>log4j配置文件</strong></h5><p>​        通过上面的例子我们发现在项目中使用log4j非常简单，其中一个很关键的地方就是那个log4j.properties配置文件。下面我们就对这个配置文件进行详细讲解。</p>
+<h6 id="配置日志的输出级别和有效目的地"><a href="#配置日志的输出级别和有效目的地" class="headerlink" title="配置日志的输出级别和有效目的地"></a>配置日志的输出级别和有效目的地</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//设置日志的输出级别和有效目的地</span></span><br><span class="line">log4j.rootLogger=debug,stdout,file</span><br></pre></td></tr></table></figure>
+
+<p>log4j.rootLogger属性的值有三个，用逗号进行了分隔。第一个值表示输出日志的<strong>级别</strong>，后面两个值表示哪些<strong>目的地</strong>有效。log4j的主要输出级别有：<code>fatal、error、warn、info、debug</code>， 它们的优先级<strong>从高到低</strong>依次为：<strong><code>fatal &gt; error &gt; warn &gt; info &gt;debug</code></strong>。 这些级别与上表中的方法有对应关系，日志记录器（Logger对象）将只输出那些级别<strong>高于</strong>或<strong>等于</strong>它的级别的信息。</p>
+<p><strong>eg:</strong></p>
+<p>如果级别设置为info，那么在程序中调用<strong>fatal(Object msg)</strong>、<strong>error(Object msg)</strong> 、<strong>warn(Object msg)</strong>、<strong>info(Object msg)</strong>方法将输出日志信息，而调用<strong>debug(Object msg)</strong>方法将不会输出日志信息。</p>
+<h6 id="配置日志输出目的地"><a href="#配置日志输出目的地" class="headerlink" title="配置日志输出目的地"></a>配置日志输出目的地</h6><p>log4j允许将日志输出到多个目的地，一个输出目的地被称作一个appender。log4j中最常用的<strong>appender</strong>有以下两种：</p>
+<p> a.<strong><code>ConsoleAppender</code></strong>：</p>
+<p>输出日志信息到控制台，可以通过属性log4j.appender.stdout进 行配置，与之相关的<strong>log4j.appender.stdout.Target</strong>属性的默认值是<strong>System.out</strong>。</p>
+<p>b.<strong><code>FileAppender</code></strong>：</p>
+<p>输出日志信息到一个文件，可以通过属性log4j.appender.file进行配 置，与之相关的<strong>log4j.appender.file.File</strong>属性可以配置该文件的<strong>路径</strong>及<strong>名称</strong>，该文件不需要我们事先创建好，如果不存在，log4j会<strong>自动创建</strong>。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//将日志信息输出到控制台</span></span><br><span class="line">log4j.appender.stdout=org.apache.log4j.ConsoleAppender</span><br><span class="line"></span><br><span class="line">log4j.appender.stdout.Target=System.out</span><br><span class="line"></span><br><span class="line"><span class="comment">//将日志信息输出到文件</span></span><br><span class="line"></span><br><span class="line">log4j.appender.file=org.apache.log4j.FileAppender</span><br><span class="line"></span><br><span class="line">log4j.appender.file.File=test.log</span><br></pre></td></tr></table></figure>
+
+<h6 id="日志布局及格式"><a href="#日志布局及格式" class="headerlink" title="日志布局及格式"></a>日志布局及格式</h6><p>log4j可以配置日志的布局及格式，最常用的有以下三种：</p>
+<p>(1) <strong><code>HTMLLayout</code></strong>：将日志信息输出为HTML表格。参考代码如下所示：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">log4j.appender.file=org.apache.log4j.FileAppender</span><br><span class="line">log4j.appender.file.File=test.html</span><br><span class="line">log4j.appender.file.layout=org.apache.log4j.HTMLLayout</span><br></pre></td></tr></table></figure>
+
+<p>运行结果如下图所示。</p>
+<p><img src="/2019/09/09/exception2/30.jpg" alt="img"></p>
+<p>(2) <strong><code>SimpleLayout</code></strong>：这是最简单的一种输出格式，只输出了日志级别和异常提示信息。</p>
+<p>(3) <strong><code>PatternLayout</code></strong>：自定义输出格式，需要通过log4j.appender.file.layout.ConversionPattern属性来设置格式，常用的参数如下所示：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">%d：用来设置输出日志的日期和时间格式，默认格式为IS08601，也可以自定义格 式，例如%d&#123;yyyy-MM-dd HH : mm : ss&#125;，输出格式类似于<span class="number">2010</span>-<span class="number">03</span>-<span class="number">0917</span> : <span class="number">51</span>。</span><br><span class="line"></span><br><span class="line">%m：用来输出代码中设置的异常提示信息。</span><br><span class="line"></span><br><span class="line">%n：用来输出一个回车换行符。</span><br><span class="line"></span><br><span class="line">%I：用来输出日志事件的发生位置，包括类名、发生错误的行号等信息。</span><br><span class="line"></span><br><span class="line">%F：用来输出文件名。</span><br><span class="line"></span><br><span class="line">%M：用来输出方法名。</span><br><span class="line"></span><br><span class="line">log4j.appender.file.layout=org.apache.log4j.PatternLayout</span><br><span class="line"></span><br><span class="line">log4j.appender.file.layout.ConversionPattern=%d&#123;yyyy-MM-dd HH:mm:ss&#125; %l %m%n</span><br></pre></td></tr></table></figure>
+
+<p><strong>注意：</strong></p>
+<p><code>log4j.properties</code>文件<strong>不能</strong>随意命名，而且<strong>必须</strong>放置在<strong>src根目录</strong>下。</p>
+
+    </div>
+
+    
+    
+    
+<div>
+  
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束  <i class="fa fa-heart"></i> 感谢您的阅读-------------</div>
+    
+</div>
+  
+</div>
+        
+      
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Miss.Yang</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://yyr823.github.io/2019/09/09/exception2/" title="异常处理相关内容及日志">https://yyr823.github.io/2019/09/09/exception2/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-Hans" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
+</ul>
+</div>
+
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/Exception/" rel="tag"><i class="fa fa-tag"></i> Exception</a>
+            
+              <a href="/tags/Log/" rel="tag"><i class="fa fa-tag"></i> Log</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+		  
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2019/09/09/http2/" rel="next" title="图形展示状态码">
+                  <i class="fa fa-chevron-left"></i> 图形展示状态码
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2019/09/10/springboot5/" rel="prev" title="Cannot find template location(s) [classpathtemplates]">
+                  Cannot find template location(s) [classpathtemplates] <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#异常处理-概念"><span class="nav-number">1.</span> <span class="nav-text">异常处理(概念)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三大错误"><span class="nav-number">2.</span> <span class="nav-text">三大错误</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#语法错误"><span class="nav-number">2.1.</span> <span class="nav-text">语法错误</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#逻辑错误"><span class="nav-number">2.2.</span> <span class="nav-text">逻辑错误</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#运行时错误（也可以叫异常"><span class="nav-number">2.3.</span> <span class="nav-text">运行时错误（也可以叫异常)</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#表示异常情况"><span class="nav-number">3.</span> <span class="nav-text">表示异常情况</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Java异常处理机制具有以下优点"><span class="nav-number">4.</span> <span class="nav-text">Java异常处理机制具有以下优点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Java的异常体系结构"><span class="nav-number">5.</span> <span class="nav-text">Java的异常体系结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#如何控制处理异常的流程"><span class="nav-number">6.</span> <span class="nav-text">如何控制处理异常的流程</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Exception类自带的方法"><span class="nav-number">6.1.</span> <span class="nav-text">Exception类自带的方法</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#异常处理语句的语法规则"><span class="nav-number">7.</span> <span class="nav-text">异常处理语句的语法规则</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#throw-与-throws"><span class="nav-number">7.1.</span> <span class="nav-text">throw 与  throws</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#方法退出有几种方式"><span class="nav-number">8.</span> <span class="nav-text">方法退出有几种方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#日志"><span class="nav-number">9.</span> <span class="nav-text">日志</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#log4j日志工具"><span class="nav-number">9.1.</span> <span class="nav-text">log4j日志工具</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#使用log4j"><span class="nav-number">9.2.</span> <span class="nav-text">使用log4j</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#log4j配置文件"><span class="nav-number">9.3.</span> <span class="nav-text">log4j配置文件</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#配置日志的输出级别和有效目的地"><span class="nav-number">9.3.1.</span> <span class="nav-text">配置日志的输出级别和有效目的地</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#配置日志输出目的地"><span class="nav-number">9.3.2.</span> <span class="nav-text">配置日志输出目的地</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#日志布局及格式"><span class="nav-number">9.3.3.</span> <span class="nav-text">日志布局及格式</span></a></li></ol></li></ol></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/xz.jpg"
+      alt="Miss.Yang">
+  <p class="site-author-name" itemprop="name">Miss.Yang</p>
+  <div class="site-description" itemprop="description">不积跬步,无以至千里;不积小流,无以成江海.</div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">96</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        <span class="site-state-item-count">44</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        <span class="site-state-item-count">41</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      推荐阅读
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://blog.csdn.net/u011642663/article/details/90597317" title="https://blog.csdn.net/u011642663/article/details/90597317" rel="noopener" target="_blank">设计模式看了又忘，忘了又看？</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://github.com/Snailclimb/JavaGuide" title="https://github.com/Snailclimb/JavaGuide" rel="noopener" target="_blank">Java 学习/面试指南</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="http://www.ityouknow.com/springboot/2015/12/30/springboot-collect.html" title="http://www.ityouknow.com/springboot/2015/12/30/springboot-collect.html" rel="noopener" target="_blank">Spring Boot 学习资料汇总</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://blog.csdn.net/wudinaniya/article/details/81130079" title="https://blog.csdn.net/wudinaniya/article/details/81130079" rel="noopener" target="_blank">码农翻身</a>
+        </li>
+      
+    </ul>
+  </div>
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+      
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+  <i class="fa fa-heart" aria-hidden="true"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Miss.Yang</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="站点总字数">266k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">4:02</span>
+</div>
+
+<!--
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.0</div>
+-->
+<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+<script>
+    var now = new Date(); 
+    function createtime() { 
+        var grt= new Date("09/05/2019 12:00:00");//此处修改你的建站时间或者网站上线时间 
+        now.setTime(now.getTime()+250); 
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+        document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 "; 
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+    } 
+setInterval("createtime()",250);
+</script>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+
+
+    
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.4.0"></script><script src="/js/motion.js?v=7.4.0"></script>
+<script src="/js/schemes/pisces.js?v=7.4.0"></script>
+
+<script src="/js/next-boot.js?v=7.4.0"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.4.0"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7}});</script></body>
+</html>

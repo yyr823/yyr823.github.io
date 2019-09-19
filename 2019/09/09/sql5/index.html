@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32-next.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16-next.png?v=7.4.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.0" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.4.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":true,"scrollpercent":true},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="什么是数据源？ 数据源定义的是连接到实际数据库的一条路径而已，数据源中并无真正的数据，它仅仅记录的是你连接到哪个数据库，以及如何连接的，如odbc数据源。也就是说数据源仅仅是数据库的连接名称，一个数据库可以有多个数据源连接.在Java语言中，DataSource对象就是一个代表数据源实体的对象。一个数据源就是一个用来存储数据的工具，它可以是复杂的大型企业级数据库，也可以是简单得只有行和列的文件。数">
+<meta name="keywords" content="SQL">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据源-连接池(部分知识点)">
+<meta property="og:url" content="https://yyr823.github.io/2019/09/09/sql5/index.html">
+<meta property="og:site_name" content="SMILE">
+<meta property="og:description" content="什么是数据源？ 数据源定义的是连接到实际数据库的一条路径而已，数据源中并无真正的数据，它仅仅记录的是你连接到哪个数据库，以及如何连接的，如odbc数据源。也就是说数据源仅仅是数据库的连接名称，一个数据库可以有多个数据源连接.在Java语言中，DataSource对象就是一个代表数据源实体的对象。一个数据源就是一个用来存储数据的工具，它可以是复杂的大型企业级数据库，也可以是简单得只有行和列的文件。数">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-09-10T01:11:58.710Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="数据源-连接池(部分知识点)">
+<meta name="twitter:description" content="什么是数据源？ 数据源定义的是连接到实际数据库的一条路径而已，数据源中并无真正的数据，它仅仅记录的是你连接到哪个数据库，以及如何连接的，如odbc数据源。也就是说数据源仅仅是数据库的连接名称，一个数据库可以有多个数据源连接.在Java语言中，DataSource对象就是一个代表数据源实体的对象。一个数据源就是一个用来存储数据的工具，它可以是复杂的大型企业级数据库，也可以是简单得只有行和列的文件。数">
+  <link rel="canonical" href="https://yyr823.github.io/2019/09/09/sql5/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>数据源-连接池(部分知识点) | SMILE</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+  <div class="container use-motion">
+    <div class="headband"></div>
+<a href="https://github.com/yyr823" 
+class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#64CEAA; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">SMILE</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-about">
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-book">
+      
+    
+
+    <a href="/categories/Books/" rel="section"><i class="menu-item-icon fa fa-fw fa-book"></i> <br>书籍</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tv">
+      
+    
+
+    <a href="/categories/Tv/" rel="section"><i class="menu-item-icon fa fa-fw fa-twitch"></i> <br>影视</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger">
+        
+          <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+      </li>
+    
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+      <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block post">
+    <link itemprop="mainEntityOfPage" href="https://yyr823.github.io/2019/09/09/sql5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Miss.Yang">
+      <meta itemprop="description" content="不积跬步,无以至千里;不积小流,无以成江海.">
+      <meta itemprop="image" content="/images/xz.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SMILE">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">数据源-连接池(部分知识点)
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-09-09 14:01:59" itemprop="dateCreated datePublished" datetime="2019-09-09T14:01:59+08:00">2019-09-09</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-09-10 09:11:58" itemprop="dateModified" datetime="2019-09-10T09:11:58+08:00">2019-09-10</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/SQL/" itemprop="url" rel="index"><span itemprop="name">SQL</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">本文字数：</span>
+              
+              <span>3.6k</span>
+            </span>
+          
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              
+              <span>3 分钟</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h5 id="什么是数据源？"><a href="#什么是数据源？" class="headerlink" title="什么是数据源？"></a>什么是数据源？</h5><blockquote>
+<p>数据源定义的是连接到实际数据库的一条路径而已，数据源中并无真正的数据，它仅仅记录的是你连接到哪个数据库，以及如何连接的，如odbc数据源。也就是说数据源仅仅是数据库的连接名称，一个数据库可以有多个数据源连接.在Java语言中，DataSource对象就是一个代表数据源实体的对象。一个数据源就是一个用来存储数据的工具，它可以是复杂的大型企业级数据库，也可以是简单得只有行和列的文件。数据源可以位于在服务器端，也可以位于客服端。</p>
+</blockquote><a id="more"></a>
+<p>数据源（DataSource）用来连接数据库，创建连接（Connection）对象。 <code>java.sql.DataSource</code>接口负责建立与数据库的连接由Tomcat提供，将连接保存在连接池中。</p>
+<h5 id="什么是数据库连接池？"><a href="#什么是数据库连接池？" class="headerlink" title="什么是数据库连接池？"></a>什么是数据库连接池？</h5><p>数据库连接是负责分配、管理和释放数据库连接。使用数据库连接池是因为数据库连接是一种关键的有限的昂贵的资源，这一点在多用户的网页应用程序中体现得尤为突出。如weblogic、tomcat、WebSphere容器都实现了数据库连接池，但是数据库连接池是可以独立出来自己编码实现的。</p>
+<p> 数据库连接池在系统启动时初始化了一定量maxIdle=idlenum的数据库连接，即没有他的使用中的链接被释放的情况下，连接池中保存的最大空闲链接数。数据库连接请求如果没有超过idle的值则直接去连接池中获取；如果超过了maxIdle的值则新建一个数据库连接；但如果数据库连接池中的连接总数超过了maxActive=activenum则 (如下处理)；</p>
+<ul>
+<li><p>直接抛错</p>
+</li>
+<li><p>让想要借出连接的线程等待一段时间，如果等不到，再抛错</p>
+</li>
+<li><p>每隔一段检查一次<code>pool</code>，直到有可用连接，否则一直等下去</p>
+</li>
+<li><p>永远可以拿到(视情况需要<code>maxActive</code>不设置或0或负)  </p>
+</li>
+</ul>
+<p>但当没有可以使用的数据库链接的时候，连接池将要等待一个链接被返回的最长时间（毫秒）<code>maxWait=waitnum</code>，超过这个时间就要抛出异常。</p>
+<h5 id="什么是jndi？"><a href="#什么是jndi？" class="headerlink" title="什么是jndi？"></a>什么是jndi？</h5><p>jndi全称是<code>java naming and directory interface</code>。简单点就是你按命名规则给一个东西命名然后你就可以通过该名字在特定环境下直接查找到该东西了。</p>
+<p>JNDI是用于向Java程序提供目录和命名功能的API。可以简单地把JNDI理解为一种将对象和名字绑定的技术，对象工厂负责生产出对象，这些对象都和惟一的名字绑定。外部程序可以通过名字来获取对某个对象的引用。在一个文件系统中，文件名被绑定给文件。在DNS中，一个IP地址绑定一个URL。在目录服务中，一个对象名被绑定给一个对象实体。</p>
+<p>在Intranets(企业内部网)和<code>Internates</code>（互联网）中目录服务(Directory service)都非常重要，它规范了命名规则，让人们容易理解实体及之间的关系。JNDI是Java平台的一个标准扩展，提供了一组接口、类和关于命名空间的概念。JNDI目前所支持的技术包括<code>LDAP、CORBA Common Object Service（COS）名字服务、RMI、NDS、DNS、Windows注册表</code>等等。</p>
+<p><code>jndi</code>被设计成独立于特定的目录服务，所以各种各样的目录都可以通过相同的方式进行访问。这样使用<code>jndi</code>的java程序员不仅可以获得统一规整的命名和目录，而且可以通过多层的命名方案无缝访问(<code>seamless acess</code>)目录对象。</p>
+<h5 id="数据源与数据库连接池关系？"><a href="#数据源与数据库连接池关系？" class="headerlink" title="数据源与数据库连接池关系？"></a>数据源与数据库连接池关系？</h5><p>我们通过第三方工具来使用数据源来实现对数据库数据操作。一个数据库连接池可以给它创建多个数据源，如一个人有别名；如果单纯使用jdbc连接数据库是web容器你要什么就去连什么。这样做没人看不耗内存，量大了你就死机。可以这样理解，数据源表示一个与数据库的连接（传统）或者表示很多与数据库的连接（使用数据库连池)。数据源是用于访问连接池或多池的JNDI对象，多池的主要目的是提高可用性和在一组连接池间实现负载均衡。</p>
+<h5 id="数据源与jndi关系？"><a href="#数据源与jndi关系？" class="headerlink" title="数据源与jndi关系？"></a>数据源与jndi关系？</h5><p>数据源是在JDBC 2.0中引入的一个概念。在JDBC 2.0扩展包中定义了<code>javax.sql.DataSource</code>接口来描述这个概念。如果用户希望建立一个数据库连接，通过查询在JNDI服务中的数据源，可以从数据源中获取相应的数据库连接。这样用户就只需要提供一个逻辑名称<code>Logic Name</code>，而不是数据库登录的具体细节。即<code>DataSource</code>采用Java的<code>JNDI</code>技术，来获得<code>DataSource</code>对象的引用。当然各种web容器把<code>DataSource</code>作为一种可以配置的JNDI资源来处理如<code>tomcat</code>。生成<code>DataSource</code>对象的工厂为<code>org.apache.commons.dbcp.BasicDataSourceFactory</code>。</p>
+<h5 id="jdbc基础"><a href="#jdbc基础" class="headerlink" title="jdbc基础"></a><strong>jdbc基础</strong></h5><p><code>java database connectivity standard</code> 是一套规范的面向应用程序的接口，通过它可以访问各类关系数据库。各个数据库会实现该接口作为驱动如jtds.jar，当然可以自己写实现。</p>
+<p>jdbc是低级api，提供访问数据库的接口，是构建高级api的基础，利用纯java编写可以在任何操作系统任何java环境下工作。JDBC API 中定义了一些Java类分别用来表示与数据库的连接（<code>connections</code>）, SQL语句（<code>SQL Statements</code>）, 结果集（<code>ResultSets</code>）以及其它的数据库对象, 使得Java程序能方便地与数据库交互并处理所得的结果。</p>
+<p>使用JDBC, 所有Java程序（包括Java applications , applets和servlet）都能通过SQL语句或存储在数据库中的过程（<code>stored procedures</code>）来存取数据库。要通过JDBC来存取某一特定的数据库，必须有相应的JDBC driver，它往往是由生产数据库的厂家提供，是连接JDBC API与具体数据库之间的桥梁。<code>JDBC Driver</code> 是用于特定数据库的一套实施了JDBC接口的类集。</p>
+<p>简单的说，jdbc可以做三件事：<strong>与数据库建立连接，发送sql语句，处理结果</strong>。jdbc可以理解为odbc的纯java语言和面向对象的实现。</p>
+<h5 id="数据库访问方法"><a href="#数据库访问方法" class="headerlink" title="数据库访问方法"></a><strong>数据库访问方法</strong></h5><p>在ASP中可以通过三种方式访问数据库：</p>
+<ul>
+<li><p><code>IDC（Internet Database Connector）</code>方式；</p>
+</li>
+<li><p><code>ADO（ActiveX Data Objects）</code>方式；</p>
+</li>
+<li><p><code>RDS（Remote Data Service）</code>方式。</p>
+</li>
+</ul>
+<p>在jsp中访问数据库常用：</p>
+<ul>
+<li><p>JDBC-ODBC桥接器；</p>
+</li>
+<li><p>特定数据库的jdbc驱动直接连接数据库；</p>
+</li>
+<li><p>经过池化维护一定量的连接数目，用jndi去访问数据源对应池获取连接；</p>
+</li>
+</ul>
+<p>数据库是一个数据的工厂，可以理解成产品的生产厂家，如果你从厂家租用东西，厂家就马上找人开工，启动设备，等生产好之后，发货给你。当然整个生产过程需要比较长的时间。</p>
+<p>数据源，是一个产品代理仓库，代理那里原来就有一些生产好的产品了，所以你从代理获取产品，可以马上就得到。当然代理的仓库也是有大小限制的。无论哪种情况，你用完了某个产品，记得要归还哦。</p>
+<p><code>ODBC（Open DataBase Conectivity）</code>是微软公司制定的标准编程接口，只要有相应的ODBC驱动程序，就可以通过ODBC连结操作各种不同的数据库。通常通过控制面板中的ODBC Data Source来配置ODBC的数据源。所谓ODBC数据源就是命名的一组信息，包括需要连结的数据库所在位置（可以是磁盘目录/文件，也可以是网络服务器）、对应的ODBC驱动程序以及访问数据库所需的其他相关信息，用户可以通过数据源的名称(DSNs，Data Source Names)来指定所需的ODBC连接。</p>
+<p>DSNs按照其保存方式和作用范围分为三种：<strong>用户DSN、系统DSN和文件DSN</strong>。每个文件DSN保存在单独的一个文件中，文件可以在网络范围内共享；用户DSN保存在注册表中，只对当前用户可见；系统DSN页保存在注册表中，但对系统中的所有用户可见。用户DSN和系统DSN的区别在于，用户DSN保存在注册表的HKEY_CURRENT_USER下，而系统DSN保存在HKEY_LOCAL_MACHINE下。</p>
+<p>假定我们要连接的数据库是Access97的c:\test\auto.mdb(注意：用较新的ADO连接Access数据库效率更高，这里只是作为一个例子)，数据源的名称为CenterAuto，那么可以分为两个步骤：</p>
+<p>（1）注册DSN本身的信息:</p>
+<p>（2）登记数据源：</p>
+<h5 id="连接池"><a href="#连接池" class="headerlink" title="连接池"></a><strong>连接池</strong></h5><blockquote>
+<p>连接池是由容器（比如Tomcat）提供的，用来管理池中的连接对象。</p>
+<p>连接池自动分配连接对象并对闲置的连接进行回收。</p>
+<p>连接池中的连接对象是由数据源（DataSource）创建的。</p>
+<p>连接池（Connection Pool）用来管理连接（Connection）对象。</p>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+<div>
+  
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束  <i class="fa fa-heart"></i> 感谢您的阅读-------------</div>
+    
+</div>
+  
+</div>
+        
+      
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Miss.Yang</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://yyr823.github.io/2019/09/09/sql5/" title="数据源-连接池(部分知识点)">https://yyr823.github.io/2019/09/09/sql5/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-Hans" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
+</ul>
+</div>
+
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/SQL/" rel="tag"><i class="fa fa-tag"></i> SQL</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+		  
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2019/09/09/mysql9/" rel="next" title="Mysql函数">
+                  <i class="fa fa-chevron-left"></i> Mysql函数
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2019/09/09/xzs2/" rel="prev" title="当tomcat端口被占用怎么查看占用程序">
+                  当tomcat端口被占用怎么查看占用程序 <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#什么是数据源？"><span class="nav-number">1.</span> <span class="nav-text">什么是数据源？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#什么是数据库连接池？"><span class="nav-number">2.</span> <span class="nav-text">什么是数据库连接池？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#什么是jndi？"><span class="nav-number">3.</span> <span class="nav-text">什么是jndi？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#数据源与数据库连接池关系？"><span class="nav-number">4.</span> <span class="nav-text">数据源与数据库连接池关系？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#数据源与jndi关系？"><span class="nav-number">5.</span> <span class="nav-text">数据源与jndi关系？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#jdbc基础"><span class="nav-number">6.</span> <span class="nav-text">jdbc基础</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#数据库访问方法"><span class="nav-number">7.</span> <span class="nav-text">数据库访问方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#连接池"><span class="nav-number">8.</span> <span class="nav-text">连接池</span></a></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/xz.jpg"
+      alt="Miss.Yang">
+  <p class="site-author-name" itemprop="name">Miss.Yang</p>
+  <div class="site-description" itemprop="description">不积跬步,无以至千里;不积小流,无以成江海.</div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">96</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        <span class="site-state-item-count">44</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        <span class="site-state-item-count">41</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      推荐阅读
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://blog.csdn.net/u011642663/article/details/90597317" title="https://blog.csdn.net/u011642663/article/details/90597317" rel="noopener" target="_blank">设计模式看了又忘，忘了又看？</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://github.com/Snailclimb/JavaGuide" title="https://github.com/Snailclimb/JavaGuide" rel="noopener" target="_blank">Java 学习/面试指南</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="http://www.ityouknow.com/springboot/2015/12/30/springboot-collect.html" title="http://www.ityouknow.com/springboot/2015/12/30/springboot-collect.html" rel="noopener" target="_blank">Spring Boot 学习资料汇总</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://blog.csdn.net/wudinaniya/article/details/81130079" title="https://blog.csdn.net/wudinaniya/article/details/81130079" rel="noopener" target="_blank">码农翻身</a>
+        </li>
+      
+    </ul>
+  </div>
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+      
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+  <i class="fa fa-heart" aria-hidden="true"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Miss.Yang</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="站点总字数">266k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">4:02</span>
+</div>
+
+<!--
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.0</div>
+-->
+<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+<script>
+    var now = new Date(); 
+    function createtime() { 
+        var grt= new Date("09/05/2019 12:00:00");//此处修改你的建站时间或者网站上线时间 
+        now.setTime(now.getTime()+250); 
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+        document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 "; 
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+    } 
+setInterval("createtime()",250);
+</script>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+
+
+    
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.4.0"></script><script src="/js/motion.js?v=7.4.0"></script>
+<script src="/js/schemes/pisces.js?v=7.4.0"></script>
+
+<script src="/js/next-boot.js?v=7.4.0"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.4.0"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7}});</script></body>
+</html>

@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32-next.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16-next.png?v=7.4.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.0" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.4.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":true,"scrollpercent":true},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="数学函数12345678910111213141516ABS(x)                   返回x的绝对值BIN(x)                   返回x的二进制（OCT返回八进制，HEX返回十六进制）CEILING(x)               返回大于x的最小整数值EXP(x)                   返回值e（自然对数的底）的x次方 FLOOR(x)">
+<meta name="keywords" content="SQL">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mysql函数">
+<meta property="og:url" content="https://yyr823.github.io/2019/09/09/mysql9/index.html">
+<meta property="og:site_name" content="SMILE">
+<meta property="og:description" content="数学函数12345678910111213141516ABS(x)                   返回x的绝对值BIN(x)                   返回x的二进制（OCT返回八进制，HEX返回十六进制）CEILING(x)               返回大于x的最小整数值EXP(x)                   返回值e（自然对数的底）的x次方 FLOOR(x)">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-09-10T01:11:17.643Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Mysql函数">
+<meta name="twitter:description" content="数学函数12345678910111213141516ABS(x)                   返回x的绝对值BIN(x)                   返回x的二进制（OCT返回八进制，HEX返回十六进制）CEILING(x)               返回大于x的最小整数值EXP(x)                   返回值e（自然对数的底）的x次方 FLOOR(x)">
+  <link rel="canonical" href="https://yyr823.github.io/2019/09/09/mysql9/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>Mysql函数 | SMILE</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+  <div class="container use-motion">
+    <div class="headband"></div>
+<a href="https://github.com/yyr823" 
+class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#64CEAA; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">SMILE</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-about">
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-book">
+      
+    
+
+    <a href="/categories/Books/" rel="section"><i class="menu-item-icon fa fa-fw fa-book"></i> <br>书籍</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tv">
+      
+    
+
+    <a href="/categories/Tv/" rel="section"><i class="menu-item-icon fa fa-fw fa-twitch"></i> <br>影视</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger">
+        
+          <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+      </li>
+    
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+      <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block post">
+    <link itemprop="mainEntityOfPage" href="https://yyr823.github.io/2019/09/09/mysql9/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Miss.Yang">
+      <meta itemprop="description" content="不积跬步,无以至千里;不积小流,无以成江海.">
+      <meta itemprop="image" content="/images/xz.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SMILE">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">Mysql函数
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-09-09 13:40:59" itemprop="dateCreated datePublished" datetime="2019-09-09T13:40:59+08:00">2019-09-09</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-09-10 09:11:17" itemprop="dateModified" datetime="2019-09-10T09:11:17+08:00">2019-09-10</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/SQL/" itemprop="url" rel="index"><span itemprop="name">SQL</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/SQL/Mysql/" itemprop="url" rel="index"><span itemprop="name">Mysql</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">本文字数：</span>
+              
+              <span>8k</span>
+            </span>
+          
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              
+              <span>7 分钟</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h4 id="数学函数"><a href="#数学函数" class="headerlink" title="数学函数"></a><strong>数学函数</strong></h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">ABS(x)                   返回x的绝对值</span><br><span class="line">BIN(x)                   返回x的二进制（OCT返回八进制，HEX返回十六进制）</span><br><span class="line">CEILING(x)               返回大于x的最小整数值</span><br><span class="line">EXP(x)                   返回值e（自然对数的底）的x次方 </span><br><span class="line">FLOOR(x)                 返回小于x的最大整数值 </span><br><span class="line">GREATEST(x1,x2,...,xn)   返回集合中最大的值 </span><br><span class="line">LEAST(x1,x2,...,xn)      返回集合中最小的值</span><br><span class="line">LN(x)                    返回x的自然对数 </span><br><span class="line">LOG(x,y)                 返回x的以y为底的对数 </span><br><span class="line">MOD(x,y)                 返回x/y的模（余数） </span><br><span class="line">PI()                     返回pi的值（圆周率） </span><br><span class="line">RAND()                   返回０到１内的随机值,可以通过提供一个参数(种子)使RAND()随机数生成器生成一个指定的值。</span><br><span class="line">ROUND(x,y)               返回参数x的四舍五入的有y位小数的值</span><br><span class="line">SIGN(x)                  返回代表数字x的符号的值 </span><br><span class="line">SQRT(x)                  返回一个数的平方根 </span><br><span class="line">TRUNCATE(x,y)            返回数字x截短为y位小数的结果</span><br></pre></td></tr></table></figure><a id="more"></a>
+
+<h4 id="聚合函数-常用于GROUP-BY从句的SELECT查询中"><a href="#聚合函数-常用于GROUP-BY从句的SELECT查询中" class="headerlink" title="聚合函数(常用于GROUP BY从句的SELECT查询中)"></a><strong>聚合函数(常用于GROUP BY从句的SELECT查询中)</strong></h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">AVG(col)            返回指定列的平均值 </span><br><span class="line">COUNT(col)          返回指定列中非NULL值的个数 </span><br><span class="line">MIN(col)            返回指定列的最小值 </span><br><span class="line">MAX(col)            返回指定列的最大值 </span><br><span class="line">SUM(col)            返回指定列的所有值之和 </span><br><span class="line">GROUP_CONCAT(col)   返回由属于一组的列值连接组合而成的结果</span><br></pre></td></tr></table></figure>
+
+<h4 id="字符串函数"><a href="#字符串函数" class="headerlink" title="字符串函数"></a><strong>字符串函数</strong></h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">ASCII(char)                    返回字符的ASCII码值 </span><br><span class="line">BIT_LENGTH(str)                返回字符串的比特长度 </span><br><span class="line">CONCAT(s1,s2...,sn)            将s1,s2...,sn连接成字符串 </span><br><span class="line">CONCAT_WS(sep,s1,s2...,sn)     将s1,s2...,sn连接成字符串，并用sep字符间隔 INSERT(str,x,y,instr)          将字符串str从第x位置开始，y个字符长的子串替换为字符串instr，返回结果 FIND_IN_SET(str,list)          分析逗号分隔的list列表，如果发现str，返回str在list中的位置 LCASE(str)或LOWER(str)         返回将字符串str中所有字符改变为小写后的结果 </span><br><span class="line">LEFT(str,x)                    返回字符串str中最左边的x个字符 </span><br><span class="line">LENGTH(s)                      返回字符串str中的字符数 </span><br><span class="line">LTRIM(str)                     从字符串str中切掉开头的空格 </span><br><span class="line">POSITION(substr,str)           返回子串substr在字符串str中第一次出现的位置 </span><br><span class="line">QUOTE(str)                     用反斜杠转义str中的单引号 </span><br><span class="line">REPEAT(str,srchstr,rplcstr)    返回字符串str重复x次的结果 </span><br><span class="line">REVERSE(str)                   返回颠倒字符串str的结果 </span><br><span class="line">RIGHT(str,x)                   返回字符串str中最右边的x个字符 </span><br><span class="line">RTRIM(str)                     返回字符串str尾部的空格 </span><br><span class="line">STRCMP(s1,s2)                  比较字符串s1和s2 </span><br><span class="line">TRIM(str)                      去除字符串首部和尾部的所有空格 </span><br><span class="line">UCASE(str)或UPPER(str)         返回将字符串str中所有字符转变为大写后的结果</span><br></pre></td></tr></table></figure>
+
+<h4 id="日期和时间函数"><a href="#日期和时间函数" class="headerlink" title="日期和时间函数"></a><strong>日期和时间函数</strong></h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">CURDATE()或CURRENT_DATE()            返回当前的日期 </span><br><span class="line">CURTIME()或CURRENT_TIME()            返回当前的时间 </span><br><span class="line">DATE_ADD(date,INTERVAL int keyword)  返回日期date加上间隔时间int的结果(int必须按照关键字进行格式化)</span><br></pre></td></tr></table></figure>
+
+<p>示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECTDATE_ADD(CURRENT_DATE,INTERVAL 6 MONTH);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">DATE_FORMAT(date,fmt)                依照指定的fmt格式格式化日期date值 </span><br><span class="line">DATE_SUB(date,INTERVAL int keyword)  返回日期date加上间隔时间int的结果(int必须按照关键字进行格式化)</span><br></pre></td></tr></table></figure>
+
+<p>示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECTDATE_SUB(CURRENT_DATE,INTERVAL 6 MONTH);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">DAYOFWEEK(date)        返回date所代表的一星期中的第几天(1~7) </span><br><span class="line">DAYOFMONTH(date)       返回date是一个月的第几天(1~31) </span><br><span class="line">DAYOFYEAR(date)        返回date是一年的第几天(1~366) </span><br><span class="line">DAYNAME(date)          返回date的星期名，如：SELECT DAYNAME(CURRENT_DATE); FROM_UNIXTIME(ts,fmt)  根据指定的fmt格式，格式化UNIX时间戳ts </span><br><span class="line">HOUR(time)             返回time的小时值(0~23) </span><br><span class="line">MINUTE(time)           返回time的分钟值(0~59) </span><br><span class="line">MONTH(date)            返回date的月份值(1~12) </span><br><span class="line">MONTHNAME(date)        返回date的月份名，如：SELECT MONTHNAME(CURRENT_DATE); </span><br><span class="line">NOW()                  返回当前的日期和时间 </span><br><span class="line">QUARTER(date)          返回date在一年中的季度(1~4)，如SELECT QUARTER(CURRENT_DATE); </span><br><span class="line">WEEK(date)             返回日期date为一年中第几周(0~53) </span><br><span class="line">YEAR(date)             返回日期date的年份(1000~9999)</span><br></pre></td></tr></table></figure>
+
+<p>一些示例：获取当前系统时间</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT FROM_UNIXTIME(UNIX_TIMESTAMP()); </span><br><span class="line">SELECT EXTRACT(YEAR_MONTH FROM CURRENT_DATE);</span><br><span class="line">SELECT EXTRACT(DAY_SECOND FROM CURRENT_DATE); </span><br><span class="line">SELECT EXTRACT(HOUR_MINUTE FROM CURRENT_DATE);</span><br></pre></td></tr></table></figure>
+
+<p>返回两个日期值之间的差值(月数)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT PERIOD_DIFF(200302,199802);</span><br></pre></td></tr></table></figure>
+
+<p>在Mysql中计算年龄</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT DATE_FORMAT(FROM_DAYS(TO_DAYS(NOW())-TO_DAYS(birthday)),&apos;%Y&apos;)+0 AS age FROM employee;</span><br></pre></td></tr></table></figure>
+
+<p>这样，如果Brithday是未来的年月日的话，计算结果为0。</p>
+<p>下面的SQL语句计算员工的绝对年龄，即当Birthday是未来的日期时，将得到负值。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT DATE_FORMAT(NOW(), &apos;%Y&apos;)-DATE_FORMAT(birthday,&apos;%Y&apos;)-(DATE_FORMAT(NOW(),&apos;00-%m-%d&apos;) &lt;DATE_FORMAT(birthday, &apos;00-%m-%d&apos;))AS age from employee</span><br></pre></td></tr></table></figure>
+
+<h4 id="加密函数"><a href="#加密函数" class="headerlink" title="加密函数"></a><strong>加密函数</strong></h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">AES_ENCRYPT(str,key)  返回用密钥key对字符串str利用高级加密标准算法加密后的结果，调用AES_ENCRYPT的结果是一个二进制字符串，以BLOB类型存储 </span><br><span class="line">AES_DECRYPT(str,key)  返回用密钥key对字符串str利用高级加密标准算法解密后的结果 </span><br><span class="line">DECODE(str,key)       使用key作为密钥解密加密字符串str </span><br><span class="line">ENCRYPT(str,salt)     使用UNIXcrypt()函数，用关键词salt(一个可以惟一确定口令的字符串，就像钥匙一样)加密字符串str </span><br><span class="line">ENCODE(str,key)       使用key作为密钥加密字符串str，调用ENCODE()的结果是一个二进制字符串，它以BLOB类型存储 </span><br><span class="line">MD5()                 计算字符串str的MD5校验和 </span><br><span class="line">PASSWORD(str)         返回字符串str的加密版本，这个加密过程是不可逆转的，和UNIX密码加密过程使用不同的算法。 </span><br><span class="line">SHA()                 计算字符串str的安全散列算法(SHA)校验和</span><br></pre></td></tr></table></figure>
+
+<p>示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SELECT ENCRYPT(&apos;root&apos;,&apos;salt&apos;); </span><br><span class="line">SELECT ENCODE(&apos;xufeng&apos;,&apos;key&apos;); </span><br><span class="line">SELECT DECODE(ENCODE(&apos;xufeng&apos;,&apos;key&apos;),&apos;key&apos;);#加解密放在一起 </span><br><span class="line">SELECT AES_ENCRYPT(&apos;root&apos;,&apos;key&apos;); </span><br><span class="line">SELECT AES_DECRYPT(AES_ENCRYPT(&apos;root&apos;,&apos;key&apos;),&apos;key&apos;); </span><br><span class="line">SELECT MD5(&apos;123456&apos;); SELECT SHA(&apos;123456&apos;);</span><br></pre></td></tr></table></figure>
+
+<h4 id="控制流函数"><a href="#控制流函数" class="headerlink" title="控制流函数"></a><strong>控制流函数</strong></h4><p>MySQL有4个函数是用来进行条件操作的，这些函数可以实现SQL的条件逻辑，允许开发者将一些应用程序业务逻辑转换到数据库后台。</p>
+<p>MySQL控制流函数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">CASE WHEN[test1] THEN [result1]...ELSE [default] END </span><br><span class="line">如果testN是真，则返回resultN，否则返回default </span><br><span class="line">CASE [test] WHEN[val1] THEN [result]...ELSE [default]END   </span><br><span class="line">如果test和valN相等，则返回resultN，否则返回default </span><br><span class="line">IF(test,t,f)         如果test是真，返回t；否则返回f </span><br><span class="line">IFNULL(arg1,arg2)    如果arg1不是空，返回arg1，否则返回arg2 </span><br><span class="line">NULLIF(arg1,arg2)    如果arg1=arg2返回NULL；否则返回arg1</span><br></pre></td></tr></table></figure>
+
+<p>这些函数的第一个是IFNULL()，它有两个参数，并且对第一个参数进行判断。如果第一个参数不是NULL，函数就会向调用者返回第一个参数；如果是NULL,将返回第二个参数。</p>
+<p>如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT IFNULL(1,2), IFNULL(NULL,10),IFNULL(4*NULL,&apos;false&apos;);</span><br></pre></td></tr></table></figure>
+
+<p>NULLIF()函数将会检验提供的两个参数是否相等，如果相等，则返回NULL，如果不相等，就返回第一个参数。</p>
+<p>如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT NULLIF(1,1),NULLIF(&apos;A&apos;,&apos;B&apos;),NULLIF(2+3,4+1);</span><br></pre></td></tr></table></figure>
+
+<p>和许多脚本语言提供的IF()函数一样，MySQL的IF()函数也可以建立一个简单的条件测试，这个函数有三个参数，第一个是要被判断的表达式，如果表达式为真，IF()将会返回第二个参数，如果为假，IF()将会返回第三个参数。</p>
+<p>如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECTIF(1&lt;10,2,3),IF(56&gt;100,&apos;true&apos;,&apos;false&apos;);</span><br></pre></td></tr></table></figure>
+
+<p>IF()函数在只有两种可能结果时才适合使用。然而，在现实世界中，我们可能发现在条件测试中会需要多个分支。在这种情况下，MySQL提供了CASE函数，它和PHP及Perl语言的switch-case条件例程一样。</p>
+<p>CASE函数的格式有些复杂，通常如下所示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">CASE [expression to be evaluated] </span><br><span class="line">WHEN [val 1] THEN [result 1] </span><br><span class="line">WHEN [val 2] THEN [result 2] </span><br><span class="line">WHEN [val 3] THEN [result 3] ...... </span><br><span class="line">WHEN [val n] THEN [result n] </span><br><span class="line">ELSE [default result] </span><br><span class="line">END</span><br></pre></td></tr></table></figure>
+
+<p>这里，第一个参数是要被判断的值或表达式，接下来的是一系列的WHEN-THEN块，每一块的第一个参数指定要比较的值，如果为真，就返回结果。所有的WHEN-THEN块将以ELSE块结束，当END结束了所有外部的CASE块时，如果前面的每一个块都不匹配就会返回ELSE块指定的默认结果。如果没有指定ELSE块，而且所有的WHEN-THEN比较都不是真，MySQL将会返回NULL。</p>
+<p>CASE函数还有另外一种句法，有时使用起来非常方便，如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">CASE </span><br><span class="line">WHEN [conditional test 1] THEN [result 1] </span><br><span class="line">WHEN [conditional test 2] THEN [result 2] </span><br><span class="line">ELSE [default result] </span><br><span class="line">END</span><br></pre></td></tr></table></figure>
+
+<p>这种条件下，返回的结果取决于相应的条件测试是否为真。</p>
+<p>示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">mysql </span><br><span class="line">SELECT CASE &apos;green&apos; </span><br><span class="line">WHEN &apos;red&apos; THEN &apos;stop&apos;</span><br><span class="line">WHEN &apos;green&apos; THEN &apos;go&apos; END;</span><br><span class="line">SELECT CASE 9 WHEN 1 THEN &apos;a&apos; WHEN 2 THEN &apos;b&apos; ELSE &apos;N/A&apos; END;</span><br><span class="line">SELECT CASE WHEN (2+2)=4 THEN &apos;OK&apos; WHEN(2+2)&lt;&gt;4 THEN &apos;not OK&apos; END ASSTATUS;</span><br><span class="line">SELECT Name,IF((IsActive = 1),&apos;已激活&apos;,&apos;未激活&apos;) AS RESULT FROMUserLoginInfo; </span><br><span class="line">SELECT fname,lname,(math+sci+lit) AS total,</span><br><span class="line">CASE </span><br><span class="line">WHEN (math+sci+lit) &lt; 50 THEN &apos;D&apos; </span><br><span class="line">WHEN (math+sci+lit) BETWEEN 50 AND 150 THEN &apos;C&apos;</span><br><span class="line">WHEN (math+sci+lit) BETWEEN 151 AND 250 THEN &apos;B&apos; </span><br><span class="line">ELSE &apos;A&apos;</span><br><span class="line">END  AS grade FROM marks; </span><br><span class="line">SELECT IF(ENCRYPT(&apos;sue&apos;,&apos;ts&apos;)=upass,&apos;allow&apos;,&apos;deny&apos;)  AS LoginResultFROM users</span><br><span class="line">WHERE uname = &apos;sue&apos;;#一个登陆验证</span><br></pre></td></tr></table></figure>
+
+<h4 id="格式化函数"><a href="#格式化函数" class="headerlink" title="格式化函数"></a><strong>格式化函数</strong></h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">DATE_FORMAT(date,fmt)  依照字符串fmt格式化日期date值 </span><br><span class="line">FORMAT(x,y)            把x格式化为以逗号隔开的数字序列，y是结果的小数位数 </span><br><span class="line">INET_ATON(ip)          返回IP地址的数字表示 </span><br><span class="line">INET_NTOA(num)         返回数字所代表的IP地址 </span><br><span class="line">TIME_FORMAT(time,fmt)  依照字符串fmt格式化时间time值</span><br></pre></td></tr></table></figure>
+
+<p>其中最简单的是FORMAT()函数，它可以把大的数值格式化为以逗号间隔的易读的序列。</p>
+<p>示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">SELECT FORMAT(34234.34323432,3); </span><br><span class="line">SELECT DATE_FORMAT(NOW(),&apos;%W,%D %M %Y %r&apos;);</span><br><span class="line">SELECT DATE_FORMAT(NOW(),&apos;%Y-%m-%d&apos;); </span><br><span class="line">SELECT DATE_FORMAT(19990330,&apos;%Y-%m-%d&apos;); </span><br><span class="line">SELECT DATE_FORMAT(NOW(),&apos;%h:%i %p&apos;); </span><br><span class="line">SELECT INET_ATON(&apos;10.122.89.47&apos;);</span><br><span class="line">SELECT INET_NTOA(175790383);</span><br></pre></td></tr></table></figure>
+
+<h4 id="类型转化函数"><a href="#类型转化函数" class="headerlink" title="类型转化函数"></a><strong>类型转化函数</strong></h4><p>为了进行数据类型转化，MySQL提供了CAST()函数，它可以把一个值转化为指定的数据类型。类型有：</p>
+<p><code>BINARY,CHAR,DATE,TIME,DATETIME,SIGNED,UNSIGNED</code> </p>
+<p>示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT CAST(NOW() AS SIGNED INTEGER),CURDATE()+0; </span><br><span class="line">SELECT &apos;f&apos;=BINARY &apos;F&apos;,&apos;f&apos;=CAST(&apos;F&apos; AS BINARY);</span><br></pre></td></tr></table></figure>
+
+<h4 id="系统信息函数"><a href="#系统信息函数" class="headerlink" title="系统信息函数"></a><strong>系统信息函数</strong></h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">DATABASE()             返回当前数据库名 </span><br><span class="line">BENCHMARK(count,expr)  将表达式expr重复运行count次 </span><br><span class="line">CONNECTION_ID()        返回当前客户的连接ID </span><br><span class="line">FOUND_ROWS()           返回最后一个SELECT查询进行检索的总行数 </span><br><span class="line">USER()或SYSTEM_USER()  返回当前登陆用户名 </span><br><span class="line">VERSION()              返回MySQL服务器的版本</span><br></pre></td></tr></table></figure>
+
+<p>示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT DATABASE(),VERSION(),USER();</span><br><span class="line">SELECTBENCHMARK(9999999,LOG(RAND()*PI()));</span><br><span class="line">#该例中,MySQL计算LOG(RAND()*PI())表达式9999999次。</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    
+    
+<div>
+  
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束  <i class="fa fa-heart"></i> 感谢您的阅读-------------</div>
+    
+</div>
+  
+</div>
+        
+      
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Miss.Yang</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://yyr823.github.io/2019/09/09/mysql9/" title="Mysql函数">https://yyr823.github.io/2019/09/09/mysql9/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-Hans" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
+</ul>
+</div>
+
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/SQL/" rel="tag"><i class="fa fa-tag"></i> SQL</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+		  
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2019/09/09/jilu/" rel="next" title="2019所看记录片">
+                  <i class="fa fa-chevron-left"></i> 2019所看记录片
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2019/09/09/sql5/" rel="prev" title="数据源-连接池(部分知识点)">
+                  数据源-连接池(部分知识点) <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#数学函数"><span class="nav-number">1.</span> <span class="nav-text">数学函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#聚合函数-常用于GROUP-BY从句的SELECT查询中"><span class="nav-number">2.</span> <span class="nav-text">聚合函数(常用于GROUP BY从句的SELECT查询中)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#字符串函数"><span class="nav-number">3.</span> <span class="nav-text">字符串函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#日期和时间函数"><span class="nav-number">4.</span> <span class="nav-text">日期和时间函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#加密函数"><span class="nav-number">5.</span> <span class="nav-text">加密函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#控制流函数"><span class="nav-number">6.</span> <span class="nav-text">控制流函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#格式化函数"><span class="nav-number">7.</span> <span class="nav-text">格式化函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#类型转化函数"><span class="nav-number">8.</span> <span class="nav-text">类型转化函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#系统信息函数"><span class="nav-number">9.</span> <span class="nav-text">系统信息函数</span></a></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/xz.jpg"
+      alt="Miss.Yang">
+  <p class="site-author-name" itemprop="name">Miss.Yang</p>
+  <div class="site-description" itemprop="description">不积跬步,无以至千里;不积小流,无以成江海.</div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">96</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        <span class="site-state-item-count">44</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        <span class="site-state-item-count">41</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      推荐阅读
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://blog.csdn.net/u011642663/article/details/90597317" title="https://blog.csdn.net/u011642663/article/details/90597317" rel="noopener" target="_blank">设计模式看了又忘，忘了又看？</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://github.com/Snailclimb/JavaGuide" title="https://github.com/Snailclimb/JavaGuide" rel="noopener" target="_blank">Java 学习/面试指南</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="http://www.ityouknow.com/springboot/2015/12/30/springboot-collect.html" title="http://www.ityouknow.com/springboot/2015/12/30/springboot-collect.html" rel="noopener" target="_blank">Spring Boot 学习资料汇总</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://blog.csdn.net/wudinaniya/article/details/81130079" title="https://blog.csdn.net/wudinaniya/article/details/81130079" rel="noopener" target="_blank">码农翻身</a>
+        </li>
+      
+    </ul>
+  </div>
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+      
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+  <i class="fa fa-heart" aria-hidden="true"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Miss.Yang</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="站点总字数">266k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">4:02</span>
+</div>
+
+<!--
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.0</div>
+-->
+<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+<script>
+    var now = new Date(); 
+    function createtime() { 
+        var grt= new Date("09/05/2019 12:00:00");//此处修改你的建站时间或者网站上线时间 
+        now.setTime(now.getTime()+250); 
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+        document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 "; 
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+    } 
+setInterval("createtime()",250);
+</script>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+
+
+    
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.4.0"></script><script src="/js/motion.js?v=7.4.0"></script>
+<script src="/js/schemes/pisces.js?v=7.4.0"></script>
+
+<script src="/js/next-boot.js?v=7.4.0"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.4.0"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7}});</script></body>
+</html>

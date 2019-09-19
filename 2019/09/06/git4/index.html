@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32-next.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16-next.png?v=7.4.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.0" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.4.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":true,"scrollpercent":true},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="参考链接小白使用eclipse提交到GitHub (详细步骤)Eclipse生成SSH传输密钥并实现GitHub的SSH代码提交(部分参考)Eclipse使用egit插件通过ssh协议方式上传代码到gitLab(部分参考) eclipse使用https、ssh协议方式上传代码至github1.首先登陆GitHub创建一个新的repository (Start a project),复制地址备用。">
+<meta name="keywords" content="GitHub">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Eclipse-Github操作">
+<meta property="og:url" content="https://yyr823.github.io/2019/09/06/git4/index.html">
+<meta property="og:site_name" content="SMILE">
+<meta property="og:description" content="参考链接小白使用eclipse提交到GitHub (详细步骤)Eclipse生成SSH传输密钥并实现GitHub的SSH代码提交(部分参考)Eclipse使用egit插件通过ssh协议方式上传代码到gitLab(部分参考) eclipse使用https、ssh协议方式上传代码至github1.首先登陆GitHub创建一个新的repository (Start a project),复制地址备用。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://yyr823.github.io/2019/09/06/git4/g1.png">
+<meta property="og:image" content="https://yyr823.github.io/2019/09/06/git4/g2.png">
+<meta property="og:image" content="https://yyr823.github.io/2019/09/06/git4/g3.png">
+<meta property="og:image" content="https://yyr823.github.io/2019/09/06/git4/g5.png">
+<meta property="og:image" content="https://yyr823.github.io/2019/09/06/git4/g6.png">
+<meta property="og:image" content="https://yyr823.github.io/2019/09/06/git4/g7.png">
+<meta property="og:image" content="https://yyr823.github.io/2019/09/06/git4/kk.png">
+<meta property="og:image" content="https://yyr823.github.io/2019/09/06/git4/g8.png">
+<meta property="og:image" content="https://yyr823.github.io/2019/09/06/git4/g9t.png">
+<meta property="og:image" content="https://yyr823.github.io/2019/09/06/git4/g10.png">
+<meta property="og:image" content="https://yyr823.github.io/2019/09/06/git4/k12.png">
+<meta property="og:image" content="https://yyr823.github.io/2019/09/06/git4/k13.png">
+<meta property="og:image" content="https://yyr823.github.io/2019/09/06/git4/k11.png">
+<meta property="og:image" content="https://yyr823.github.io/2019/09/06/git4/k14.png">
+<meta property="og:image" content="https://yyr823.github.io/2019/09/06/git4/k15.png">
+<meta property="og:image" content="https://yyr823.github.io/2019/09/06/git4/k16.png">
+<meta property="og:image" content="https://yyr823.github.io/2019/09/06/git4/k17.png">
+<meta property="og:image" content="https://yyr823.github.io/2019/09/06/git4/k18.png">
+<meta property="og:updated_time" content="2019-09-08T02:15:52.837Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Eclipse-Github操作">
+<meta name="twitter:description" content="参考链接小白使用eclipse提交到GitHub (详细步骤)Eclipse生成SSH传输密钥并实现GitHub的SSH代码提交(部分参考)Eclipse使用egit插件通过ssh协议方式上传代码到gitLab(部分参考) eclipse使用https、ssh协议方式上传代码至github1.首先登陆GitHub创建一个新的repository (Start a project),复制地址备用。">
+<meta name="twitter:image" content="https://yyr823.github.io/2019/09/06/git4/g1.png">
+  <link rel="canonical" href="https://yyr823.github.io/2019/09/06/git4/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>Eclipse-Github操作 | SMILE</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+  <div class="container use-motion">
+    <div class="headband"></div>
+<a href="https://github.com/yyr823" 
+class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#64CEAA; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">SMILE</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-about">
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-book">
+      
+    
+
+    <a href="/categories/Books/" rel="section"><i class="menu-item-icon fa fa-fw fa-book"></i> <br>书籍</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tv">
+      
+    
+
+    <a href="/categories/Tv/" rel="section"><i class="menu-item-icon fa fa-fw fa-twitch"></i> <br>影视</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger">
+        
+          <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+      </li>
+    
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+      <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block post">
+    <link itemprop="mainEntityOfPage" href="https://yyr823.github.io/2019/09/06/git4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Miss.Yang">
+      <meta itemprop="description" content="不积跬步,无以至千里;不积小流,无以成江海.">
+      <meta itemprop="image" content="/images/xz.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SMILE">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">Eclipse-Github操作
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-09-06 15:07:59" itemprop="dateCreated datePublished" datetime="2019-09-06T15:07:59+08:00">2019-09-06</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-09-08 10:15:52" itemprop="dateModified" datetime="2019-09-08T10:15:52+08:00">2019-09-08</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/GitHub/" itemprop="url" rel="index"><span itemprop="name">GitHub</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">本文字数：</span>
+              
+              <span>2.2k</span>
+            </span>
+          
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              
+              <span>2 分钟</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <blockquote>
+<h5 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h5></blockquote><p><a href="https://blog.csdn.net/bendanany/article/details/78891804" target="_blank" rel="noopener">小白使用eclipse提交到GitHub (详细步骤)</a></p><p><a href="https://blog.csdn.net/u014745069/article/details/79839202" target="_blank" rel="noopener">Eclipse生成SSH传输密钥并实现GitHub的SSH代码提交</a>(部分参考)</p><p><a href="http://www.manongjc.com/article/32398.html" target="_blank" rel="noopener">Eclipse使用egit插件通过ssh协议方式上传代码到gitLab</a>(部分参考)</p><blockquote>
+<h5 id="eclipse使用https、ssh协议方式上传代码至github"><a href="#eclipse使用https、ssh协议方式上传代码至github" class="headerlink" title="eclipse使用https、ssh协议方式上传代码至github"></a>eclipse使用https、ssh协议方式上传代码至github</h5></blockquote><p>1.首先登陆GitHub创建一个新的repository (Start a project),复制地址备用。</p><a id="more"></a>
+
+
+
+
+
+<p><strong>注意,红色标识部分不要勾选,否则后续提交代码时会出现冲突。</strong></p>
+<p><img src="/2019/09/06/git4/g1.png" alt></p>
+<p>2.Eclipse:<strong>项目名称必须与gitHub中一致</strong></p>
+<p>Eclipse 高级版本自带Git,不需要安装插件。(如使用低级版本,请自己百度安装Git插件)</p>
+<p>将本地项目上传到Git,<strong>流程：需要先通过Commit 传到本地仓库,然后再从本地仓库push到Git。</strong></p>
+<blockquote>
+<h5 id="以https协议方式上传项目代码"><a href="#以https协议方式上传项目代码" class="headerlink" title="以https协议方式上传项目代码"></a><strong>以https协议方式上传项目代码</strong></h5></blockquote>
+<p><code>https://github.com/xxxx/TestDemo.git</code></p>
+<p>3.项目右键,Team -&gt; Share Project(项目提交通用)</p>
+<p><img src="/2019/09/06/git4/g2.png" alt></p>
+<p>4.选择Git,随后配置GIT, Configure Git Repository</p>
+<p><img src="/2019/09/06/git4/g3.png" alt></p>
+<p>5.<strong>在此目录下会生成一个.git 的文件夹,此时Eclipse中文件显示?号。</strong></p>
+<ul>
+<li><p>为新建的文件添加Index, 右键项目-＞Team-&gt;Add to Index, 这里将所有文件会带个+号, 对于不需要提交的文件,可以通过右键-&gt;Team-&gt;Remove from Index 移除。</p>
+</li>
+<li><p>提交代码到本地仓库</p>
+</li>
+</ul>
+<p>6.右键项目-&gt;Team-&gt;Commit,  add commit message, 如果遇到下面这种情况,先去Window-&gt;Preference-&gt;Team-&gt;Git-&gt;Committing, 将第一个默认勾选去掉。</p>
+<p><img src="/2019/09/06/git4/g5.png" alt><img src="/2019/09/06/git4/g6.png" alt></p>
+<p>以下面作为参考提交:</p>
+<p><img src="/2019/09/06/git4/g7.png" alt></p>
+<p>7.注意,代码只需要提交图片中标识的文件即可。也可以通过编辑.gitignore将不需要提交的文件筛除。</p>
+<p>commit后, 这时,可以看到文件带有圆柱形标志。</p>
+<p><img src="/2019/09/06/git4/kk.png" alt></p>
+<p>8.从本地代码提交到Git</p>
+<p>项目右键,Team-&gt;Remote-&gt;Push, 输入Git地址,以及登陆凭证</p>
+<p><img src="/2019/09/06/git4/g8.png" alt></p>
+<p>9.点击Next,Source ref和Destination ref下拉框中选择master,点击Add Spec,点击Next。</p>
+<p><img src="/2019/09/06/git4/g9t.png" alt></p>
+<p>10.项目提交到Git成功</p>
+<p><img src="/2019/09/06/git4/g10.png" alt></p>
+<p>11.打开GitHub,查看是否项目是否上传成功。</p>
+<blockquote>
+<h5 id="以ssh协议方式上传项目代码"><a href="#以ssh协议方式上传项目代码" class="headerlink" title="以ssh协议方式上传项目代码"></a>以ssh协议方式上传项目代码</h5></blockquote>
+<p>使用ssh方式可以不通过https协议,避免直接提供账号密码的方式上传项目到git在线服务器,如GitLab、Bitbucket、GitHub,同时极其可靠的保证账号安全性。</p>
+<p><strong>操作步骤：</strong></p>
+<p>1.Window-&gt;preferences-&gt;General-&gt;Network Connections-&gt;SSH2</p>
+<p>2.切换到Key Management页,选择点击 Generate DSA key 或 Generate RSA key 按钮,生成DSA或RSA算法的密钥,原则上是DSA或RSA都受支持的,个人感觉DSA甚至更好,毕竟两者中,DSA被美国NIST挑选作为数字签名标准,但是RSA在百度搜索出的纵多博文中被使用。</p>
+<p>3.生成了看上去满意的密钥后,填写Comment简要注释,填写Passphrase(可选填项,相当于password,用于加密保护私钥,填写后每次上传服务器,将要求提供此密码验证私钥的使用权),点击SavePrivateKey。</p>
+<p><img src="/2019/09/06/git4/k12.png" alt>如果之前已经生成文件,可重新定义文件位置或者进行覆盖。其中,id_rsa代表非对称加密算法rsa的私钥,id_rsa.pub代表公钥,私钥是需要自己保管的,而公钥可以任意发送给他人保管,这是为了让remote用户能够判断传输的加密数据是否为本人操作。</p>
+<p><img src="/2019/09/06/git4/k13.png" alt></p>
+<p>4.【<strong>关键步骤</strong>】点击 Export Via SFTP ,按 user@host[:port] 形式输入公钥绑定的服务器域,如 <a href="mailto:git@bitbucket.org" target="_blank" rel="noopener">git@bitbucket.org</a> 或 <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a> (输入刚才的Passphrase,点击各种确定,ps:我绑定时没出现,如果报出 Failed to export ssh key to remote server 的错误,直接忽略)<strong>注意:push的时候报出 The authenticity of host ‘github.org’ can’t be established. 之类的错误,阻止上传,基本都是没执行这一步的原因。</strong></p>
+<p>5.点击 Load Existing Key,选择刚才生成的私钥(id_rsa文件),输入Passphrase,点击Apply。</p>
+<p>6.点击旁边的Known Hosts,应该能看到刚才绑定的服务器记录。</p>
+<p>7.返回General,确认Private keys中包含了刚才保存的私钥件id_rsa,<strong>没包含的话点击旁边的Add Private Key..添加进去</strong>,最后点击Apply(SSH2 home位置,用于存储SSH协议使用的非对称加密密钥文件)</p>
+<p><img src="/2019/09/06/git4/k11.png" alt></p>
+<p>8.最好重启一次Eclipse</p>
+<p>9.把生成的公钥(刚才生成密钥的时候显示的那一串东西或者打开刚才生成的id_rsa.pub文件将里面的内容全部复制下来)绑定到git服务器上。</p>
+<p>10.添加GitHub公钥</p>
+<p><img src="/2019/09/06/git4/k14.png" alt></p>
+<p><img src="/2019/09/06/git4/k15.png" alt></p>
+<p><img src="/2019/09/06/git4/k16.png" alt></p>
+<p><img src="/2019/09/06/git4/k17.png" alt></p>
+<p>11.elipse代码提交如上,只需更改路径,其余跟https提交代码一致,不需要再输入密码。</p>
+<p><img src="/2019/09/06/git4/k18.png" alt></p>
+
+    </div>
+
+    
+    
+    
+<div>
+  
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束  <i class="fa fa-heart"></i> 感谢您的阅读-------------</div>
+    
+</div>
+  
+</div>
+        
+      
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Miss.Yang</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://yyr823.github.io/2019/09/06/git4/" title="Eclipse-Github操作">https://yyr823.github.io/2019/09/06/git4/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-Hans" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
+</ul>
+</div>
+
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/GitHub/" rel="tag"><i class="fa fa-tag"></i> GitHub</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+		  
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2019/09/06/http/" rel="next" title="HTTP相关内容">
+                  <i class="fa fa-chevron-left"></i> HTTP相关内容
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2019/09/06/github4/" rel="prev" title="Incorrect username or password(access token)">
+                  Incorrect username or password(access token) <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#参考链接"><span class="nav-number">1.</span> <span class="nav-text">参考链接</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#eclipse使用https、ssh协议方式上传代码至github"><span class="nav-number">2.</span> <span class="nav-text">eclipse使用https、ssh协议方式上传代码至github</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#以https协议方式上传项目代码"><span class="nav-number">3.</span> <span class="nav-text">以https协议方式上传项目代码</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#以ssh协议方式上传项目代码"><span class="nav-number">4.</span> <span class="nav-text">以ssh协议方式上传项目代码</span></a></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/xz.jpg"
+      alt="Miss.Yang">
+  <p class="site-author-name" itemprop="name">Miss.Yang</p>
+  <div class="site-description" itemprop="description">不积跬步,无以至千里;不积小流,无以成江海.</div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">96</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        <span class="site-state-item-count">44</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        <span class="site-state-item-count">41</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      推荐阅读
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://blog.csdn.net/u011642663/article/details/90597317" title="https://blog.csdn.net/u011642663/article/details/90597317" rel="noopener" target="_blank">设计模式看了又忘，忘了又看？</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://github.com/Snailclimb/JavaGuide" title="https://github.com/Snailclimb/JavaGuide" rel="noopener" target="_blank">Java 学习/面试指南</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="http://www.ityouknow.com/springboot/2015/12/30/springboot-collect.html" title="http://www.ityouknow.com/springboot/2015/12/30/springboot-collect.html" rel="noopener" target="_blank">Spring Boot 学习资料汇总</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://blog.csdn.net/wudinaniya/article/details/81130079" title="https://blog.csdn.net/wudinaniya/article/details/81130079" rel="noopener" target="_blank">码农翻身</a>
+        </li>
+      
+    </ul>
+  </div>
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+      
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+  <i class="fa fa-heart" aria-hidden="true"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Miss.Yang</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="站点总字数">266k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">4:02</span>
+</div>
+
+<!--
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.0</div>
+-->
+<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+<script>
+    var now = new Date(); 
+    function createtime() { 
+        var grt= new Date("09/05/2019 12:00:00");//此处修改你的建站时间或者网站上线时间 
+        now.setTime(now.getTime()+250); 
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+        document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 "; 
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+    } 
+setInterval("createtime()",250);
+</script>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+
+
+    
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.4.0"></script><script src="/js/motion.js?v=7.4.0"></script>
+<script src="/js/schemes/pisces.js?v=7.4.0"></script>
+
+<script src="/js/next-boot.js?v=7.4.0"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.4.0"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7}});</script></body>
+</html>
