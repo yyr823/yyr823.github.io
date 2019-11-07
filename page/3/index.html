@@ -202,28 +202,6 @@ class="github-corner" aria-label="View source on GitHub"><svg width="80" height=
     <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
 
   </li>
-      
-      
-      
-        
-        <li class="menu-item menu-item-book">
-      
-    
-
-    <a href="/categories/Books/" rel="section"><i class="menu-item-icon fa fa-fw fa-book"></i> <br>书籍</a>
-
-  </li>
-      
-      
-      
-        
-        <li class="menu-item menu-item-tv">
-      
-    
-
-    <a href="/categories/Tv/" rel="section"><i class="menu-item-icon fa fa-fw fa-twitch"></i> <br>影视</a>
-
-  </li>
       <li class="menu-item menu-item-search">
         <a href="javascript:;" class="popup-trigger">
         
@@ -268,1682 +246,6 @@ class="github-corner" aria-label="View source on GitHub"><svg width="80" height=
           <div id="content" class="content">
             
   <div id="posts" class="posts-expand">
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="https://yyr823.github.io/2019/09/09/sql5/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Miss.Yang">
-      <meta itemprop="description" content="不积跬步,无以至千里;不积小流,无以成江海.">
-      <meta itemprop="image" content="/images/xz.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SMILE">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/09/09/sql5/" class="post-title-link" itemprop="url">数据源-连接池(部分知识点)</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2019-09-09 14:01:59" itemprop="dateCreated datePublished" datetime="2019-09-09T14:01:59+08:00">2019-09-09</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-09-10 09:11:58" itemprop="dateModified" datetime="2019-09-10T09:11:58+08:00">2019-09-10</time>
-              </span>
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/SQL/" itemprop="url" rel="index"><span itemprop="name">SQL</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">本文字数：</span>
-              
-              <span>3.6k</span>
-            </span>
-          
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              
-              <span>3 分钟</span>
-            </span>
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h5 id="什么是数据源？"><a href="#什么是数据源？" class="headerlink" title="什么是数据源？"></a>什么是数据源？</h5><blockquote>
-<p>数据源定义的是连接到实际数据库的一条路径而已，数据源中并无真正的数据，它仅仅记录的是你连接到哪个数据库，以及如何连接的，如odbc数据源。也就是说数据源仅仅是数据库的连接名称，一个数据库可以有多个数据源连接.在Java语言中，DataSource对象就是一个代表数据源实体的对象。一个数据源就是一个用来存储数据的工具，它可以是复杂的大型企业级数据库，也可以是简单得只有行和列的文件。数据源可以位于在服务器端，也可以位于客服端。</p>
-</blockquote>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/09/09/sql5/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-<div>
-  
-</div>
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="https://yyr823.github.io/2019/09/09/mysql9/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Miss.Yang">
-      <meta itemprop="description" content="不积跬步,无以至千里;不积小流,无以成江海.">
-      <meta itemprop="image" content="/images/xz.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SMILE">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/09/09/mysql9/" class="post-title-link" itemprop="url">Mysql函数</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2019-09-09 13:40:59" itemprop="dateCreated datePublished" datetime="2019-09-09T13:40:59+08:00">2019-09-09</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-09-10 09:11:17" itemprop="dateModified" datetime="2019-09-10T09:11:17+08:00">2019-09-10</time>
-              </span>
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/SQL/" itemprop="url" rel="index"><span itemprop="name">SQL</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/SQL/Mysql/" itemprop="url" rel="index"><span itemprop="name">Mysql</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">本文字数：</span>
-              
-              <span>8k</span>
-            </span>
-          
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              
-              <span>7 分钟</span>
-            </span>
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="数学函数"><a href="#数学函数" class="headerlink" title="数学函数"></a><strong>数学函数</strong></h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">ABS(x)                   返回x的绝对值</span><br><span class="line">BIN(x)                   返回x的二进制（OCT返回八进制，HEX返回十六进制）</span><br><span class="line">CEILING(x)               返回大于x的最小整数值</span><br><span class="line">EXP(x)                   返回值e（自然对数的底）的x次方 </span><br><span class="line">FLOOR(x)                 返回小于x的最大整数值 </span><br><span class="line">GREATEST(x1,x2,...,xn)   返回集合中最大的值 </span><br><span class="line">LEAST(x1,x2,...,xn)      返回集合中最小的值</span><br><span class="line">LN(x)                    返回x的自然对数 </span><br><span class="line">LOG(x,y)                 返回x的以y为底的对数 </span><br><span class="line">MOD(x,y)                 返回x/y的模（余数） </span><br><span class="line">PI()                     返回pi的值（圆周率） </span><br><span class="line">RAND()                   返回０到１内的随机值,可以通过提供一个参数(种子)使RAND()随机数生成器生成一个指定的值。</span><br><span class="line">ROUND(x,y)               返回参数x的四舍五入的有y位小数的值</span><br><span class="line">SIGN(x)                  返回代表数字x的符号的值 </span><br><span class="line">SQRT(x)                  返回一个数的平方根 </span><br><span class="line">TRUNCATE(x,y)            返回数字x截短为y位小数的结果</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/09/09/mysql9/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-<div>
-  
-</div>
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="https://yyr823.github.io/2019/09/09/jilu/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Miss.Yang">
-      <meta itemprop="description" content="不积跬步,无以至千里;不积小流,无以成江海.">
-      <meta itemprop="image" content="/images/xz.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SMILE">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/09/09/jilu/" class="post-title-link" itemprop="url">2019所看记录片</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2019-09-09 13:31:59 / 修改时间：13:15:21" itemprop="dateCreated datePublished" datetime="2019-09-09T13:31:59+08:00">2019-09-09</time>
-            </span>
-          
-            
-
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Tv/" itemprop="url" rel="index"><span itemprop="name">Tv</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">本文字数：</span>
-              
-              <span>0</span>
-            </span>
-          
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              
-              <span>1 分钟</span>
-            </span>
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          
-        
-      
-    </div>
-
-    
-    
-    
-<div>
-  
-</div>
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="https://yyr823.github.io/2019/09/09/oom/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Miss.Yang">
-      <meta itemprop="description" content="不积跬步,无以至千里;不积小流,无以成江海.">
-      <meta itemprop="image" content="/images/xz.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SMILE">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/09/09/oom/" class="post-title-link" itemprop="url">什么是OOM，为什么会OOM及一些解决方法</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2019-09-09 11:50:59 / 修改时间：13:13:44" itemprop="dateCreated datePublished" datetime="2019-09-09T11:50:59+08:00">2019-09-09</time>
-            </span>
-          
-            
-
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Exception/" itemprop="url" rel="index"><span itemprop="name">Exception</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Exception/OOM/" itemprop="url" rel="index"><span itemprop="name">OOM</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">本文字数：</span>
-              
-              <span>9k</span>
-            </span>
-          
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              
-              <span>8 分钟</span>
-            </span>
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="什么是OOM？"><a href="#什么是OOM？" class="headerlink" title="什么是OOM？"></a><strong>什么是OOM？</strong></h4><p> OOM,全称”Out Of Memory”,翻译成中文就是“内存用完了”,来源java.lang.OutOfMemoryError。看下关于的官方说明： </p><blockquote>
-<p>Thrown when the Java Virtual Machine cannot allocate an object because it is out of memory, and no more memory could be made available by the garbage collector.</p>
-</blockquote>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/09/09/oom/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-<div>
-  
-</div>
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="https://yyr823.github.io/2019/09/09/tv1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Miss.Yang">
-      <meta itemprop="description" content="不积跬步,无以至千里;不积小流,无以成江海.">
-      <meta itemprop="image" content="/images/xz.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SMILE">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/09/09/tv1/" class="post-title-link" itemprop="url">影视观看单</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2019-09-09 11:34:59 / 修改时间：11:36:54" itemprop="dateCreated datePublished" datetime="2019-09-09T11:34:59+08:00">2019-09-09</time>
-            </span>
-          
-            
-
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Tv/" itemprop="url" rel="index"><span itemprop="name">Tv</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">本文字数：</span>
-              
-              <span>246</span>
-            </span>
-          
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              
-              <span>1 分钟</span>
-            </span>
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <blockquote>
-<p><strong>影视观看单</strong></p>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th>影视名称</th>
-<th>观看时间</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>霸王别姬</td>
-<td></td>
-</tr>
-<tr>
-<td>肖申克的救赎</td>
-<td></td>
-</tr>
-<tr>
-<td>辛德勒的名单</td>
-<td></td>
-</tr>
-<tr>
-<td>美丽人生</td>
-<td></td>
-</tr>
-<tr>
-<td>茶馆</td>
-<td></td>
-</tr>
-<tr>
-<td>阿甘正传</td>
-<td></td>
-</tr>
-<tr>
-<td>灿烂人生</td>
-<td></td>
-</tr>
-<tr>
-<td>这个杀手不太冷</td>
-<td></td>
-</tr>
-<tr>
-<td>背靠背，脸对脸</td>
-<td></td>
-</tr>
-<tr>
-<td>泰坦尼克号</td>
-<td></td>
-</tr>
-<tr>
-<td>借东风</td>
-<td></td>
-</tr>
-<tr>
-<td>放牛班的春天</td>
-<td></td>
-</tr>
-<tr>
-<td>机器人总动员</td>
-<td></td>
-</tr>
-<tr>
-<td>城市之光</td>
-<td></td>
-</tr>
-<tr>
-<td>盗梦空间</td>
-<td></td>
-</tr>
-<tr>
-<td>教父1</td>
-<td></td>
-</tr>
-<tr>
-<td>大闹天宫</td>
-<td></td>
-</tr>
-<tr>
-<td>群英会京剧</td>
-<td></td>
-</tr>
-<tr>
-<td>贵妃醉酒</td>
-<td></td>
-</tr>
-<tr>
-<td>丝路花雨</td>
-<td></td>
-</tr>
-<tr>
-<td>梅兰芳的舞台艺术(下)</td>
-<td></td>
-</tr>
-<tr>
-<td>忠犬八公的故事</td>
-<td></td>
-</tr>
-<tr>
-<td>海豚湾</td>
-<td></td>
-</tr>
-<tr>
-<td>永远的车神</td>
-<td></td>
-</tr>
-<tr>
-<td>生活多美好</td>
-<td></td>
-</tr>
-<tr>
-<td>你逃我也逃</td>
-<td></td>
-</tr>
-<tr>
-<td>遥望南方的童年</td>
-<td></td>
-</tr>
-<tr>
-<td>疯狂动物城</td>
-<td></td>
-</tr>
-<tr>
-<td>楚门的世界</td>
-<td></td>
-</tr>
-<tr>
-<td>教父2</td>
-<td></td>
-</tr>
-<tr>
-<td>大话西游之大圣娶亲</td>
-<td></td>
-</tr>
-<tr>
-<td>七武士</td>
-<td></td>
-</tr>
-<tr>
-<td>切腹</td>
-<td></td>
-</tr>
-<tr>
-<td>花为媒</td>
-<td></td>
-</tr>
-<tr>
-<td>梅兰芳的舞台艺术(上)</td>
-<td></td>
-</tr>
-<tr>
-<td>地球之盐</td>
-<td></td>
-</tr>
-<tr>
-<td>星际穿越</td>
-<td></td>
-</tr>
-<tr>
-<td>海上钢琴师</td>
-<td></td>
-</tr>
-<tr>
-<td>摩登时代</td>
-<td></td>
-</tr>
-<tr>
-<td>乱世佳人</td>
-<td></td>
-</tr>
-<tr>
-<td>家园</td>
-<td></td>
-</tr>
-<tr>
-<td>小鞋子</td>
-<td></td>
-</tr>
-<tr>
-<td>钢琴家</td>
-<td></td>
-</tr>
-<tr>
-<td>寻子遇仙记</td>
-<td></td>
-</tr>
-<tr>
-<td>微观世界</td>
-<td></td>
-</tr>
-<tr>
-<td>迁徙的鸟</td>
-<td></td>
-</tr>
-<tr>
-<td>无人知晓</td>
-<td></td>
-</tr>
-<tr>
-<td>无间道</td>
-<td></td>
-</tr>
-<tr>
-<td>北极故事</td>
-<td></td>
-</tr>
-<tr>
-<td>末代皇帝</td>
-<td></td>
-</tr>
-</tbody></table>
-
-        
-      
-    </div>
-
-    
-    
-    
-<div>
-  
-</div>
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="https://yyr823.github.io/2019/09/09/book1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Miss.Yang">
-      <meta itemprop="description" content="不积跬步,无以至千里;不积小流,无以成江海.">
-      <meta itemprop="image" content="/images/xz.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SMILE">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/09/09/book1/" class="post-title-link" itemprop="url">书单列表(自我阅读计划)</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2019-09-09 11:31:59 / 修改时间：15:05:08" itemprop="dateCreated datePublished" datetime="2019-09-09T11:31:59+08:00">2019-09-09</time>
-            </span>
-          
-            
-
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Books/" itemprop="url" rel="index"><span itemprop="name">Books</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">本文字数：</span>
-              
-              <span>780</span>
-            </span>
-          
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              
-              <span>1 分钟</span>
-            </span>
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <blockquote>
-<p><strong>书单列表</strong></p>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th>名称</th>
-<th>阅读开始/结束时间</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>《如何阅读一本书》-莫提莫·J·艾德勒,查尔斯·范多伦</td>
-<td></td>
-</tr>
-<tr>
-<td>《平凡的世界》-路遥</td>
-<td></td>
-</tr>
-<tr>
-<td>《万历十五年》-黄仁宇</td>
-<td></td>
-</tr>
-<tr>
-<td>《三体》-刘慈轩</td>
-<td></td>
-</tr>
-<tr>
-<td>《人类简史:从动物到上帝》-尤瓦尔·赫拉利</td>
-<td></td>
-</tr>
-<tr>
-<td>《白鹿原》-陈忠实</td>
-<td></td>
-</tr>
-<tr>
-<td>《叫魂:1768年中国妖术大恐慌》-孔飞力</td>
-<td></td>
-</tr>
-<tr>
-<td>《国富论》-亚当·斯密</td>
-<td></td>
-</tr>
-<tr>
-<td>《解忧杂货铺》-东野圭吾</td>
-<td></td>
-</tr>
-<tr>
-<td>《挪威的森林》-村上春树</td>
-<td></td>
-</tr>
-<tr>
-<td>《我们仨》-杨绛</td>
-<td></td>
-</tr>
-<tr>
-<td>《瓦尔登湖》-梭罗</td>
-<td></td>
-</tr>
-<tr>
-<td>《月亮与六便士》-毛姆</td>
-<td></td>
-</tr>
-<tr>
-<td>《海边的卡夫卡》-村上春树</td>
-<td></td>
-</tr>
-<tr>
-<td>《白夜行》-东野圭吾</td>
-<td></td>
-</tr>
-<tr>
-<td>《天龙八部》-金庸</td>
-<td></td>
-</tr>
-<tr>
-<td>《乡土中国》-费孝通</td>
-<td></td>
-</tr>
-<tr>
-<td>《追风筝的人》-卡勒德·胡塞尼</td>
-<td></td>
-</tr>
-<tr>
-<td>《资本论》-马克思</td>
-<td></td>
-</tr>
-<tr>
-<td>《菊与刀》-鲁思·本尼迪克特</td>
-<td></td>
-</tr>
-<tr>
-<td>《时间简史(插图本)》-史蒂芬·霍金</td>
-<td></td>
-</tr>
-<tr>
-<td>《围城》-钱钟书</td>
-<td></td>
-</tr>
-<tr>
-<td>《大数据时代:生活,工作与思维的大变革》-麦尔·舍恩伯格,库克耶</td>
-<td></td>
-</tr>
-<tr>
-<td>《霍乱时期的爱情》-加西亚·马尔克斯</td>
-<td></td>
-</tr>
-<tr>
-<td>《东方快车谋杀案》-阿加莎·克里斯蒂</td>
-<td></td>
-</tr>
-<tr>
-<td>《雪国》-川端康成</td>
-<td></td>
-</tr>
-<tr>
-<td>《数学之美》-吴军</td>
-<td></td>
-</tr>
-<tr>
-<td>《中国哲学简史》-冯友兰</td>
-<td></td>
-</tr>
-<tr>
-<td>《国史大纲》-钱穆</td>
-<td></td>
-</tr>
-<tr>
-<td>《西方哲学史》-罗素</td>
-<td></td>
-</tr>
-<tr>
-<td>《百年孤独》-加西亚·马尔克斯</td>
-<td></td>
-</tr>
-<tr>
-<td>《乌合之众》-古斯塔夫·勒庞</td>
-<td></td>
-</tr>
-<tr>
-<td>《射雕英雄传》-金庸</td>
-<td></td>
-</tr>
-<tr>
-<td>《理想国》-柏拉图</td>
-<td></td>
-</tr>
-<tr>
-<td>《心理学与生活》-格里格,津巴多</td>
-<td></td>
-</tr>
-<tr>
-<td>《不能承受的生命之轻》-米兰·昆德拉</td>
-<td></td>
-</tr>
-<tr>
-<td>《明朝那些事儿》-当年明月</td>
-<td></td>
-</tr>
-<tr>
-<td>《无人生还》-阿加莎·克里斯蒂</td>
-<td></td>
-</tr>
-<tr>
-<td>《春秋左传注》-杨伯峻</td>
-<td></td>
-</tr>
-<tr>
-<td>《长恨歌》-王安忆</td>
-<td></td>
-</tr>
-<tr>
-<td>《呼兰河传》-萧红</td>
-<td></td>
-</tr>
-<tr>
-<td>《高效能人士的七个习惯》-史蒂芬·柯维</td>
-<td></td>
-</tr>
-<tr>
-<td>《了不起的盖茨比》-FS菲兹杰拉德</td>
-<td></td>
-</tr>
-<tr>
-<td>《思考，快与慢》-丹尼尔·卡尼曼</td>
-<td></td>
-</tr>
-<tr>
-<td>《小王子》-安东尼·德·圣·埃克苏佩里</td>
-<td></td>
-</tr>
-<tr>
-<td>《苏菲的世界》-乔斯坦·贾德</td>
-<td></td>
-</tr>
-<tr>
-<td>《这里》-理查德·麦奎尔</td>
-<td></td>
-</tr>
-<tr>
-<td>《鲍勃·迪伦诗歌集》-鲍勃·迪伦</td>
-<td></td>
-</tr>
-<tr>
-<td>《一个广告人的自白》-大卫·奥格威</td>
-<td></td>
-</tr>
-<tr>
-<td>《BBC科普三部曲》-保尔·罗斯等</td>
-<td></td>
-</tr>
-<tr>
-<td>《人类的群星闪耀时》-史蒂芬·茨威格</td>
-<td></td>
-</tr>
-<tr>
-<td>《漫长的告别》-雷蒙德·钱德勒</td>
-<td></td>
-</tr>
-<tr>
-<td>《非暴力沟通》-马歇尔·卢森堡</td>
-<td></td>
-</tr>
-<tr>
-<td>《金字塔原理》-明托</td>
-<td></td>
-</tr>
-<tr>
-<td>《终身成长》-卡罗尔·德韦克</td>
-<td></td>
-</tr>
-<tr>
-<td>《房思琪的初恋乐园》-林奕含</td>
-<td></td>
-</tr>
-</tbody></table>
-
-        
-      
-    </div>
-
-    
-    
-    
-<div>
-  
-</div>
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="https://yyr823.github.io/2019/09/09/book2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Miss.Yang">
-      <meta itemprop="description" content="不积跬步,无以至千里;不积小流,无以成江海.">
-      <meta itemprop="image" content="/images/xz.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SMILE">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/09/09/book2/" class="post-title-link" itemprop="url">行业书籍列表</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2019-09-09 11:21:59 / 修改时间：11:37:07" itemprop="dateCreated datePublished" datetime="2019-09-09T11:21:59+08:00">2019-09-09</time>
-            </span>
-          
-            
-
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Books/" itemprop="url" rel="index"><span itemprop="name">Books</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">本文字数：</span>
-              
-              <span>468</span>
-            </span>
-          
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              
-              <span>1 分钟</span>
-            </span>
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <blockquote>
-<p><strong>行业书籍列表</strong></p>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th align="center">书籍名称</th>
-<th align="center">阅读开始/完成时间</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">《<strong>编码：隐匿在计算机软硬件背后的语言</strong>》</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">《<strong>深入理解计算机系统</strong>》</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">《<strong>图灵的秘密</strong>》</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">《<strong>算法</strong>》–Sedgewick 和 Wayne</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">《<strong>C程序设计语言</strong>》– K&amp;R</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">《<strong>30天自制操作系统</strong>》</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">《增长黑客》 –范冰</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">《万物:文明》–延斯哈德</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">《潜意识》–列纳德蒙 洛迪诺</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">《创新者》 –沃尔特 艾萨克森</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">《浪潮之巅》–吴军</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">《数学之美》–吴军</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">《长尾理论》 –克里斯 安德森</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">《黑客》 –Steven Levy</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">《启示录》–Marty Cagan</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">《重新定义公司》 –埃里克 施密特</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">《Java编程思想》–Bruce Eckel</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center"><strong>《Effective Java》</strong></td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center"><strong>《Head First Design》</strong></td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">《重构：改善既有代码的设计》–Martin Flower</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center"><strong>《敏捷软件开发， 原则，模式，实践》</strong></td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">《Java并发编程实战》</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">《深入理解Java 虚拟机》</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">《J2EE development without EJB》</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">《<strong>TCP/IP详解</strong>》</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">《<strong>编译原理</strong>》–龙书</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">《<strong>编程语言实现模式</strong>》</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">《编码的奥秘》</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">《重构-改善既有代码的设计》</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">《敏捷软件开发 原则、模式与实践》</td>
-<td align="center"></td>
-</tr>
-</tbody></table>
-
-        
-      
-    </div>
-
-    
-    
-    
-<div>
-  
-</div>
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="https://yyr823.github.io/2019/09/08/css2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Miss.Yang">
-      <meta itemprop="description" content="不积跬步,无以至千里;不积小流,无以成江海.">
-      <meta itemprop="image" content="/images/xz.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SMILE">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/09/08/css2/" class="post-title-link" itemprop="url">CSS3常用属性</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2019-09-08 09:25:59 / 修改时间：09:30:55" itemprop="dateCreated datePublished" datetime="2019-09-08T09:25:59+08:00">2019-09-08</time>
-            </span>
-          
-            
-
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/CSS/" itemprop="url" rel="index"><span itemprop="name">CSS</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/CSS/CSS3/" itemprop="url" rel="index"><span itemprop="name">CSS3</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">本文字数：</span>
-              
-              <span>9k</span>
-            </span>
-          
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              
-              <span>8 分钟</span>
-            </span>
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <blockquote>
-<h4 id="Css3设置边框属性"><a href="#Css3设置边框属性" class="headerlink" title="Css3设置边框属性"></a>Css3设置边框属性</h4></blockquote><h5 id="【box-shadow属性】"><a href="#【box-shadow属性】" class="headerlink" title="【box-shadow属性】"></a>【<strong>box-shadow属性</strong>】</h5><ul>
-<li><p>作用: 可以设置一个或多个下拉阴影的框。</p>
-</li>
-<li><p>语法: <code>box-shadow:h-shadow  v-shadow   blur  spread  color</code></p>
-</li>
-<li><p>语法描述:</p>
-</li>
-</ul><table>
-<thead>
-<tr>
-<th align="center">值</th>
-<th align="center">描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">h-shadow</td>
-<td align="center">必需的。水平阴影的位置。允许负值</td>
-</tr>
-<tr>
-<td align="center">v-shadow</td>
-<td align="center">必需的。垂直阴影的位置。 先许负值</td>
-</tr>
-<tr>
-<td align="center">blur</td>
-<td align="center">可选。模糊距离</td>
-</tr>
-<tr>
-<td align="center">spread</td>
-<td align="center">可选。阴影的大小</td>
-</tr>
-<tr>
-<td align="center">color</td>
-<td align="center">可选。阴影的颜色</td>
-</tr>
-</tbody></table>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/09/08/css2/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-<div>
-  
-</div>
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="https://yyr823.github.io/2019/09/07/wz1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Miss.Yang">
-      <meta itemprop="description" content="不积跬步,无以至千里;不积小流,无以成江海.">
-      <meta itemprop="image" content="/images/xz.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SMILE">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/09/07/wz1/" class="post-title-link" itemprop="url">网站语言切换</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2019-09-07 09:03:59 / 修改时间：09:10:03" itemprop="dateCreated datePublished" datetime="2019-09-07T09:03:59+08:00">2019-09-07</time>
-            </span>
-          
-            
-
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/小知识/" itemprop="url" rel="index"><span itemprop="name">小知识</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">本文字数：</span>
-              
-              <span>41</span>
-            </span>
-          
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              
-              <span>1 分钟</span>
-            </span>
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <ol>
-<li><p><a href="https://blog.csdn.net/CSDN_LQR/article/details/78026254" target="_blank" rel="noopener">这可能是目前最方便的网站中英文切换（理论支持所有语言）</a></p>
-</li>
-<li><p><a href="https://www.cnblogs.com/tu-0718/p/9977898.html" target="_blank" rel="noopener">实现网站中英文切换的三种方法</a></p>
-</li>
-</ol>
-
-        
-      
-    </div>
-
-    
-    
-    
-<div>
-  
-</div>
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
         <article itemscope itemtype="http://schema.org/Article">
   
   
@@ -2064,11 +366,1186 @@ class="github-corner" aria-label="View source on GitHub"><svg width="80" height=
   </article>
 
     
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="https://yyr823.github.io/2019/09/07/ztree1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Miss.Yang">
+      <meta itemprop="description" content="不积跬步,无以至千里;不积小流,无以成江海.">
+      <meta itemprop="image" content="/images/xz.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SMILE">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2019/09/07/ztree1/" class="post-title-link" itemprop="url">$.fn.zTree is undefined</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-09-07 09:01:59" itemprop="dateCreated datePublished" datetime="2019-09-07T09:01:59+08:00">2019-09-07</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-09-09 11:37:32" itemprop="dateModified" datetime="2019-09-09T11:37:32+08:00">2019-09-09</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Exception/" itemprop="url" rel="index"><span itemprop="name">Exception</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Exception/Ztree/" itemprop="url" rel="index"><span itemprop="name">Ztree</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">本文字数：</span>
+              
+              <span>214</span>
+            </span>
+          
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              
+              <span>1 分钟</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<h5 id="场景"><a href="#场景" class="headerlink" title="场景"></a>场景</h5></blockquote>
+<p><strong>在使用ztree做目录树功能的时候,在初始化的时候报 $.fn.zTree is undefined 错误</strong></p>
+<blockquote>
+<h5 id="原因及解决办法"><a href="#原因及解决办法" class="headerlink" title="原因及解决办法"></a>原因及解决办法</h5></blockquote>
+<ul>
+<li><p>在父页面引用的jquery相关js文件,layui弹出层引用页面,子页面同时引用了jquery和ztree相关的js</p>
+<ul>
+<li>​    子页面引入js库放到body标签中,保存后再运行</li>
+</ul>
+</li>
+<li><p>把jquery的js放在了ztree的下面,ztree覆盖了jquery里面的一些内容</p>
+<ul>
+<li>​     把jquery的js放在前面即可</li>
+</ul>
+</li>
+</ul>
+
+        
+      
+    </div>
+
+    
+    
+    
+<div>
+  
+</div>
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="https://yyr823.github.io/2019/09/07/layui5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Miss.Yang">
+      <meta itemprop="description" content="不积跬步,无以至千里;不积小流,无以成江海.">
+      <meta itemprop="image" content="/images/xz.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SMILE">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2019/09/07/layui5/" class="post-title-link" itemprop="url">Layui相关问题推荐阅读</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-09-07 08:59:59 / 修改时间：09:14:54" itemprop="dateCreated datePublished" datetime="2019-09-07T08:59:59+08:00">2019-09-07</time>
+            </span>
+          
+            
+
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Layui/" itemprop="url" rel="index"><span itemprop="name">Layui</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">本文字数：</span>
+              
+              <span>101</span>
+            </span>
+          
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              
+              <span>1 分钟</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <ol>
+<li><p><a href="https://www.jb51.net/article/145615.htm" target="_blank" rel="noopener">解决Layui选择全部,换页checkbox复选框重新勾选的问题方法</a></p>
+</li>
+<li><p><a href="https://blog.csdn.net/weixin_43233914/article/details/86525955" target="_blank" rel="noopener">layui admin table单击行勾选checkbox并高亮显示</a></p>
+</li>
+<li><p><a href="https://www.jianshu.com/p/5e526c9db035" target="_blank" rel="noopener">Layui select配合input实现可输入，可选择，可搜索</a></p>
+</li>
+</ol>
+
+        
+      
+    </div>
+
+    
+    
+    
+<div>
+  
+</div>
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="https://yyr823.github.io/2019/09/07/layui4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Miss.Yang">
+      <meta itemprop="description" content="不积跬步,无以至千里;不积小流,无以成江海.">
+      <meta itemprop="image" content="/images/xz.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SMILE">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2019/09/07/layui4/" class="post-title-link" itemprop="url">select组件设置下拉框的高度</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-09-07 08:57:59 / 修改时间：09:37:31" itemprop="dateCreated datePublished" datetime="2019-09-07T08:57:59+08:00">2019-09-07</time>
+            </span>
+          
+            
+
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Layui/" itemprop="url" rel="index"><span itemprop="name">Layui</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">本文字数：</span>
+              
+              <span>54</span>
+            </span>
+          
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              
+              <span>1 分钟</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.layui-form-select</span> <span class="selector-tag">dl</span> &#123; <span class="attribute">max-height</span>:<span class="number">210px</span>; &#125;</span><br></pre></td></tr></table></figure>
+
+
+        
+      
+    </div>
+
+    
+    
+    
+<div>
+  
+</div>
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="https://yyr823.github.io/2019/09/07/layui3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Miss.Yang">
+      <meta itemprop="description" content="不积跬步,无以至千里;不积小流,无以成江海.">
+      <meta itemprop="image" content="/images/xz.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SMILE">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2019/09/07/layui3/" class="post-title-link" itemprop="url">layui表格内放置图片,并点击放大</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-09-07 08:56:59 / 修改时间：09:38:31" itemprop="dateCreated datePublished" datetime="2019-09-07T08:56:59+08:00">2019-09-07</time>
+            </span>
+          
+            
+
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Layui/" itemprop="url" rel="index"><span itemprop="name">Layui</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">本文字数：</span>
+              
+              <span>640</span>
+            </span>
+          
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              
+              <span>1 分钟</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><a href="https://blog.csdn.net/huangbaokang/article/details/80697341" target="_blank" rel="noopener">原文链接</a></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">  <span class="comment">//layui  table:</span></span><br><span class="line">   done:<span class="function"><span class="keyword">function</span>(<span class="params">res,curr,count</span>)</span>&#123;</span><br><span class="line">            hoverOpenImg();<span class="comment">//显示大图</span></span><br><span class="line">            &#125;</span><br><span class="line"><span class="comment">//显示大图片</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">hoverOpenImg</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> img_show = <span class="literal">null</span>; <span class="comment">// tips提示</span></span><br><span class="line">    $(<span class="string">'td img'</span>).hover(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="comment">//alert($(this).attr('src'));</span></span><br><span class="line">        <span class="keyword">var</span> img = <span class="string">"&lt;img class='img_msg' src='"</span>+$(<span class="keyword">this</span>).attr(<span class="string">'src'</span>)+<span class="string">"' style='width:130px;' /&gt;"</span>;</span><br><span class="line">        img_show = layer.tips(img, <span class="keyword">this</span>,&#123;</span><br><span class="line">            tips:[<span class="number">2</span>, <span class="string">'rgba(41,41,41,.5)'</span>]</span><br><span class="line">            ,<span class="attr">area</span>: [<span class="string">'160px'</span>]</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        layer.close(img_show);</span><br><span class="line">    &#125;);</span><br><span class="line">    $(<span class="string">'td img'</span>).attr(<span class="string">'style'</span>,<span class="string">'max-width:70px'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+        
+      
+    </div>
+
+    
+    
+    
+<div>
+  
+</div>
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="https://yyr823.github.io/2019/09/07/layui2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Miss.Yang">
+      <meta itemprop="description" content="不积跬步,无以至千里;不积小流,无以成江海.">
+      <meta itemprop="image" content="/images/xz.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SMILE">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2019/09/07/layui2/" class="post-title-link" itemprop="url">layer弹出层父子页面事件相互调用方法</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-09-07 08:55:59" itemprop="dateCreated datePublished" datetime="2019-09-07T08:55:59+08:00">2019-09-07</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-11-07 15:09:18" itemprop="dateModified" datetime="2019-11-07T15:09:18+08:00">2019-11-07</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Layui/" itemprop="url" rel="index"><span itemprop="name">Layui</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">本文字数：</span>
+              
+              <span>1.4k</span>
+            </span>
+          
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              
+              <span>1 分钟</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <ul>
+<li><p><a href="https://www.jb51.net/article/145817.htm" target="_blank" rel="noopener">原文链接</a></p>
+</li>
+<li><p><strong>父页面</strong></p>
+</li>
+</ul><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">	&lt;a data-url=<span class="string">"bbbb.html"</span> id=<span class="string">"parentIframe"</span>&gt;小小提示层&lt;<span class="regexp">/a&gt;</span></span><br><span class="line"><span class="regexp">	&lt;input id="shuzhi" /</span>&gt;</span><br><span class="line">	&lt;button <span class="class"><span class="keyword">class</span></span>=<span class="string">"but_par"</span>&gt;父页面&lt;<span class="regexp">/button&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>body&gt;</span><br><span class="line">&lt;script src=<span class="string">"../jquery-1.9.1.min.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line">&lt;script src=<span class="string">"layer/layer.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line">&lt;script&gt;</span><br><span class="line">	$(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">		$(<span class="string">"#parentIframe"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">			<span class="keyword">var</span> a = $(<span class="keyword">this</span>).attr(<span class="string">"data-url"</span>);</span><br><span class="line">			layer.open(&#123;</span><br><span class="line">				type: <span class="number">2</span>,</span><br><span class="line">				content: a,</span><br><span class="line">				success: <span class="function"><span class="keyword">function</span>(<span class="params">layero, index</span>) </span>&#123;</span><br><span class="line">					<span class="keyword">var</span> body = layer.getChildFrame(<span class="string">'body'</span>, index); <span class="comment">//获取子页面内容</span></span><br><span class="line">					<span class="comment">//得到iframe页的窗口对象,执行iframe页的方法：iframeWin.method();</span></span><br><span class="line">					<span class="keyword">var</span> iframeWin = <span class="built_in">window</span>[layero.find(<span class="string">'iframe'</span>)[<span class="number">0</span>][<span class="string">'name'</span>]];</span><br><span class="line">					body.find(<span class="string">"#transmit"</span>).click(); <span class="comment">//执行子页面的方法</span></span><br><span class="line">					body.find(<span class="string">'input'</span>).val(<span class="string">'Hi，我是从父页来的'</span>)</span><br><span class="line">					$(<span class="string">".but_par"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">						alert(<span class="number">222</span>);</span><br><span class="line">					&#125;)</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;);</span><br><span class="line">		&#125;);</span><br><span class="line">	&#125;);</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/09/07/layui2/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+<div>
+  
+</div>
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="https://yyr823.github.io/2019/09/07/layui1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Miss.Yang">
+      <meta itemprop="description" content="不积跬步,无以至千里;不积小流,无以成江海.">
+      <meta itemprop="image" content="/images/xz.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SMILE">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2019/09/07/layui1/" class="post-title-link" itemprop="url">layui 给数据表格加序号</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-09-07 08:54:59 / 修改时间：09:40:04" itemprop="dateCreated datePublished" datetime="2019-09-07T08:54:59+08:00">2019-09-07</time>
+            </span>
+          
+            
+
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Layui/" itemprop="url" rel="index"><span itemprop="name">Layui</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">本文字数：</span>
+              
+              <span>633</span>
+            </span>
+          
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              
+              <span>1 分钟</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><a href="https://blog.csdn.net/qq_40319394/article/details/80657832" target="_blank" rel="noopener">原文链接</a></p><ul>
+<li><strong>第一种需求,只给当前页加序号</strong></li>
+</ul><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">,<span class="attr">cols</span>: [[</span><br><span class="line">    &#123;<span class="attr">field</span>:<span class="string">'tourPlayerId'</span>, <span class="attr">width</span>:<span class="number">80</span>, <span class="attr">title</span>: <span class="string">'ID1'</span>, <span class="attr">sort</span>: <span class="literal">true</span>,<span class="attr">fixed</span>: <span class="string">'left'</span>,&#125;</span><br><span class="line">    ,&#123;<span class="attr">field</span>:<span class="string">'zizeng'</span>, <span class="attr">width</span>:<span class="number">80</span>, <span class="attr">title</span>: <span class="string">'排名'</span>,<span class="attr">fixed</span>: <span class="string">'left'</span>,<span class="attr">templet</span>: <span class="function"><span class="keyword">function</span> (<span class="params">d</span>) </span></span><br><span class="line"><span class="function">    </span>&#123;<span class="keyword">return</span> d.LAY_TABLE_INDEX+<span class="number">1</span>;&#125;&#125;</span><br><span class="line">    ]]</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/09/07/layui1/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+<div>
+  
+</div>
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="https://yyr823.github.io/2019/09/07/js7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Miss.Yang">
+      <meta itemprop="description" content="不积跬步,无以至千里;不积小流,无以成江海.">
+      <meta itemprop="image" content="/images/xz.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SMILE">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2019/09/07/js7/" class="post-title-link" itemprop="url">Dom访问表单控件的常用属性和方法</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-09-07 08:48:59" itemprop="dateCreated datePublished" datetime="2019-09-07T08:48:59+08:00">2019-09-07</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-09-26 14:46:49" itemprop="dateModified" datetime="2019-09-26T14:46:49+08:00">2019-09-26</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/JS/" itemprop="url" rel="index"><span itemprop="name">JS</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">本文字数：</span>
+              
+              <span>4k</span>
+            </span>
+          
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              
+              <span>4 分钟</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<h4 id="DOM访问列表框、下拉菜单的常用属性"><a href="#DOM访问列表框、下拉菜单的常用属性" class="headerlink" title="DOM访问列表框、下拉菜单的常用属性"></a>DOM访问列表框、下拉菜单的常用属性</h4></blockquote><table>
+<thead>
+<tr>
+<th align="left">form</th>
+<th align="left">返回列表框/下拉框所在的表单对象</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">length</td>
+<td align="left">返回列表框/下拉框的选项个数</td>
+</tr>
+<tr>
+<td align="left">options</td>
+<td align="left">返回列表框/下拉菜单里所有选项组成的数组</td>
+</tr>
+<tr>
+<td align="left">selectedIndex</td>
+<td align="left">返回下拉列表中选中选项的索引</td>
+</tr>
+<tr>
+<td align="left">type</td>
+<td align="left">返回下拉列表的类型, 多选的话返回select-multiple,单选select-one</td>
+</tr>
+</tbody></table>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/09/07/js7/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+<div>
+  
+</div>
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="https://yyr823.github.io/2019/09/07/js6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Miss.Yang">
+      <meta itemprop="description" content="不积跬步,无以至千里;不积小流,无以成江海.">
+      <meta itemprop="image" content="/images/xz.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SMILE">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2019/09/07/js6/" class="post-title-link" itemprop="url">Dom对HTML元素的增删改操作</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-09-07 08:48:59" itemprop="dateCreated datePublished" datetime="2019-09-07T08:48:59+08:00">2019-09-07</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-09-08 08:44:54" itemprop="dateModified" datetime="2019-09-08T08:44:54+08:00">2019-09-08</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/JS/" itemprop="url" rel="index"><span itemprop="name">JS</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">本文字数：</span>
+              
+              <span>6.5k</span>
+            </span>
+          
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              
+              <span>6 分钟</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><img src="/2019/09/07/js6/bo8.png" alt><img src="/2019/09/07/js6/bo9.jpg" alt>为了动态地修改HTML元素,须先访问HTML元素。 </p><h4 id="DOM主要提供了两种方式来访问-HTML元素"><a href="#DOM主要提供了两种方式来访问-HTML元素" class="headerlink" title="DOM主要提供了两种方式来访问 HTML元素"></a>DOM主要提供了两种方式来访问 HTML元素</h4><ul>
+<li><p>根据 l D访问HTML元素一通过document对象调用getE l ementById()方法来查找具有唯一id属性值的元素。</p>
+</li>
+<li><p>利用节点关系访问HTML元素。常用的属性和方法</p>
+</li>
+</ul><table>
+<thead>
+<tr>
+<th align="center">parentNode</th>
+<th align="left">返回当前节点的父节点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">previousSibling</td>
+<td align="left">返回当前节点的前一个兄弟节点</td>
+</tr>
+<tr>
+<td align="center">nextSibling</td>
+<td align="left">返回当前节点的后一个兄弟节点</td>
+</tr>
+<tr>
+<td align="center">childNodes</td>
+<td align="left">返回当前节点的所有子节点</td>
+</tr>
+<tr>
+<td align="center">firstChild</td>
+<td align="left">返回当前节点的第一个子节点</td>
+</tr>
+<tr>
+<td align="center">lastChild</td>
+<td align="left">返回当前节点的最后一个子节点</td>
+</tr>
+<tr>
+<td align="center">getElementsByTagName(tagName)</td>
+<td align="left">返回当前节点的具有指定标签名的所有子节点</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/09/07/js6/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+<div>
+  
+</div>
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="https://yyr823.github.io/2019/09/07/js5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Miss.Yang">
+      <meta itemprop="description" content="不积跬步,无以至千里;不积小流,无以成江海.">
+      <meta itemprop="image" content="/images/xz.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SMILE">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2019/09/07/js5/" class="post-title-link" itemprop="url">JavaScript中创建对象主要有3种方式(常用内置对象)</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-09-07 08:46:59" itemprop="dateCreated datePublished" datetime="2019-09-07T08:46:59+08:00">2019-09-07</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-09-26 14:21:22" itemprop="dateModified" datetime="2019-09-26T14:21:22+08:00">2019-09-26</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/JS/" itemprop="url" rel="index"><span itemprop="name">JS</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">本文字数：</span>
+              
+              <span>1.8k</span>
+            </span>
+          
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              
+              <span>2 分钟</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<h4 id="使用-new关键字调用构造器创建对象"><a href="#使用-new关键字调用构造器创建对象" class="headerlink" title="使用 new关键字调用构造器创建对象"></a>使用 new关键字调用构造器创建对象</h4></blockquote><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Student</span>(<span class="params">name,age</span>) </span>&#123;</span><br><span class="line"><span class="keyword">this</span>.name=name;</span><br><span class="line"><span class="keyword">this</span>.age=age;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span>  s1=<span class="keyword">new</span> Student();<span class="comment">//没有传入参数</span></span><br><span class="line"><span class="keyword">var</span>  s2=<span class="keyword">new</span> Student(<span class="string">"haogeshuai"</span>,<span class="number">30</span>) ;</span><br><span class="line"><span class="built_in">document</span>. write(s1.name+<span class="string">"--"</span>+s1.age+<span class="string">"&lt;br/&gt;"</span>);</span><br><span class="line"><span class="built_in">document</span>. write(s2.name+<span class="string">"--"</span>+s2.age) ;</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/09/07/js5/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+<div>
+  
+</div>
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
   </div>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -2116,7 +1593,7 @@ class="github-corner" aria-label="View source on GitHub"><svg width="80" height=
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">97</span>
+          <span class="site-state-item-count">87</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -2201,12 +1678,12 @@ class="github-corner" aria-label="View source on GitHub"><svg width="80" height=
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">266k</span>
+    <span title="站点总字数">232k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:02</span>
+    <span title="站点阅读时长">3:30</span>
 </div>
 
 <!--

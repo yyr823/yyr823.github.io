@@ -78,7 +78,7 @@
 <meta property="og:image" content="https://yyr823.github.io/2019/09/09/natapp1/12.png">
 <meta property="og:image" content="https://yyr823.github.io/2019/09/09/natapp1/13.png">
 <meta property="og:image" content="https://yyr823.github.io/2019/09/09/natapp1/14.png">
-<meta property="og:updated_time" content="2019-09-26T06:18:02.856Z">
+<meta property="og:updated_time" content="2019-11-07T06:23:58.900Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="NatApp免费使用需知">
 <meta name="twitter:description" content="原文链接NatApp注册安装使用 NatApp免费内网穿透，需要支付宝实名认证（笔者于2018年12月25日操作【2019也可参考】）； NatApp免费内网穿透，会不定时强制更换域名/端口； NatApp免费内网穿透，免费隧道/HK_2型隧道不支持https； NatApp免费内网穿透使用，需要下载客户端（如：windows下的natapp.exe）和配置config.ini文件">
@@ -220,28 +220,6 @@ class="github-corner" aria-label="View source on GitHub"><svg width="80" height=
     <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
 
   </li>
-      
-      
-      
-        
-        <li class="menu-item menu-item-book">
-      
-    
-
-    <a href="/categories/Books/" rel="section"><i class="menu-item-icon fa fa-fw fa-book"></i> <br>书籍</a>
-
-  </li>
-      
-      
-      
-        
-        <li class="menu-item menu-item-tv">
-      
-    
-
-    <a href="/categories/Tv/" rel="section"><i class="menu-item-icon fa fa-fw fa-twitch"></i> <br>影视</a>
-
-  </li>
       <li class="menu-item menu-item-search">
         <a href="javascript:;" class="popup-trigger">
         
@@ -331,7 +309,7 @@ class="github-corner" aria-label="View source on GitHub"><svg width="80" height=
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-09-26 14:18:02" itemprop="dateModified" datetime="2019-09-26T14:18:02+08:00">2019-09-26</time>
+                <time title="修改时间：2019-11-07 14:23:58" itemprop="dateModified" datetime="2019-11-07T14:23:58+08:00">2019-11-07</time>
               </span>
             
           
@@ -365,7 +343,7 @@ class="github-corner" aria-label="View source on GitHub"><svg width="80" height=
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span>1.6k</span>
+              <span>1.5k</span>
             </span>
           
             <span class="post-meta-item" title="阅读时长">
@@ -422,16 +400,39 @@ class="github-corner" aria-label="View source on GitHub"><svg width="80" height=
 <p><img src="/2019/09/09/natapp1/8.png" alt="img"></p>
 <p><img src="/2019/09/09/natapp1/9.png" alt="img"></p>
 <p>windows下,直接双击natapp.exe 即可.</p>
-<p>在Linux/Mac 下 需要先给执行权限</p>
-<p>chmod a+x natapp 然后再运行./natapp </p>
+<blockquote>
+<p><strong>在Linux/Mac 下 需要先给执行权限   chmod a+x natapp 然后再运行./natapp</strong> </p>
+</blockquote>
 <h6 id="b-cmd-authtoken-参数方式运行"><a href="#b-cmd-authtoken-参数方式运行" class="headerlink" title="b) cmd -authtoken= 参数方式运行"></a>b) cmd -authtoken= 参数方式运行</h6><p>windows ,点击开始-&gt;运行-&gt;命令行提示符 后进入 natapp.exe的目录</p>
-<p> natapp -authtoken=9ab6b9040a624f40 </p>
-<p> linux ,同样给予可执行权限之后,运行</p>
-<p> ./natapp -authtoken=9ab6b9040a624f40 </p>
-<p> 注意参数输入正确性,不要有多余的空格等!</p>
+<p> <strong>natapp -authtoken=9ab6b9040a624f40</strong> </p>
+<p> linux ,同样给予可执行权限之后,运行  <strong>./natapp -authtoken=9ab6b9040a624f40</strong> </p>
+<p><strong>注意</strong>参数输入正确性,不要有多余的空格等!</p>
 <p>运行成功,都可以得到如下界面:</p>
 <p><img src="/2019/09/09/natapp1/10.png" alt="img"></p>
-<p>Tunnel Status  Online    代表链接成功 Version                  当前客户端版本,如果有新版本,会有提示 Forwarding               当前穿透 网址 或者端口 Web Interface            是本地Web管理界面,可在隧道配置打开或关闭,仅用于web开发测试 Total Connections        总连接数 Avg Conn Time 0.00ms     这里不代表,不代表,不代表 延时,需要注意! </p>
+<table>
+<thead>
+<tr>
+<th>Tunnel Status :Online</th>
+<th>代表链接成功</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Version</td>
+<td>当前客户端版本,如果有新版本,会有提示</td>
+</tr>
+<tr>
+<td>Forwarding</td>
+<td>当前穿透 网址 或者端口</td>
+</tr>
+<tr>
+<td>Web Interface</td>
+<td>是本地Web管理界面,可在隧道配置打开或关闭,仅用于web开发测试</td>
+</tr>
+<tr>
+<td>Total Connections</td>
+<td>总连接数</td>
+</tr>
+</tbody></table>
 <h5 id="本机建立web服务并启动"><a href="#本机建立web服务并启动" class="headerlink" title="本机建立web服务并启动"></a><strong>本机建立web服务并启动</strong></h5><p>本机建立启动web服务,如 nginx/apache/iis 等，端口为隧道中配置的端口（如：8080）</p>
 <p>确保 <a href="http://127.0.0.1:8080" target="_blank" rel="noopener">http://127.0.0.1:8080</a> 可以访问</p>
 <p><img src="/2019/09/09/natapp1/11.png" alt="img"></p>
@@ -572,7 +573,7 @@ class="github-corner" aria-label="View source on GitHub"><svg width="80" height=
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">97</span>
+          <span class="site-state-item-count">87</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -657,12 +658,12 @@ class="github-corner" aria-label="View source on GitHub"><svg width="80" height=
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">266k</span>
+    <span title="站点总字数">232k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:02</span>
+    <span title="站点阅读时长">3:30</span>
 </div>
 
 <!--

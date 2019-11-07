@@ -55,18 +55,18 @@
   };
 </script>
 
-  <meta name="description" content="Jpa多表原生sql自定义字段条件查询并进行分页和排序 参考链接 前台使用的是layui  由于后台jpa多表查询使用的是 List&amp;lt;Map&amp;lt;String, Object&amp;gt;&amp;gt; 自定义字段输出 因此时间create_time方面会出现问题,template定义的有解决方法.  前台部分代码">
+  <meta name="description" content="Jpa多表原生sql自定义字段条件查询并进行分页和排序 前台使用的是layui  由于后台jpa多表查询使用的是 List&amp;lt;Map&amp;lt;String, Object&amp;gt;&amp;gt; 自定义字段输出 因此时间create_time方面会出现问题,template定义的有解决方法.  前台部分代码">
 <meta name="keywords" content="Layui,JPA">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Jpa多表原生sql自定义字段条件查询并进行分页和排序(时间格式)">
 <meta property="og:url" content="https://yyr823.github.io/2019/09/06/JPA2/index.html">
 <meta property="og:site_name" content="SMILE">
-<meta property="og:description" content="Jpa多表原生sql自定义字段条件查询并进行分页和排序 参考链接 前台使用的是layui  由于后台jpa多表查询使用的是 List&amp;lt;Map&amp;lt;String, Object&amp;gt;&amp;gt; 自定义字段输出 因此时间create_time方面会出现问题,template定义的有解决方法.  前台部分代码">
+<meta property="og:description" content="Jpa多表原生sql自定义字段条件查询并进行分页和排序 前台使用的是layui  由于后台jpa多表查询使用的是 List&amp;lt;Map&amp;lt;String, Object&amp;gt;&amp;gt; 自定义字段输出 因此时间create_time方面会出现问题,template定义的有解决方法.  前台部分代码">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-20T08:56:48.147Z">
+<meta property="og:updated_time" content="2019-11-07T07:01:01.303Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Jpa多表原生sql自定义字段条件查询并进行分页和排序(时间格式)">
-<meta name="twitter:description" content="Jpa多表原生sql自定义字段条件查询并进行分页和排序 参考链接 前台使用的是layui  由于后台jpa多表查询使用的是 List&amp;lt;Map&amp;lt;String, Object&amp;gt;&amp;gt; 自定义字段输出 因此时间create_time方面会出现问题,template定义的有解决方法.  前台部分代码">
+<meta name="twitter:description" content="Jpa多表原生sql自定义字段条件查询并进行分页和排序 前台使用的是layui  由于后台jpa多表查询使用的是 List&amp;lt;Map&amp;lt;String, Object&amp;gt;&amp;gt; 自定义字段输出 因此时间create_time方面会出现问题,template定义的有解决方法.  前台部分代码">
   <link rel="canonical" href="https://yyr823.github.io/2019/09/06/JPA2/">
 
 
@@ -204,28 +204,6 @@ class="github-corner" aria-label="View source on GitHub"><svg width="80" height=
     <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
 
   </li>
-      
-      
-      
-        
-        <li class="menu-item menu-item-book">
-      
-    
-
-    <a href="/categories/Books/" rel="section"><i class="menu-item-icon fa fa-fw fa-book"></i> <br>书籍</a>
-
-  </li>
-      
-      
-      
-        
-        <li class="menu-item menu-item-tv">
-      
-    
-
-    <a href="/categories/Tv/" rel="section"><i class="menu-item-icon fa fa-fw fa-twitch"></i> <br>影视</a>
-
-  </li>
       <li class="menu-item menu-item-search">
         <a href="javascript:;" class="popup-trigger">
         
@@ -315,7 +293,7 @@ class="github-corner" aria-label="View source on GitHub"><svg width="80" height=
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-09-20 16:56:48" itemprop="dateModified" datetime="2019-09-20T16:56:48+08:00">2019-09-20</time>
+                <time title="修改时间：2019-11-07 15:01:01" itemprop="dateModified" datetime="2019-11-07T15:01:01+08:00">2019-11-07</time>
               </span>
             
           
@@ -365,13 +343,12 @@ class="github-corner" aria-label="View source on GitHub"><svg width="80" height=
     <div class="post-body" itemprop="articleBody">
 
       
-        <p> <strong>Jpa多表原生sql自定义字段条件查询并进行分页和排序</strong></p><p> <a href="https://blog.csdn.net/qq_43135507/article/details/90600759" target="_blank" rel="noopener"><strong>参考链接</strong></a></p><ul>
+        <p> <strong>Jpa多表原生sql自定义字段条件查询并进行分页和排序</strong></p><ul>
 <li><p>前台使用的是layui  由于后台jpa多表查询使用的是 List&lt;Map&lt;String, Object&gt;&gt; 自定义字段输出 因此时间create_time方面会出现问题,template定义的有解决方法.</p>
 </li>
 <li><p>前台部分代码</p>
 </li>
 </ul><a id="more"></a>
-
 
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">  table.render(&#123;</span><br><span class="line">          elem: <span class="string">'#demo'</span>,</span><br><span class="line">          url: server + <span class="string">'orders/getAllOrders'</span>,</span><br><span class="line">          cellMinWidth: <span class="number">80</span>,</span><br><span class="line">          size: <span class="string">'lg'</span>,</span><br><span class="line">          title: <span class="string">'orders'</span>,</span><br><span class="line">          cols: [</span><br><span class="line">              [ <span class="comment">//标题栏</span></span><br><span class="line">                  &#123;</span><br><span class="line">                      checkbox: <span class="literal">true</span></span><br><span class="line">                  &#125;,</span><br><span class="line">                  &#123;</span><br><span class="line">                      field: <span class="string">'order_no'</span>,</span><br><span class="line">                      title: <span class="string">'orderNo'</span>,</span><br><span class="line">                          sort: <span class="literal">true</span></span><br><span class="line">                      &#125;,</span><br><span class="line">                  &#123;</span><br><span class="line">                      field: <span class="string">'uno'</span>,</span><br><span class="line">                      title: <span class="string">'uno'</span>,</span><br><span class="line">                      sort: <span class="literal">true</span>,</span><br><span class="line">                      align: <span class="string">'center'</span></span><br><span class="line">                  &#125;,</span><br><span class="line">                  &#123;</span><br><span class="line">                      field: <span class="string">'create_time'</span>,</span><br><span class="line">                      title: <span class="string">'createTime'</span>,</span><br><span class="line">                          sort: <span class="literal">true</span>,</span><br><span class="line"><span class="comment">//特殊日期格式转换2018-12-03T17:17:36.000+08:00 转化为2018-12-03 00:00:00(正则表达式的方法)</span></span><br><span class="line">                      templet: <span class="function"><span class="keyword">function</span>(<span class="params">d</span>) </span>&#123; </span><br><span class="line">                          <span class="keyword">var</span> dateee = <span class="keyword">new</span> <span class="built_in">Date</span>(d.create_time).toJSON();    </span><br><span class="line">                          <span class="keyword">var</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>(+<span class="keyword">new</span> <span class="built_in">Date</span>(dateee) + <span class="number">8</span> * <span class="number">3600</span> * <span class="number">1000</span>).toISOString().replace(<span class="regexp">/T/g</span>, <span class="string">' '</span>).replace(<span class="regexp">/\.[\d]&#123;3&#125;Z/</span>, <span class="string">''</span>) </span><br><span class="line">                          <span class="keyword">return</span> date;</span><br><span class="line">                      &#125;,</span><br><span class="line">                      align: <span class="string">'center'</span></span><br><span class="line">                  &#125;</span><br><span class="line">                  ,.....</span><br><span class="line">                  ]]</span><br><span class="line">                  &#125;);</span><br></pre></td></tr></table></figure>
 
@@ -545,7 +522,7 @@ class="github-corner" aria-label="View source on GitHub"><svg width="80" height=
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">97</span>
+          <span class="site-state-item-count">87</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -630,12 +607,12 @@ class="github-corner" aria-label="View source on GitHub"><svg width="80" height=
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">266k</span>
+    <span title="站点总字数">232k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:02</span>
+    <span title="站点阅读时长">3:30</span>
 </div>
 
 <!--

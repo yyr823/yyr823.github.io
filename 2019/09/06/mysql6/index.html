@@ -63,7 +63,7 @@
 <meta property="og:site_name" content="SMILE">
 <meta property="og:description" content="插入或替换 如果我们希望插入一条新记录（INSERT），但如果记录已经存在，就先删除原记录，再插入新记录。此时，可以使用REPLACE语句，这样就不必先查询，再决定是否先删除再插入：1REPLACE INTO students (id, class_id, name, gender, score) VALUES (1, 1, &apos;小明&apos;, &apos;F&apos;, 99);">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-10T01:11:37.283Z">
+<meta property="og:updated_time" content="2019-11-07T07:19:20.215Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="实用sql">
 <meta name="twitter:description" content="插入或替换 如果我们希望插入一条新记录（INSERT），但如果记录已经存在，就先删除原记录，再插入新记录。此时，可以使用REPLACE语句，这样就不必先查询，再决定是否先删除再插入：1REPLACE INTO students (id, class_id, name, gender, score) VALUES (1, 1, &apos;小明&apos;, &apos;F&apos;, 99);">
@@ -204,28 +204,6 @@ class="github-corner" aria-label="View source on GitHub"><svg width="80" height=
     <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
 
   </li>
-      
-      
-      
-        
-        <li class="menu-item menu-item-book">
-      
-    
-
-    <a href="/categories/Books/" rel="section"><i class="menu-item-icon fa fa-fw fa-book"></i> <br>书籍</a>
-
-  </li>
-      
-      
-      
-        
-        <li class="menu-item menu-item-tv">
-      
-    
-
-    <a href="/categories/Tv/" rel="section"><i class="menu-item-icon fa fa-fw fa-twitch"></i> <br>影视</a>
-
-  </li>
       <li class="menu-item menu-item-search">
         <a href="javascript:;" class="popup-trigger">
         
@@ -315,7 +293,7 @@ class="github-corner" aria-label="View source on GitHub"><svg width="80" height=
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-09-10 09:11:37" itemprop="dateModified" datetime="2019-09-10T09:11:37+08:00">2019-09-10</time>
+                <time title="修改时间：2019-11-07 15:19:20" itemprop="dateModified" datetime="2019-11-07T15:19:20+08:00">2019-11-07</time>
               </span>
             
           
@@ -373,35 +351,35 @@ class="github-corner" aria-label="View source on GitHub"><svg width="80" height=
 
       
         <ul>
-<li><h4 id="插入或替换"><a href="#插入或替换" class="headerlink" title="插入或替换"></a>插入或替换</h4></li>
+<li><h6 id="插入或替换"><a href="#插入或替换" class="headerlink" title="插入或替换"></a>插入或替换</h6></li>
 </ul><p>如果我们希望插入一条新记录（INSERT），但如果记录已经存在，就先删除原记录，再插入新记录。此时，可以使用<strong><code>REPLACE</code></strong>语句，这样就不必先查询，再决定是否先删除再插入：</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">REPLACE</span> <span class="keyword">INTO</span> students (<span class="keyword">id</span>, class_id, <span class="keyword">name</span>, gender, score) <span class="keyword">VALUES</span> (<span class="number">1</span>, <span class="number">1</span>, <span class="string">'小明'</span>, <span class="string">'F'</span>, <span class="number">99</span>);</span><br></pre></td></tr></table></figure><a id="more"></a>
 
 
 
-<p><strong>若<code>id=1</code>的记录不存在，<code>REPLACE</code>语句将插入新记录，否则，当前<code>id=1</code>的记录将被删除，然后再插入新记录。</strong></p>
+<p>若<code>id=1</code>的记录不存在，<code>REPLACE</code>语句将插入新记录，否则，当前<code>id=1</code>的记录将被删除，然后再插入新记录。</p>
 <ul>
-<li><h4 id="插入或更新"><a href="#插入或更新" class="headerlink" title="插入或更新"></a>插入或更新</h4></li>
+<li><h6 id="插入或更新"><a href="#插入或更新" class="headerlink" title="插入或更新"></a>插入或更新</h6></li>
 </ul>
 <p>如果我们希望插入一条新记录（INSERT），但如果记录已经存在，就更新该记录，此时，可以使用<code>INSERT INTO ... ON DUPLICATE KEY UPDATE ...</code>语句：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> students (<span class="keyword">id</span>, class_id, <span class="keyword">name</span>, gender, score) <span class="keyword">VALUES</span> (<span class="number">1</span>, <span class="number">1</span>, <span class="string">'小明'</span>, <span class="string">'F'</span>, <span class="number">99</span>) <span class="keyword">ON</span> <span class="keyword">DUPLICATE</span> <span class="keyword">KEY</span> <span class="keyword">UPDATE</span> <span class="keyword">name</span>=<span class="string">'小明'</span>, gender=<span class="string">'F'</span>, score=<span class="number">99</span>;</span><br></pre></td></tr></table></figure>
 
 <p>若<code>id=1</code>的记录不存在，<code>INSERT</code>语句将插入新记录，否则，当前<code>id=1</code>的记录将被更新，更新的字段由<code>UPDATE</code>指定。</p>
 <ul>
-<li><h4 id="插入或忽略"><a href="#插入或忽略" class="headerlink" title="插入或忽略"></a>插入或忽略</h4></li>
+<li><h6 id="插入或忽略"><a href="#插入或忽略" class="headerlink" title="插入或忽略"></a>插入或忽略</h6></li>
 </ul>
 <p>如果我们希望插入一条新记录（INSERT），但如果记录已经存在，就啥事也不干直接忽略，此时，可以使用<code>INSERT IGNORE INTO ...</code>语句：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">IGNORE</span> <span class="keyword">INTO</span> students (<span class="keyword">id</span>, class_id, <span class="keyword">name</span>, gender, score) <span class="keyword">VALUES</span> (<span class="number">1</span>, <span class="number">1</span>, <span class="string">'小明'</span>, <span class="string">'F'</span>, <span class="number">99</span>);</span><br></pre></td></tr></table></figure>
 
 <p>若<code>id=1</code>的记录不存在，<code>INSERT</code>语句将插入新记录，否则，不执行任何操作。</p>
 <ul>
-<li><h4 id="快照"><a href="#快照" class="headerlink" title="快照"></a>快照</h4></li>
+<li><h6 id="快照"><a href="#快照" class="headerlink" title="快照"></a>快照</h6></li>
 </ul>
 <p>如果想要对一个表进行快照，即复制一份当前表的数据到一个新表，可以结合<code>CREATE TABLE</code>和<code>SELECT</code>：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 对class_id=1的记录进行快照，并存储为新表students_of_class1:</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> students_of_class1 <span class="keyword">SELECT</span> * <span class="keyword">FROM</span> students <span class="keyword">WHERE</span> class_id=<span class="number">1</span>;</span><br></pre></td></tr></table></figure>
 
 <p>新创建的表结构和<code>SELECT</code>使用的表结构<strong>完全一致</strong>。</p>
 <ul>
-<li><h4 id="写入查询结果集"><a href="#写入查询结果集" class="headerlink" title="写入查询结果集"></a>写入查询结果集</h4></li>
+<li><h6 id="写入查询结果集"><a href="#写入查询结果集" class="headerlink" title="写入查询结果集"></a>写入查询结果集</h6></li>
 </ul>
 <p>如果查询结果集需要写入到表中，可以结合<code>INSERT</code>和<code>SELECT</code>，将<code>SELECT</code>语句的结果集直接插入到指定表中。</p>
 <p>例如，创建一个统计成绩的表<code>statistics</code>，记录各班的平均成绩：</p>
@@ -525,7 +503,7 @@ class="github-corner" aria-label="View source on GitHub"><svg width="80" height=
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#插入或替换"><span class="nav-number">1.</span> <span class="nav-text">插入或替换</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#插入或更新"><span class="nav-number">2.</span> <span class="nav-text">插入或更新</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#插入或忽略"><span class="nav-number">3.</span> <span class="nav-text">插入或忽略</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#快照"><span class="nav-number">4.</span> <span class="nav-text">快照</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#写入查询结果集"><span class="nav-number">5.</span> <span class="nav-text">写入查询结果集</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-6"><a class="nav-link" href="#插入或替换"><span class="nav-number">1.</span> <span class="nav-text">插入或替换</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#插入或更新"><span class="nav-number">2.</span> <span class="nav-text">插入或更新</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#插入或忽略"><span class="nav-number">3.</span> <span class="nav-text">插入或忽略</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#快照"><span class="nav-number">4.</span> <span class="nav-text">快照</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#写入查询结果集"><span class="nav-number">5.</span> <span class="nav-text">写入查询结果集</span></a></li></ol></div>
         
       </div>
       <!--/noindex-->
@@ -543,7 +521,7 @@ class="github-corner" aria-label="View source on GitHub"><svg width="80" height=
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">97</span>
+          <span class="site-state-item-count">87</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -628,12 +606,12 @@ class="github-corner" aria-label="View source on GitHub"><svg width="80" height=
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">266k</span>
+    <span title="站点总字数">232k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:02</span>
+    <span title="站点阅读时长">3:30</span>
 </div>
 
 <!--

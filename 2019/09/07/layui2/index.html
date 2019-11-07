@@ -55,18 +55,18 @@
   };
 </script>
 
-  <meta name="description" content="原文链接  父页面  12345678910111213141516171819202122232425262728&amp;lt;body&amp;gt;&amp;lt;a data-url=&quot;bbbb.html&quot; id=&quot;parentIframe&quot;&amp;gt;小小提示层&amp;lt;/a&amp;gt;&amp;lt;input id=&quot;shuzhi&quot; /&amp;gt;&amp;lt;button class=&quot;but_par&quot;&amp;gt;父页面&amp;lt;/b">
+  <meta name="description" content="原文链接  父页面  12345678910111213141516171819202122232425262728&amp;lt;body&amp;gt;	&amp;lt;a data-url=&quot;bbbb.html&quot; id=&quot;parentIframe&quot;&amp;gt;小小提示层&amp;lt;/a&amp;gt;	&amp;lt;input id=&quot;shuzhi&quot; /&amp;gt;	&amp;lt;button class=&quot;but_par&quot;&amp;gt;父页面&amp;lt">
 <meta name="keywords" content="Layui">
 <meta property="og:type" content="article">
 <meta property="og:title" content="layer弹出层父子页面事件相互调用方法">
 <meta property="og:url" content="https://yyr823.github.io/2019/09/07/layui2/index.html">
 <meta property="og:site_name" content="SMILE">
-<meta property="og:description" content="原文链接  父页面  12345678910111213141516171819202122232425262728&amp;lt;body&amp;gt;&amp;lt;a data-url=&quot;bbbb.html&quot; id=&quot;parentIframe&quot;&amp;gt;小小提示层&amp;lt;/a&amp;gt;&amp;lt;input id=&quot;shuzhi&quot; /&amp;gt;&amp;lt;button class=&quot;but_par&quot;&amp;gt;父页面&amp;lt;/b">
+<meta property="og:description" content="原文链接  父页面  12345678910111213141516171819202122232425262728&amp;lt;body&amp;gt;	&amp;lt;a data-url=&quot;bbbb.html&quot; id=&quot;parentIframe&quot;&amp;gt;小小提示层&amp;lt;/a&amp;gt;	&amp;lt;input id=&quot;shuzhi&quot; /&amp;gt;	&amp;lt;button class=&quot;but_par&quot;&amp;gt;父页面&amp;lt">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-07T01:39:09.250Z">
+<meta property="og:updated_time" content="2019-11-07T07:09:18.703Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="layer弹出层父子页面事件相互调用方法">
-<meta name="twitter:description" content="原文链接  父页面  12345678910111213141516171819202122232425262728&amp;lt;body&amp;gt;&amp;lt;a data-url=&quot;bbbb.html&quot; id=&quot;parentIframe&quot;&amp;gt;小小提示层&amp;lt;/a&amp;gt;&amp;lt;input id=&quot;shuzhi&quot; /&amp;gt;&amp;lt;button class=&quot;but_par&quot;&amp;gt;父页面&amp;lt;/b">
+<meta name="twitter:description" content="原文链接  父页面  12345678910111213141516171819202122232425262728&amp;lt;body&amp;gt;	&amp;lt;a data-url=&quot;bbbb.html&quot; id=&quot;parentIframe&quot;&amp;gt;小小提示层&amp;lt;/a&amp;gt;	&amp;lt;input id=&quot;shuzhi&quot; /&amp;gt;	&amp;lt;button class=&quot;but_par&quot;&amp;gt;父页面&amp;lt">
   <link rel="canonical" href="https://yyr823.github.io/2019/09/07/layui2/">
 
 
@@ -204,28 +204,6 @@ class="github-corner" aria-label="View source on GitHub"><svg width="80" height=
     <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
 
   </li>
-      
-      
-      
-        
-        <li class="menu-item menu-item-book">
-      
-    
-
-    <a href="/categories/Books/" rel="section"><i class="menu-item-icon fa fa-fw fa-book"></i> <br>书籍</a>
-
-  </li>
-      
-      
-      
-        
-        <li class="menu-item menu-item-tv">
-      
-    
-
-    <a href="/categories/Tv/" rel="section"><i class="menu-item-icon fa fa-fw fa-twitch"></i> <br>影视</a>
-
-  </li>
       <li class="menu-item menu-item-search">
         <a href="javascript:;" class="popup-trigger">
         
@@ -304,11 +282,19 @@ class="github-corner" aria-label="View source on GitHub"><svg width="80" height=
                 
               
 
-              <time title="创建时间：2019-09-07 08:55:59 / 修改时间：09:39:09" itemprop="dateCreated datePublished" datetime="2019-09-07T08:55:59+08:00">2019-09-07</time>
+              <time title="创建时间：2019-09-07 08:55:59" itemprop="dateCreated datePublished" datetime="2019-09-07T08:55:59+08:00">2019-09-07</time>
             </span>
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-11-07 15:09:18" itemprop="dateModified" datetime="2019-11-07T15:09:18+08:00">2019-11-07</time>
+              </span>
             
           
             <span class="post-meta-item">
@@ -362,13 +348,13 @@ class="github-corner" aria-label="View source on GitHub"><svg width="80" height=
 </li>
 <li><p><strong>父页面</strong></p>
 </li>
-</ul><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">&lt;a data-url=<span class="string">"bbbb.html"</span> id=<span class="string">"parentIframe"</span>&gt;小小提示层&lt;<span class="regexp">/a&gt;</span></span><br><span class="line"><span class="regexp">&lt;input id="shuzhi" /</span>&gt;</span><br><span class="line">&lt;button <span class="class"><span class="keyword">class</span></span>=<span class="string">"but_par"</span>&gt;父页面&lt;<span class="regexp">/button&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>body&gt;</span><br><span class="line">&lt;script src=<span class="string">"../jquery-1.9.1.min.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line">&lt;script src=<span class="string">"layer/layer.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line">&lt;script&gt;</span><br><span class="line">$(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">$(<span class="string">"#parentIframe"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"><span class="keyword">var</span> a = $(<span class="keyword">this</span>).attr(<span class="string">"data-url"</span>);</span><br><span class="line">layer.open(&#123;</span><br><span class="line">  type: <span class="number">2</span>,</span><br><span class="line">  content: a,</span><br><span class="line">  success: <span class="function"><span class="keyword">function</span>(<span class="params">layero, index</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> body = layer.getChildFrame(<span class="string">'body'</span>, index);<span class="comment">//获取子页面内容</span></span><br><span class="line">    <span class="comment">//得到iframe页的窗口对象,执行iframe页的方法：iframeWin.method();</span></span><br><span class="line">    <span class="keyword">var</span> iframeWin = <span class="built_in">window</span>[layero.find(<span class="string">'iframe'</span>)[<span class="number">0</span>][<span class="string">'name'</span>]]; </span><br><span class="line">   body.find(<span class="string">"#transmit"</span>).click();<span class="comment">//执行子页面的方法</span></span><br><span class="line">    body.find(<span class="string">'input'</span>).val(<span class="string">'Hi，我是从父页来的'</span>)</span><br><span class="line">    $(<span class="string">".but_par"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    alert(<span class="number">222</span>);</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;); </span><br><span class="line">&#125;);</span><br><span class="line">&#125;);</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure><a id="more"></a>
+</ul><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">	&lt;a data-url=<span class="string">"bbbb.html"</span> id=<span class="string">"parentIframe"</span>&gt;小小提示层&lt;<span class="regexp">/a&gt;</span></span><br><span class="line"><span class="regexp">	&lt;input id="shuzhi" /</span>&gt;</span><br><span class="line">	&lt;button <span class="class"><span class="keyword">class</span></span>=<span class="string">"but_par"</span>&gt;父页面&lt;<span class="regexp">/button&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>body&gt;</span><br><span class="line">&lt;script src=<span class="string">"../jquery-1.9.1.min.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line">&lt;script src=<span class="string">"layer/layer.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line">&lt;script&gt;</span><br><span class="line">	$(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">		$(<span class="string">"#parentIframe"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">			<span class="keyword">var</span> a = $(<span class="keyword">this</span>).attr(<span class="string">"data-url"</span>);</span><br><span class="line">			layer.open(&#123;</span><br><span class="line">				type: <span class="number">2</span>,</span><br><span class="line">				content: a,</span><br><span class="line">				success: <span class="function"><span class="keyword">function</span>(<span class="params">layero, index</span>) </span>&#123;</span><br><span class="line">					<span class="keyword">var</span> body = layer.getChildFrame(<span class="string">'body'</span>, index); <span class="comment">//获取子页面内容</span></span><br><span class="line">					<span class="comment">//得到iframe页的窗口对象,执行iframe页的方法：iframeWin.method();</span></span><br><span class="line">					<span class="keyword">var</span> iframeWin = <span class="built_in">window</span>[layero.find(<span class="string">'iframe'</span>)[<span class="number">0</span>][<span class="string">'name'</span>]];</span><br><span class="line">					body.find(<span class="string">"#transmit"</span>).click(); <span class="comment">//执行子页面的方法</span></span><br><span class="line">					body.find(<span class="string">'input'</span>).val(<span class="string">'Hi，我是从父页来的'</span>)</span><br><span class="line">					$(<span class="string">".but_par"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">						alert(<span class="number">222</span>);</span><br><span class="line">					&#125;)</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;);</span><br><span class="line">		&#125;);</span><br><span class="line">	&#125;);</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure><a id="more"></a>
 
 
 <ul>
 <li><strong>子页面</strong></li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">&lt;input id=<span class="string">"name"</span> value=<span class="string">"不满意"</span> /&gt;</span><br><span class="line">&lt;button id=<span class="string">"transmit"</span>&gt;给父层传值&lt;<span class="regexp">/button&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>div&gt;</span><br><span class="line">&lt;<span class="regexp">/body&gt;</span></span><br><span class="line"><span class="regexp">&lt;script&gt;</span></span><br><span class="line"><span class="regexp">$(function()&#123;</span></span><br><span class="line"><span class="regexp">$(document).on("click","#transmit").click(function()&#123;</span></span><br><span class="line"><span class="regexp">parent.$("#shuzhi").val($("#name").val());</span></span><br><span class="line"><span class="regexp">parent.location.reload(); 刷新父页面</span></span><br><span class="line"><span class="regexp">/</span><span class="regexp">/关闭layer弹出层</span></span><br><span class="line"><span class="regexp">var index = parent.layer.getFrameIndex(window.name); /</span><span class="regexp">/获取窗口索引</span></span><br><span class="line"><span class="regexp">parent.layer.close(index);</span></span><br><span class="line"><span class="regexp">&#125;)</span></span><br><span class="line"><span class="regexp">window.parent.$(".but_par").click();/</span><span class="regexp">/执行父页面的事件</span></span><br><span class="line"><span class="regexp">&#125;)</span></span><br><span class="line"><span class="regexp">&lt;/</span>script&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">	&lt;input id=<span class="string">"name"</span> value=<span class="string">"不满意"</span> /&gt;</span><br><span class="line">	&lt;button id=<span class="string">"transmit"</span>&gt;给父层传值&lt;<span class="regexp">/button&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>body&gt;</span><br><span class="line">	&lt;script&gt;</span><br><span class="line">		$(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">			$(<span class="built_in">document</span>).on(<span class="string">"click"</span>, <span class="string">"#transmit"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">				parent.$(<span class="string">"#shuzhi"</span>).val($(<span class="string">"#name"</span>).val());</span><br><span class="line">				parent.location.reload();</span><br><span class="line">				刷新父页面</span><br><span class="line">				<span class="comment">//关闭layer弹出层</span></span><br><span class="line">				<span class="keyword">var</span> index = parent.layer.getFrameIndex(<span class="built_in">window</span>.name); <span class="comment">//获取窗口索引</span></span><br><span class="line">				parent.layer.close(index);</span><br><span class="line">			&#125;)</span><br><span class="line">			<span class="built_in">window</span>.parent.$(<span class="string">".but_par"</span>).click(); <span class="comment">//执行父页面的事件</span></span><br><span class="line">		&#125;)</span><br><span class="line">	&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
 
 
     </div>
@@ -498,7 +484,7 @@ class="github-corner" aria-label="View source on GitHub"><svg width="80" height=
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">97</span>
+          <span class="site-state-item-count">87</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -583,12 +569,12 @@ class="github-corner" aria-label="View source on GitHub"><svg width="80" height=
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">266k</span>
+    <span title="站点总字数">232k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:02</span>
+    <span title="站点阅读时长">3:30</span>
 </div>
 
 <!--

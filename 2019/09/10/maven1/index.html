@@ -65,7 +65,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://yyr823.github.io/2019/09/10/maven1/1.png">
 <meta property="og:image" content="https://yyr823.github.io/2019/09/10/maven1/2.png">
-<meta property="og:updated_time" content="2019-09-10T02:28:25.975Z">
+<meta property="og:updated_time" content="2019-11-07T06:16:15.834Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Maven介绍">
 <meta name="twitter:description" content="Maven相关概念Maven是一个项目管理工具，它包含了一个项目对象模型 (Project Object Model)，一组标准集合，一个项目生命周期(Project Lifecycle)，一个依赖管理系统(Dependency Management System)，和用来运行定义在生命周期阶段(phase)中[插件]目标(goal)的逻辑。当你使用Maven的时候，你用一个明确定义的项目对象模型">
@@ -207,28 +207,6 @@ class="github-corner" aria-label="View source on GitHub"><svg width="80" height=
     <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
 
   </li>
-      
-      
-      
-        
-        <li class="menu-item menu-item-book">
-      
-    
-
-    <a href="/categories/Books/" rel="section"><i class="menu-item-icon fa fa-fw fa-book"></i> <br>书籍</a>
-
-  </li>
-      
-      
-      
-        
-        <li class="menu-item menu-item-tv">
-      
-    
-
-    <a href="/categories/Tv/" rel="section"><i class="menu-item-icon fa fa-fw fa-twitch"></i> <br>影视</a>
-
-  </li>
       <li class="menu-item menu-item-search">
         <a href="javascript:;" class="popup-trigger">
         
@@ -307,11 +285,19 @@ class="github-corner" aria-label="View source on GitHub"><svg width="80" height=
                 
               
 
-              <time title="创建时间：2019-09-10 10:08:59 / 修改时间：10:28:25" itemprop="dateCreated datePublished" datetime="2019-09-10T10:08:59+08:00">2019-09-10</time>
+              <time title="创建时间：2019-09-10 10:08:59" itemprop="dateCreated datePublished" datetime="2019-09-10T10:08:59+08:00">2019-09-10</time>
             </span>
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-11-07 14:16:15" itemprop="dateModified" datetime="2019-11-07T14:16:15+08:00">2019-11-07</time>
+              </span>
             
           
             <span class="post-meta-item">
@@ -375,10 +361,10 @@ class="github-corner" aria-label="View source on GitHub"><svg width="80" height=
 <p>1、下载并解压meaven.zip(百度谷歌搜索Maven)；</p>
 <p> 2、系统变量下新建系统变量， M2_HOME ，值是meaven安装目录；</p>
 <p> 3、path：%M2_HOME%\bin；</p>
-<p> 4、测试cmd：mvn -version;**</p>
+<p> 4、测试cmd：mvn -version</p>
 </blockquote>
-<h5 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a><strong>修改配置文件</strong></h5><p>1.maven安装目录中，<code>conf--&gt;seeting</code>复制到.m2文件夹下，</p>
-<p>2.修改<code>setting</code>中的<code>localRepository</code> ，即修改本地仓库位置。</p>
+<h5 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a><strong>修改配置文件</strong></h5><p>1.maven安装目录中，<code>conf--&gt;seeting</code>复制到.m2文件夹下</p>
+<p>2.修改<code>setting</code>中的<code>localRepository</code> ，即修改本地仓库位置</p>
 <p>3.<code>mirror</code> 修改中央仓库的替代仓库地网址（Maven 的核心仓库的副本就是一个mirror。配置之后，每次访问都去这个仓库访问）如：</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;mirror&gt;</span><br><span class="line">      &lt;id&gt;UK&lt;/id&gt;</span><br><span class="line">      &lt;name&gt;UK Central&lt;/name&gt;</span><br><span class="line">      &lt;url&gt;http:<span class="comment">//uk.maven.org/maven2&lt;/url&gt;</span></span><br><span class="line">      &lt;mirrorOf&gt;central&lt;/mirrorOf&gt;</span><br><span class="line">      &lt;/mirror&gt;</span><br><span class="line">&lt;mirror&gt;</span><br><span class="line">      &lt;id&gt;alimaven&lt;/id&gt; </span><br><span class="line">      &lt;name&gt;aliyun maven&lt;/name&gt; </span><br><span class="line">      &lt;url&gt;http:<span class="comment">//maven.aliyun.com/nexus/content/repositories/central/&lt;/url&gt; </span></span><br><span class="line">      &lt;mirrorOf&gt;central&lt;/mirrorOf&gt; </span><br><span class="line">&lt;/mirror&gt;</span><br></pre></td></tr></table></figure>
 
@@ -450,8 +436,8 @@ class="github-corner" aria-label="View source on GitHub"><svg width="80" height=
 		  
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2019/09/10/xzs3/" rel="next" title="Java中equals和==">
-                  <i class="fa fa-chevron-left"></i> Java中equals和==
+                <a href="/2019/09/10/tomcat2/" rel="next" title="关于tomcat8在windows2008下高并发下问题的解决方案">
+                  <i class="fa fa-chevron-left"></i> 关于tomcat8在windows2008下高并发下问题的解决方案
                 </a>
               
             </div>
@@ -529,7 +515,7 @@ class="github-corner" aria-label="View source on GitHub"><svg width="80" height=
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">97</span>
+          <span class="site-state-item-count">87</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -614,12 +600,12 @@ class="github-corner" aria-label="View source on GitHub"><svg width="80" height=
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">266k</span>
+    <span title="站点总字数">232k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:02</span>
+    <span title="站点阅读时长">3:30</span>
 </div>
 
 <!--
