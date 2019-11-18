@@ -251,6 +251,1048 @@ class="github-corner" aria-label="View source on GitHub"><svg width="80" height=
   
   
   <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="https://yyr823.github.io/2019/09/06/springboot4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Miss.Yang">
+      <meta itemprop="description" content="不积跬步,无以至千里;不积小流,无以成江海.">
+      <meta itemprop="image" content="/images/xz.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SMILE">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2019/09/06/springboot4/" class="post-title-link" itemprop="url">Requestbody接收json参数映射到实体类中Date(时间日期)类型转换问题</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-09-06 14:44:59" itemprop="dateCreated datePublished" datetime="2019-09-06T14:44:59+08:00">2019-09-06</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-09-08 10:51:41" itemprop="dateModified" datetime="2019-09-08T10:51:41+08:00">2019-09-08</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Exception/" itemprop="url" rel="index"><span itemprop="name">Exception</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Exception/SpringBoot/" itemprop="url" rel="index"><span itemprop="name">SpringBoot</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">本文字数：</span>
+              
+              <span>350</span>
+            </span>
+          
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              
+              <span>1 分钟</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <ol>
+<li><p><strong>场景</strong>：</p>
+<p>前台ajax提交, 后台@requestbody接收json参数 映射到 实体类中 Date（时间日期）类型转换</p>
+</li>
+<li><p><strong>解决方案：</strong> JsonFormat ：出参     DateTimeFormate ： 入参</p>
+</li>
+</ol><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@DateTimeFormat(pattern = &quot;yyyy-MM-dd HH:mm:ss&quot;)</span><br><span class="line">@JsonFormat(pattern = &quot;yyyy-MM-dd HH:mm:ss&quot;, timezone = &quot;GMT+8&quot;)</span><br><span class="line">private Date startTime;</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/09/06/springboot4/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+<div>
+  
+</div>
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="https://yyr823.github.io/2019/09/06/xzs1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Miss.Yang">
+      <meta itemprop="description" content="不积跬步,无以至千里;不积小流,无以成江海.">
+      <meta itemprop="image" content="/images/xz.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SMILE">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2019/09/06/xzs1/" class="post-title-link" itemprop="url">开发环境、测试环境、生产环境、UAT环境、仿真环境</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-09-06 14:31:59" itemprop="dateCreated datePublished" datetime="2019-09-06T14:31:59+08:00">2019-09-06</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-09-08 10:52:18" itemprop="dateModified" datetime="2019-09-08T10:52:18+08:00">2019-09-08</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/小知识/" itemprop="url" rel="index"><span itemprop="name">小知识</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">本文字数：</span>
+              
+              <span>424</span>
+            </span>
+          
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              
+              <span>1 分钟</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <ul>
+<li><p><a href="https://blog.csdn.net/aaa333qwe/article/details/77482099" target="_blank" rel="noopener"><strong>参考链接</strong></a></p>
+</li>
+<li><p><strong>开发环境(DEV)</strong>：开发环境是程序猿们专门用于开发的服务器，配置可以比较随意， 为了开发调试方便，一般打开全部错误报告。</p>
+</li>
+<li><p><strong>测试环境(UAT)</strong>：一般是克隆一份生产环境的配置，一个程序在测试环境工作不正常，那么肯定不能把它发布到生产机上。</p>
+</li>
+<li><p><strong>生产环境(PROD)</strong>：是指正式提供对外服务的，一般会关掉错误报告，打开错误日志。可以理解为包含所有的功能的环境，任何项目所使用的环境都以这个为基础，然后根据客户的个性化需求来做调整或者修改。</p>
+</li>
+</ul>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/09/06/xzs1/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+<div>
+  
+</div>
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="https://yyr823.github.io/2019/09/06/springboot3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Miss.Yang">
+      <meta itemprop="description" content="不积跬步,无以至千里;不积小流,无以成江海.">
+      <meta itemprop="image" content="/images/xz.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SMILE">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2019/09/06/springboot3/" class="post-title-link" itemprop="url">application.properties常用设置</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-09-06 14:31:59 / 修改时间：14:31:36" itemprop="dateCreated datePublished" datetime="2019-09-06T14:31:59+08:00">2019-09-06</time>
+            </span>
+          
+            
+
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/SpringBoot/" itemprop="url" rel="index"><span itemprop="name">SpringBoot</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">本文字数：</span>
+              
+              <span>166</span>
+            </span>
+          
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              
+              <span>1 分钟</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="application-properties常用设置"><a href="#application-properties常用设置" class="headerlink" title="application.properties常用设置"></a>application.properties常用设置</h3><p>1.编码格式</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">spring.http.encoding.force=<span class="keyword">true</span></span><br><span class="line">spring.http.encoding.charset=UTF-<span class="number">8</span></span><br><span class="line">spring.http.encoding.enabled=<span class="keyword">true</span></span><br><span class="line">server.tomcat.uri-encoding=UTF-<span class="number">8</span></span><br></pre></td></tr></table></figure>
+
+
+        
+      
+    </div>
+
+    
+    
+    
+<div>
+  
+</div>
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="https://yyr823.github.io/2019/09/06/springboot2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Miss.Yang">
+      <meta itemprop="description" content="不积跬步,无以至千里;不积小流,无以成江海.">
+      <meta itemprop="image" content="/images/xz.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SMILE">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2019/09/06/springboot2/" class="post-title-link" itemprop="url">保存时间比当前时间少8小时</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-09-06 14:29:59" itemprop="dateCreated datePublished" datetime="2019-09-06T14:29:59+08:00">2019-09-06</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-09-10 09:11:46" itemprop="dateModified" datetime="2019-09-10T09:11:46+08:00">2019-09-10</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Exception/" itemprop="url" rel="index"><span itemprop="name">Exception</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Exception/SpringBoot/" itemprop="url" rel="index"><span itemprop="name">SpringBoot</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">本文字数：</span>
+              
+              <span>141</span>
+            </span>
+          
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              
+              <span>1 分钟</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <ol>
+<li><p>原因：<strong>时区问题</strong></p>
+</li>
+<li><p>解决方案：</p>
+<p>在连接url增加时区设置参数(时区GMT+8的设置)</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jdbc:mysql://localhost/database?useUnicode=true&amp;characterEncoding=utf-8&amp;serverTimezone=GMT%2b8</span><br></pre></td></tr></table></figure>
+
+
+        
+      
+    </div>
+
+    
+    
+    
+<div>
+  
+</div>
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="https://yyr823.github.io/2019/09/06/springboot1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Miss.Yang">
+      <meta itemprop="description" content="不积跬步,无以至千里;不积小流,无以成江海.">
+      <meta itemprop="image" content="/images/xz.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SMILE">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2019/09/06/springboot1/" class="post-title-link" itemprop="url">No primary or default constructor found ...</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-09-06 14:28:59" itemprop="dateCreated datePublished" datetime="2019-09-06T14:28:59+08:00">2019-09-06</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-09-08 10:54:14" itemprop="dateModified" datetime="2019-09-08T10:54:14+08:00">2019-09-08</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Exception/" itemprop="url" rel="index"><span itemprop="name">Exception</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Exception/SpringBoot/" itemprop="url" rel="index"><span itemprop="name">SpringBoot</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">本文字数：</span>
+              
+              <span>231</span>
+            </span>
+          
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              
+              <span>1 分钟</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p> <strong>No primary or default constructor found for interface java.util.List</strong></p>
+<ul>
+<li><p><strong>原因</strong>:</p>
+<ul>
+<li>调用请求进行参数映射时出错.</li>
+</ul>
+</li>
+<li><p><strong>解决方法(加上注解即可)</strong></p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> Object <span class="title">showCollectPros</span><span class="params">(@RequestParam(value = <span class="string">"content"</span>)</span> List&lt;String&gt; content) </span>&#123;</span><br><span class="line">            <span class="keyword">do</span> smoething...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+        
+      
+    </div>
+
+    
+    
+    
+<div>
+  
+</div>
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="https://yyr823.github.io/2019/09/06/JPA2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Miss.Yang">
+      <meta itemprop="description" content="不积跬步,无以至千里;不积小流,无以成江海.">
+      <meta itemprop="image" content="/images/xz.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SMILE">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2019/09/06/JPA2/" class="post-title-link" itemprop="url">Jpa多表原生sql自定义字段条件查询并进行分页和排序(时间格式)</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-09-06 14:11:59" itemprop="dateCreated datePublished" datetime="2019-09-06T14:11:59+08:00">2019-09-06</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-11-07 15:01:01" itemprop="dateModified" datetime="2019-11-07T15:01:01+08:00">2019-11-07</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/JPA/" itemprop="url" rel="index"><span itemprop="name">JPA</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">本文字数：</span>
+              
+              <span>6.3k</span>
+            </span>
+          
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              
+              <span>6 分钟</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p> <strong>Jpa多表原生sql自定义字段条件查询并进行分页和排序</strong></p><ul>
+<li><p>前台使用的是layui  由于后台jpa多表查询使用的是 List&lt;Map&lt;String, Object&gt;&gt; 自定义字段输出 因此时间create_time方面会出现问题,template定义的有解决方法.</p>
+</li>
+<li><p>前台部分代码</p>
+</li>
+</ul>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/09/06/JPA2/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+<div>
+  
+</div>
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="https://yyr823.github.io/2019/09/06/JPA1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Miss.Yang">
+      <meta itemprop="description" content="不积跬步,无以至千里;不积小流,无以成江海.">
+      <meta itemprop="image" content="/images/xz.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SMILE">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2019/09/06/JPA1/" class="post-title-link" itemprop="url">Spring Data JPA调用存储过程实例</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-09-06 14:07:59" itemprop="dateCreated datePublished" datetime="2019-09-06T14:07:59+08:00">2019-09-06</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-09-08 10:58:26" itemprop="dateModified" datetime="2019-09-08T10:58:26+08:00">2019-09-08</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/JPA/" itemprop="url" rel="index"><span itemprop="name">JPA</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">本文字数：</span>
+              
+              <span>2.9k</span>
+            </span>
+          
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              
+              <span>3 分钟</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p> <a href="https://blog.csdn.net/chszs/article/details/50127823" target="_blank" rel="noopener"><strong>参考链接</strong></a></p><ul>
+<li>SQL方面</li>
+</ul><p>假设调用的存储过程形式如下：</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">call</span> <span class="keyword">PROCEDURE</span> in_only_test (inParam1 <span class="keyword">IN</span> <span class="built_in">VARCHAR</span>);</span><br><span class="line"><span class="keyword">call</span> <span class="keyword">PROCEDURE</span> in_and_out_test (inParam1 <span class="keyword">IN</span> <span class="built_in">VARCHAR</span>, outParam1 <span class="keyword">OUT</span> <span class="built_in">VARCHAR</span>);</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/09/06/JPA1/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+<div>
+  
+</div>
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="https://yyr823.github.io/2019/09/06/jihe4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Miss.Yang">
+      <meta itemprop="description" content="不积跬步,无以至千里;不积小流,无以成江海.">
+      <meta itemprop="image" content="/images/xz.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SMILE">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2019/09/06/jihe4/" class="post-title-link" itemprop="url">ArrayList循环遍历并删除元素的常见陷阱</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-09-06 14:04:59" itemprop="dateCreated datePublished" datetime="2019-09-06T14:04:59+08:00">2019-09-06</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-09-08 11:00:30" itemprop="dateModified" datetime="2019-09-08T11:00:30+08:00">2019-09-08</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/集合/" itemprop="url" rel="index"><span itemprop="name">集合</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">本文字数：</span>
+              
+              <span>3.8k</span>
+            </span>
+          
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              
+              <span>3 分钟</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><a href="https://www.cnblogs.com/huangjinyong/p/9455163.html" target="_blank" rel="noopener"><strong>参考链接</strong></a></p><ul>
+<li>代码示例</li>
+</ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">import java.util.ArrayList;</span><br><span class="line">public class ArrayListRemove</span><br><span class="line">&#123;</span><br><span class="line">　　publicstaticvoidmain(String[]args)</span><br><span class="line">　　&#123;</span><br><span class="line">　　　　ArrayList&lt;String&gt;list=newArrayList&lt;String&gt;();</span><br><span class="line">　　　　list.add(&quot;a&quot;);</span><br><span class="line">　　　　list.add(&quot;b&quot;);</span><br><span class="line">　　　　list.add(&quot;b&quot;);</span><br><span class="line">　　　　list.add(&quot;c&quot;);</span><br><span class="line">　　　　list.add(&quot;c&quot;);</span><br><span class="line">　　　　list.add(&quot;c&quot;);</span><br><span class="line">　　　　remove(list);</span><br><span class="line">　　　　for(Strings:list)</span><br><span class="line">　　　　&#123;</span><br><span class="line">　　　　　　System.out.println(&quot;element : &quot;+s);</span><br><span class="line">　　　　&#125;</span><br><span class="line">　　&#125;</span><br><span class="line">　　public static void remove(ArrayList&lt;String&gt; list)</span><br><span class="line">　　&#123;</span><br><span class="line">　　// TODO:</span><br><span class="line">　　&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/09/06/jihe4/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+<div>
+  
+</div>
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
     <link itemprop="mainEntityOfPage" href="https://yyr823.github.io/2019/09/06/jihe3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -506,1247 +1548,11 @@ class="github-corner" aria-label="View source on GitHub"><svg width="80" height=
   </article>
 
     
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="https://yyr823.github.io/2019/09/06/cykz/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Miss.Yang">
-      <meta itemprop="description" content="不积跬步,无以至千里;不积小流,无以成江海.">
-      <meta itemprop="image" content="/images/xz.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SMILE">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/09/06/cykz/" class="post-title-link" itemprop="url">IntelliJ IDEA 常用配置</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2019-09-06 13:21:59" itemprop="dateCreated datePublished" datetime="2019-09-06T13:21:59+08:00">2019-09-06</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-11-07 14:56:27" itemprop="dateModified" datetime="2019-11-07T14:56:27+08:00">2019-11-07</time>
-              </span>
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/开发工具及技术/" itemprop="url" rel="index"><span itemprop="name">开发工具及技术</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/开发工具及技术/IDEA/" itemprop="url" rel="index"><span itemprop="name">IDEA</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">本文字数：</span>
-              
-              <span>403</span>
-            </span>
-          
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              
-              <span>1 分钟</span>
-            </span>
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h5 id="配置编码问题"><a href="#配置编码问题" class="headerlink" title="配置编码问题"></a>配置编码问题</h5><p><img src="/2019/09/06/cykz/%E5%9B%BE%E7%89%871.png" alt><img src="/2019/09/06/cykz/%E5%9B%BE%E7%89%872.png" alt></p><h5 id="显示工具栏以及工具按钮栏"><a href="#显示工具栏以及工具按钮栏" class="headerlink" title="显示工具栏以及工具按钮栏"></a>显示工具栏以及工具按钮栏</h5><p><img src="/2019/09/06/cykz/%E5%9B%BE%E7%89%8711.png" alt></p><h5 id="配置相关的工作空间"><a href="#配置相关的工作空间" class="headerlink" title="配置相关的工作空间"></a>配置相关的工作空间</h5><p><img src="/2019/09/06/cykz/%E5%9B%BE%E7%89%8712.png" alt></p><h5 id="重点理解项目class文件生成（运行打包编译文件存储路径）配置"><a href="#重点理解项目class文件生成（运行打包编译文件存储路径）配置" class="headerlink" title="重点理解项目class文件生成（运行打包编译文件存储路径）配置"></a>重点理解项目class文件生成（运行打包编译文件存储路径）配置</h5><p><img src="/2019/09/06/cykz/%E5%9B%BE%E7%89%8713.png" alt><img src="/2019/09/06/cykz/%E5%9B%BE%E7%89%8713-1.png" alt></p><h5 id="IDEA构建项目的时候默认生成的iml文件配置改成-classpath类型的文件"><a href="#IDEA构建项目的时候默认生成的iml文件配置改成-classpath类型的文件" class="headerlink" title="IDEA构建项目的时候默认生成的iml文件配置改成.classpath类型的文件"></a>IDEA构建项目的时候默认生成的iml文件配置改成.classpath类型的文件</h5><p><img src="/2019/09/06/cykz/%E5%9B%BE%E7%89%8714.png" alt></p><h5 id="IDEA中导入jar的源码"><a href="#IDEA中导入jar的源码" class="headerlink" title="IDEA中导入jar的源码"></a>IDEA中导入jar的源码</h5><p>如果是Maven项目的时候，自动默认下载源码包，如果是javaWeb或者简单的java项目，自定义加入的jar是没有源码的，这时候手动添加源码包。</p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/09/06/cykz/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-<div>
-  
-</div>
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="https://yyr823.github.io/2019/09/06/jihe2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Miss.Yang">
-      <meta itemprop="description" content="不积跬步,无以至千里;不积小流,无以成江海.">
-      <meta itemprop="image" content="/images/xz.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SMILE">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/09/06/jihe2/" class="post-title-link" itemprop="url">将集合转换成字符串(反之)</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2019-09-06 13:09:59 / 修改时间：14:02:27" itemprop="dateCreated datePublished" datetime="2019-09-06T13:09:59+08:00">2019-09-06</time>
-            </span>
-          
-            
-
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/集合/" itemprop="url" rel="index"><span itemprop="name">集合</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">本文字数：</span>
-              
-              <span>947</span>
-            </span>
-          
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              
-              <span>1 分钟</span>
-            </span>
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="将集合转换成字符串"><a href="#将集合转换成字符串" class="headerlink" title="将集合转换成字符串"></a>将集合转换成字符串</h3><p>StringUtils工具类下的join()方法：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">import java.util.ArrayList;</span><br><span class="line">import java.util.List;</span><br><span class="line">import org.apache.commons.lang3.StringUtils;</span><br><span class="line">public class Test &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		List&lt;String&gt; list = new ArrayList&lt;&gt;();</span><br><span class="line">		list.add(&quot;aa&quot;);</span><br><span class="line">		list.add(&quot;bb&quot;);</span><br><span class="line">		list.add(&quot;cc&quot;);</span><br><span class="line">		System.out.println(list);</span><br><span class="line">		// 将集合转换成字符串</span><br><span class="line">		String str = StringUtils.join(list, &quot;,&quot;);</span><br><span class="line">		//打印出字符串</span><br><span class="line">		System.out.println(str);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/09/06/jihe2/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-<div>
-  
-</div>
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="https://yyr823.github.io/2019/09/06/ideakuai-jie-jian/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Miss.Yang">
-      <meta itemprop="description" content="不积跬步,无以至千里;不积小流,无以成江海.">
-      <meta itemprop="image" content="/images/xz.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SMILE">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/09/06/ideakuai-jie-jian/" class="post-title-link" itemprop="url">IntelliJ IDEA 快捷键</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2019-09-06 13:09:59" itemprop="dateCreated datePublished" datetime="2019-09-06T13:09:59+08:00">2019-09-06</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-09-20 16:10:21" itemprop="dateModified" datetime="2019-09-20T16:10:21+08:00">2019-09-20</time>
-              </span>
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/开发工具及技术/" itemprop="url" rel="index"><span itemprop="name">开发工具及技术</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/开发工具及技术/IDEA/" itemprop="url" rel="index"><span itemprop="name">IDEA</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">本文字数：</span>
-              
-              <span>3.7k</span>
-            </span>
-          
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              
-              <span>3 分钟</span>
-            </span>
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <table>
-<thead>
-<tr>
-<th align="left"><em><strong>*<u>编辑类</u></strong></em></th>
-<th align="left"></th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">Ctrl+Space</td>
-<td align="left">基本代码实例（类、方法、变量）</td>
-</tr>
-<tr>
-<td align="left">Ctrl + Shift + Space</td>
-<td align="left">智能代码实例（根据需要的类型过滤方法和变量）</td>
-</tr>
-<tr>
-<td align="left">Ctrl + Shift + Enter</td>
-<td align="left">完整的声明(如有代码提示，自动获取第一个并在句尾加上分号结束。无提示，在此行下新增一行)</td>
-</tr>
-<tr>
-<td align="left">Ctrl + P</td>
-<td align="left">参数信息（在方法调用参数时使用）</td>
-</tr>
-<tr>
-<td align="left">Ctrl + Q</td>
-<td align="left">Doc说明文档快速查看</td>
-</tr>
-<tr>
-<td align="left">Shift + F1</td>
-<td align="left">查看外部doc文档</td>
-</tr>
-<tr>
-<td align="left">Ctrl +鼠标放在代码上面</td>
-<td align="left">代码的简要doc说明（基本上是类或者方法的声明）</td>
-</tr>
-<tr>
-<td align="left">Ctrl + F1</td>
-<td align="left">查看光标所在处的错误或者警告的详细信息</td>
-</tr>
-<tr>
-<td align="left">Alt + Insert</td>
-<td align="left">生成代码（Getter、Setter、Constructors、hashCode…）</td>
-</tr>
-<tr>
-<td align="left">Ctrl + O</td>
-<td align="left">重写方法</td>
-</tr>
-<tr>
-<td align="left">Ctrl + I</td>
-<td align="left">实现方法</td>
-</tr>
-<tr>
-<td align="left">Ctrl + Alt + T</td>
-<td align="left">将光标所处行的代码用语句块（if…else、try…catch…）包围</td>
-</tr>
-<tr>
-<td align="left">Ctrl + /</td>
-<td align="left">注释/反注释光标所在行（自动换行）</td>
-</tr>
-<tr>
-<td align="left">Ctrl + Shift + /</td>
-<td align="left">注释/反注释代码块</td>
-</tr>
-<tr>
-<td align="left">Ctrl + W</td>
-<td align="left">递增地（代码块所包含的范围增大）选择连续的代码块</td>
-</tr>
-<tr>
-<td align="left">Ctrl + Shift + W</td>
-<td align="left">在用了Ctrl + W后，减小代码块所包含的范围</td>
-</tr>
-<tr>
-<td align="left">Alt + Q</td>
-<td align="left">上下文信息</td>
-</tr>
-<tr>
-<td align="left">Alt + Enter</td>
-<td align="left">显示意图动作和快速修复</td>
-</tr>
-<tr>
-<td align="left">Ctrl + Alt + L</td>
-<td align="left">代码格式化</td>
-</tr>
-<tr>
-<td align="left">Ctrl + Alt + O</td>
-<td align="left">优化Imports（去掉不必要的）</td>
-</tr>
-<tr>
-<td align="left">Ctrl + Alt + I</td>
-<td align="left">代码自动对齐</td>
-</tr>
-<tr>
-<td align="left">Tab / Shift + Tab</td>
-<td align="left">缩进/反缩进所选行</td>
-</tr>
-<tr>
-<td align="left">Ctrl+X or Shift+Delete</td>
-<td align="left">剪切行/代码块到剪贴板(默认全选一行)</td>
-</tr>
-<tr>
-<td align="left">Ctrl+C or Ctrl+Insert</td>
-<td align="left">复制行/代码块到剪贴板(默认全选一行)</td>
-</tr>
-<tr>
-<td align="left">Ctrl+V or Shift+Insert</td>
-<td align="left">粘贴剪贴板中的内容</td>
-</tr>
-<tr>
-<td align="left">Ctrl+Shift + V</td>
-<td align="left">粘贴剪贴板中缓存的内容</td>
-</tr>
-<tr>
-<td align="left">Ctrl+D</td>
-<td align="left">复制当前行/代码块的一个副本并插入到内容中</td>
-</tr>
-<tr>
-<td align="left">Ctrl+Y</td>
-<td align="left">删除光标所在行</td>
-</tr>
-<tr>
-<td align="left">Ctrl+Shift + J</td>
-<td align="left">智能行合并(在本行任何位置，自动删除本行的回车键和空格，将下一行字符连接到本行)</td>
-</tr>
-<tr>
-<td align="left">Ctrl+Enter</td>
-<td align="left">智能分行(和Enter键的区别：光标不动，在本行下面新增一行)</td>
-</tr>
-<tr>
-<td align="left">Shift + Enter</td>
-<td align="left">开始新的一行(相当于在行末按Enter键)</td>
-</tr>
-<tr>
-<td align="left">Ctrl + Shift + U</td>
-<td align="left">变换光标所在处/代码块的字母的大小写状态</td>
-</tr>
-<tr>
-<td align="left">Ctrl + Shift + ] / [</td>
-<td align="left">从光标处在处开始选择到最近] / [的代码块</td>
-</tr>
-<tr>
-<td align="left">Ctrl + Delete</td>
-<td align="left">删除光标后的一个单词</td>
-</tr>
-<tr>
-<td align="left">Ctrl + Backspace</td>
-<td align="left">删除光标前的一个单词</td>
-</tr>
-<tr>
-<td align="left">Ctrl + NumPad+/-</td>
-<td align="left">展开/收缩代码块</td>
-</tr>
-<tr>
-<td align="left">Ctrl + Shift+数字键盘的+</td>
-<td align="left">展开所有代码块</td>
-</tr>
-<tr>
-<td align="left">Ctrl + Shift+数字键盘的-</td>
-<td align="left">折叠所有代码块</td>
-</tr>
-<tr>
-<td align="left">Ctrl + F4</td>
-<td align="left">关闭当前tab页</td>
-</tr>
-<tr>
-<td align="left">*<em><strong><u>搜索和替换</u></strong></em></td>
-<td align="left"></td>
-</tr>
-<tr>
-<td align="left">双击Shift</td>
-<td align="left">万能搜索</td>
-</tr>
-<tr>
-<td align="left">Ctrl + F</td>
-<td align="left">查找</td>
-</tr>
-<tr>
-<td align="left">F3</td>
-<td align="left">查找下一个</td>
-</tr>
-<tr>
-<td align="left">Shift + F3</td>
-<td align="left">查找上一个</td>
-</tr>
-<tr>
-<td align="left">Ctrl + R</td>
-<td align="left">替换</td>
-</tr>
-<tr>
-<td align="left">Ctrl + Shift + F</td>
-<td align="left">在指定路径中的文件中查找内容</td>
-</tr>
-<tr>
-<td align="left">Ctrl + Shift + R</td>
-<td align="left">在指定路径中的文件中替换内容</td>
-</tr>
-<tr>
-<td align="left">Ctrl + Shift + S</td>
-<td align="left">Search structurally (Ultimate Edition only)</td>
-</tr>
-<tr>
-<td align="left">Ctrl + Shift + M</td>
-<td align="left">Replace structurally (Ultimate Edition only)</td>
-</tr>
-<tr>
-<td align="left"><em><strong>*<u>代码方法/变量使用处搜索</u></strong></em></td>
-<td align="left"></td>
-</tr>
-<tr>
-<td align="left">Alt + F7</td>
-<td align="left">查找当前文件变量/方法的使用处</td>
-</tr>
-<tr>
-<td align="left">Ctrl+F7</td>
-<td align="left">查找当前项目变量/方法的使用处</td>
-</tr>
-<tr>
-<td align="left">Ctrl +Shift+ F7</td>
-<td align="left">高亮显示变量/方法名在当前文件的所有使用处</td>
-</tr>
-<tr>
-<td align="left">Ctrl + Alt + F7</td>
-<td align="left">弹窗显示变量/方法名在当前文件的使用处列表</td>
-</tr>
-<tr>
-<td align="left"><em><strong>*<u>编译和运行</u></strong></em></td>
-<td align="left"></td>
-</tr>
-<tr>
-<td align="left">Ctrl + F9</td>
-<td align="left">Make项目(修改编译和依赖)</td>
-</tr>
-<tr>
-<td align="left">Ctrl + Shift + F9</td>
-<td align="left">编译文件、包或者模块</td>
-</tr>
-<tr>
-<td align="left">Alt + Shift + F10</td>
-<td align="left">选择配置并运行</td>
-</tr>
-<tr>
-<td align="left">Alt + Shift + F9</td>
-<td align="left">选择配置并调试</td>
-</tr>
-<tr>
-<td align="left">Shift + F10</td>
-<td align="left">运行</td>
-</tr>
-<tr>
-<td align="left">Shift + F9</td>
-<td align="left">调试</td>
-</tr>
-<tr>
-<td align="left">Ctrl + Shift + F10</td>
-<td align="left">配置编辑器运行环境</td>
-</tr>
-<tr>
-<td align="left">*<em><strong><u>调式</u></strong></em></td>
-<td align="left">调试：</td>
-</tr>
-<tr>
-<td align="left">F8</td>
-<td align="left">Step over (步越：越过子函数，但子函数会执行)</td>
-</tr>
-<tr>
-<td align="left">F7</td>
-<td align="left">Step into (步进：进入子函数)</td>
-</tr>
-<tr>
-<td align="left">Shift + F7</td>
-<td align="left">Smart step into(智能步进)</td>
-</tr>
-<tr>
-<td align="left">Shift + F8</td>
-<td align="left">Step out (跳出：跳出子函数)</td>
-</tr>
-<tr>
-<td align="left">Alt + F9</td>
-<td align="left">Run to cursor (运行到光标处)</td>
-</tr>
-<tr>
-<td align="left">Alt + F8</td>
-<td align="left">Evaluate expression (计算表达式)</td>
-</tr>
-<tr>
-<td align="left">F9</td>
-<td align="left">Resume program (恢复程序)</td>
-</tr>
-<tr>
-<td align="left">Ctrl + F8</td>
-<td align="left">Toggle breakpoint (切换断点)</td>
-</tr>
-<tr>
-<td align="left">Ctrl + Shift + F8</td>
-<td align="left">View breakpoints (查看断点)</td>
-</tr>
-<tr>
-<td align="left"><em><strong>*<u>导航</u></strong></em></td>
-<td align="left"></td>
-</tr>
-<tr>
-<td align="left">Ctrl + N</td>
-<td align="left">跳转到某个类文件</td>
-</tr>
-<tr>
-<td align="left">Ctrl + Shift + N</td>
-<td align="left">跳转到某个文件</td>
-</tr>
-<tr>
-<td align="left">Ctrl + Alt + Shift + N</td>
-<td align="left">跳转到某个标识符处，包括类名，方法，变量</td>
-</tr>
-<tr>
-<td align="left">Alt + 左/右 箭头</td>
-<td align="left">切换到左边/右边的编辑标签</td>
-</tr>
-<tr>
-<td align="left">F12</td>
-<td align="left">打开上一次打开的工具窗口</td>
-</tr>
-<tr>
-<td align="left">Esc</td>
-<td align="left">从工具窗口回到编辑窗口</td>
-</tr>
-<tr>
-<td align="left">Shift + Esc</td>
-<td align="left">隐藏活动的工具窗口并回到编辑窗口中</td>
-</tr>
-<tr>
-<td align="left">Ctrl+Shift+F4</td>
-<td align="left">关闭活动的run/messages/find/…窗口</td>
-</tr>
-<tr>
-<td align="left">Ctrl+G</td>
-<td align="left">跳转到某行</td>
-</tr>
-<tr>
-<td align="left">Ctrl+E</td>
-<td align="left">弹出一个菜单，上面包含最近打开的文件和工具窗</td>
-</tr>
-<tr>
-<td align="left">Ctrl+Alt + 向左/向右 箭头</td>
-<td align="left">跳转到上一个/下一个</td>
-</tr>
-<tr>
-<td align="left">Ctrl+Shift+Backspace</td>
-<td align="left">跳转到上一次做出修改的地方</td>
-</tr>
-<tr>
-<td align="left">Alt + F1</td>
-<td align="left">实际应该是快捷菜单栏吧</td>
-</tr>
-<tr>
-<td align="left">Ctrl + B or Ctrl + Click</td>
-<td align="left">跳转到方法或者变量的声明处</td>
-</tr>
-<tr>
-<td align="left">Ctrl + Alt + B</td>
-<td align="left">跳转到implements方法或者接口的地方</td>
-</tr>
-<tr>
-<td align="left">Ctrl + Shift + I</td>
-<td align="left">打开类/方法/变量的文档说明窗口</td>
-</tr>
-<tr>
-<td align="left">Ctrl + Shift + B</td>
-<td align="left">查看类型的声明 (例如：定义一个String字符串，将跳到String类中)</td>
-</tr>
-<tr>
-<td align="left">Ctrl + U</td>
-<td align="left">跳转到super-method/super-class处</td>
-</tr>
-<tr>
-<td align="left">Alt + Up/Down</td>
-<td align="left">跳转到上一个/下一个方法的第一行处</td>
-</tr>
-<tr>
-<td align="left">Ctrl + ] / [</td>
-<td align="left">移动光标到最近的] / [位置</td>
-</tr>
-<tr>
-<td align="left">Ctrl + F12</td>
-<td align="left">弹出文件的结构窗口 (方法、常量等)</td>
-</tr>
-<tr>
-<td align="left">Ctrl + H</td>
-<td align="left">光标所在处的方法所属的类的继承层级制度</td>
-</tr>
-<tr>
-<td align="left">Ctrl + Shift + H</td>
-<td align="left">方法的层级制度</td>
-</tr>
-<tr>
-<td align="left">Ctrl + Alt + H</td>
-<td align="left">方法调用的层级制度</td>
-</tr>
-<tr>
-<td align="left">F2 / Shift + F2</td>
-<td align="left">跳转到下一个/上一个错误处并高亮显示</td>
-</tr>
-<tr>
-<td align="left">F4 / Ctrl + Enter</td>
-<td align="left">查看/改变源代码(Ctrl + Enter功能键冲突)</td>
-</tr>
-<tr>
-<td align="left">Alt + Home</td>
-<td align="left">打开路径导航条</td>
-</tr>
-<tr>
-<td align="left">F11</td>
-<td align="left">设置/取消书签</td>
-</tr>
-<tr>
-<td align="left">Ctrl + F11</td>
-<td align="left">设置带数字/字母编号的书签</td>
-</tr>
-<tr>
-<td align="left">Ctrl + #[0-9]</td>
-<td align="left">跳转到[0-9]编号的书签处</td>
-</tr>
-<tr>
-<td align="left">Shift + F11</td>
-<td align="left">在弹出窗口中显示所有的书签</td>
-</tr>
-<tr>
-<td align="left"><em><strong>*<u>重构</u></strong></em></td>
-<td align="left"></td>
-</tr>
-<tr>
-<td align="left">F5</td>
-<td align="left">复制</td>
-</tr>
-<tr>
-<td align="left">F6</td>
-<td align="left">移动</td>
-</tr>
-<tr>
-<td align="left">Alt + Delete</td>
-<td align="left">安全删除</td>
-</tr>
-<tr>
-<td align="left">Shift + F6</td>
-<td align="left">重命名 (批量)</td>
-</tr>
-<tr>
-<td align="left">Ctrl + F6</td>
-<td align="left">修改方法(修饰符、方法名、参数列表、返回值、异常等)</td>
-</tr>
-<tr>
-<td align="left">Ctrl + Alt + N</td>
-<td align="left">内嵌(可以将变量替换为其他内容)</td>
-</tr>
-<tr>
-<td align="left">Ctrl + Alt + M</td>
-<td align="left">提取成方法</td>
-</tr>
-<tr>
-<td align="left">Ctrl + Alt + V</td>
-<td align="left">提取成变量</td>
-</tr>
-<tr>
-<td align="left">Ctrl + Alt + F</td>
-<td align="left">提取成字段</td>
-</tr>
-<tr>
-<td align="left">Ctrl + Alt + C</td>
-<td align="left">提取成常量</td>
-</tr>
-<tr>
-<td align="left">Ctrl + Alt + P</td>
-<td align="left">提取成参数</td>
-</tr>
-<tr>
-<td align="left"><em><strong>*<u>版本控制和本地历史</u>(VCS/Local History)</strong></em></td>
-<td align="left"></td>
-</tr>
-<tr>
-<td align="left">Ctrl + K</td>
-<td align="left">提交项目到vcs</td>
-</tr>
-<tr>
-<td align="left">Ctrl + T</td>
-<td align="left">从vcs中更新项目</td>
-</tr>
-<tr>
-<td align="left">Alt + Shift + C</td>
-<td align="left">查看最近更新</td>
-</tr>
-<tr>
-<td align="left">Alt + ` (反引号)</td>
-<td align="left">vcs快速设置弹出菜单</td>
-</tr>
-<tr>
-<td align="left"><em><strong><u>*Live模板</u></strong></em></td>
-<td align="left"></td>
-</tr>
-<tr>
-<td align="left">Ctrl + Alt + J</td>
-<td align="left">用Live模板包围光标所在行的代码</td>
-</tr>
-<tr>
-<td align="left">Ctrl + J</td>
-<td align="left">插入Live模板</td>
-</tr>
-<tr>
-<td align="left">iter</td>
-<td align="left">使用JDK1.5风格迭代容器</td>
-</tr>
-<tr>
-<td align="left">inst</td>
-<td align="left">用instanceof检查对你的类型并向下转换对象</td>
-</tr>
-<tr>
-<td align="left">itco</td>
-<td align="left">遍历java.util.Collection集合的元素</td>
-</tr>
-<tr>
-<td align="left">itit</td>
-<td align="left">遍历java.util.Iterator集合的元素</td>
-</tr>
-<tr>
-<td align="left">itli</td>
-<td align="left">遍历java.util.List集合的元素</td>
-</tr>
-<tr>
-<td align="left">psf</td>
-<td align="left">public static final</td>
-</tr>
-<tr>
-<td align="left">thr</td>
-<td align="left">throw new</td>
-</tr>
-<tr>
-<td align="left"></td>
-<td align="left">更多Live模板查看：Settings—Editor—Live Templates</td>
-</tr>
-<tr>
-<td align="left"><em><strong>*<u>通用快捷键</u></strong></em></td>
-<td align="left"></td>
-</tr>
-<tr>
-<td align="left">Alt + #[0-9]</td>
-<td align="left">打开相对应的工具窗口</td>
-</tr>
-<tr>
-<td align="left">Ctrl + S</td>
-<td align="left">保存全部</td>
-</tr>
-<tr>
-<td align="left">Ctrl + Alt + Y</td>
-<td align="left">同步</td>
-</tr>
-<tr>
-<td align="left">Ctrl + Shift + F12</td>
-<td align="left">编辑器最大化</td>
-</tr>
-<tr>
-<td align="left">Alt + Shift + F</td>
-<td align="left">添加到最喜欢</td>
-</tr>
-<tr>
-<td align="left">Alt + Shift + I</td>
-<td align="left">根据当前配置文件审查当前文件</td>
-</tr>
-<tr>
-<td align="left">Ctrl + BackQuote (`)</td>
-<td align="left">快速切换代码颜色主题</td>
-</tr>
-<tr>
-<td align="left">Ctrl + Alt + S</td>
-<td align="left">打开设置</td>
-</tr>
-<tr>
-<td align="left">Ctrl + Alt + Shift + S</td>
-<td align="left">打开项目结构对话框，在这里可以删除模块</td>
-</tr>
-<tr>
-<td align="left">Ctrl + Tab</td>
-<td align="left">在已打开的文件和工具窗口之间切换</td>
-</tr>
-<tr>
-<td align="left">Ctrl + Shift + A</td>
-<td align="left">查找所有快捷操作（基本所有的动作在这里都可以找到）</td>
-</tr>
-<tr>
-<td align="left">Ctrl+Z</td>
-<td align="left">撤销</td>
-</tr>
-<tr>
-<td align="left">Ctrl+Shift+Z</td>
-<td align="left">恢复Ctrl+Z掉的内容</td>
-</tr>
-</tbody></table>
-
-        
-      
-    </div>
-
-    
-    
-    
-<div>
-  
-</div>
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="https://yyr823.github.io/2019/09/06/exception1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Miss.Yang">
-      <meta itemprop="description" content="不积跬步,无以至千里;不积小流,无以成江海.">
-      <meta itemprop="image" content="/images/xz.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SMILE">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/09/06/exception1/" class="post-title-link" itemprop="url">IDEA下lombok安装,@Data get,set找不到的问题</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2019-09-06 13:05:59" itemprop="dateCreated datePublished" datetime="2019-09-06T13:05:59+08:00">2019-09-06</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-09-08 11:19:17" itemprop="dateModified" datetime="2019-09-08T11:19:17+08:00">2019-09-08</time>
-              </span>
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Exception/" itemprop="url" rel="index"><span itemprop="name">Exception</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Exception/IDEA/" itemprop="url" rel="index"><span itemprop="name">IDEA</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">本文字数：</span>
-              
-              <span>736</span>
-            </span>
-          
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              
-              <span>1 分钟</span>
-            </span>
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><a href="https://blog.csdn.net/xzp_12345/article/details/80268834" target="_blank" rel="noopener"><strong>参考链接</strong></a></p><blockquote>
-<h5 id="Idea下安装lombok-需要两步"><a href="#Idea下安装lombok-需要两步" class="headerlink" title="Idea下安装lombok(需要两步)"></a>Idea下安装lombok(需要两步)</h5></blockquote><h6 id="第一步：-pom-xml中加入lombok依赖包"><a href="#第一步：-pom-xml中加入lombok依赖包" class="headerlink" title="第一步： pom.xml中加入lombok依赖包"></a>第一步： pom.xml中加入lombok依赖包</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- https://mvnrepository.com/artifact/org.projectlombok/lombok --&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">      &lt;groupId&gt;org.projectlombok&lt;/groupId&gt;</span><br><span class="line">      &lt;artifactId&gt;lombok&lt;/artifactId&gt;</span><br><span class="line">      &lt;version&gt;1.16.20&lt;/version&gt;</span><br><span class="line">      &lt;scope&gt;provided&lt;/scope&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/09/06/exception1/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-<div>
-  
-</div>
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="https://yyr823.github.io/2019/09/06/exception/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Miss.Yang">
-      <meta itemprop="description" content="不积跬步,无以至千里;不积小流,无以成江海.">
-      <meta itemprop="image" content="/images/xz.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SMILE">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/09/06/exception/" class="post-title-link" itemprop="url">您的主机中的软件中止了一个已建立的连接</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2019-09-06 11:55:59" itemprop="dateCreated datePublished" datetime="2019-09-06T11:55:59+08:00">2019-09-06</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-09-23 10:37:27" itemprop="dateModified" datetime="2019-09-23T10:37:27+08:00">2019-09-23</time>
-              </span>
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Exception/" itemprop="url" rel="index"><span itemprop="name">Exception</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Exception/Tomcat/" itemprop="url" rel="index"><span itemprop="name">Tomcat</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">本文字数：</span>
-              
-              <span>2.2k</span>
-            </span>
-          
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              
-              <span>2 分钟</span>
-            </span>
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><a href="https://blog.csdn.net/wujiandao000/article/details/79068100" target="_blank" rel="noopener"><strong>参考链接</strong></a></p><ul>
-<li><strong>异常显示</strong></li>
-</ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">org.apache.catalina.connector.ClientAbortException: java.io.IOException: 您的主机中的软件中止了一个已建立的连接。</span><br><span class="line">    at org.apache.catalina.connector.OutputBuffer.realWriteBytes(OutputBuffer.java:396)</span><br><span class="line">    at org.apache.tomcat.util.buf.ByteChunk.flushBuffer(ByteChunk.java:426)</span><br><span class="line">    at org.apache.catalina.connector.OutputBuffer.doFlush(OutputBuffer.java:345)</span><br><span class="line">    at org.apache.catalina.connector.OutputBuffer.flush(OutputBuffer.java:320)</span><br><span class="line">    at org.apache.catalina.connector.CoyoteOutputStream.flush(CoyoteOutputStream.java:110)</span><br><span class="line">    at com.fasterxml.jackson.core.json.UTF8JsonGenerator.flush(UTF8JsonGenerator.java:1022)</span><br><span class="line">    at com.fasterxml.jackson.databind.ObjectMapper.writeValue(ObjectMapper.java:2376)</span><br><span class="line">    at ······</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/09/06/exception/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-<div>
-  
-</div>
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
   </div>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/8/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span>
+    <a class="extend prev" rel="prev" href="/page/8/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/10/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1794,7 +1600,7 @@ class="github-corner" aria-label="View source on GitHub"><svg width="80" height=
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">87</span>
+          <span class="site-state-item-count">95</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1807,7 +1613,7 @@ class="github-corner" aria-label="View source on GitHub"><svg width="80" height=
             <a href="/categories/">
           
         
-        <span class="site-state-item-count">46</span>
+        <span class="site-state-item-count">40</span>
         <span class="site-state-item-name">分类</span>
         </a>
       </div>
@@ -1820,7 +1626,7 @@ class="github-corner" aria-label="View source on GitHub"><svg width="80" height=
             <a href="/tags/">
           
         
-        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-count">38</span>
         <span class="site-state-item-name">标签</span>
         </a>
       </div>
@@ -1879,12 +1685,12 @@ class="github-corner" aria-label="View source on GitHub"><svg width="80" height=
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">232k</span>
+    <span title="站点总字数">240k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">3:30</span>
+    <span title="站点阅读时长">3:38</span>
 </div>
 
 <!--
